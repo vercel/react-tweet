@@ -3,15 +3,30 @@
   "version": "0.0.1",
   "repository": "https://github.com/lfades/next-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "prettier": "prettier --write ."
-  },
+  "scripts": {},
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lfades/next-tweet/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.ts",
+      "./src/*.tsx",
+      "./src/*/index.ts"
+    ]
+  },
+  "files": [
+    "src"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "src/*",
+        "src/*/index"
+      ]
+    }
   },
   "peerDependencies": {
     "next": ">= 13.0.0",
@@ -25,7 +40,6 @@
   "devDependencies": {
     "@types/node": "18.13.0",
     "@types/react": "^18.0.27",
-    "prettier": "^2.8.3",
     "typescript": "^4.9.5"
   }
 }

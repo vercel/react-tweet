@@ -1,0 +1,23 @@
+{
+  "name": "tweets",
+  "license": "MIT",
+  "repository": "https://github.com/lfades/next-tweet.git",
+  "author": "Luis Alvarez (https://twitter.com/luis_fades)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "date-fns": "^2.9.0",
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.13.0",
+    "@types/react": "^18.0.27",
+    "typescript": "^4.9.5"
+  }
+}
