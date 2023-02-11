@@ -3,12 +3,10 @@ import Image from 'next/image'
 import clsx from 'clsx'
 import type { Tweet } from './lib/twitter/api'
 import s from './tweet-header.module.css'
+import { getFollowUrl, getUserUrl } from './utils'
 
 export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
-  const username = tweet.user.screen_name
-  const url = `https://twitter.com/${username}`
-  const followUrl = `https://twitter.com/intent/follow?screen_name=${username}`
-  const avatar = tweet.user.profile_image_url_https
+  const url = getUserUrl(tweet)
 
   return (
     <div className={s.header}>
@@ -19,7 +17,12 @@ export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
         rel="noopener noreferrer"
       >
         <div className={s.avatarOverflow}>
-          <Image src={avatar} alt={tweet.user.name} width={48} height={48} />
+          <Image
+            src={tweet.user.profile_image_url_https}
+            alt={tweet.user.name}
+            width={48}
+            height={48}
+          />
         </div>
         <div className={s.avatarOverflow}>
           <div className={s.avatarShadow}></div>
@@ -68,12 +71,14 @@ export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span title={`@${username}`}>@{username}</span>
+            <span title={`@${tweet.user.screen_name}`}>
+              @{tweet.user.screen_name}
+            </span>
           </a>
           <div className={s.authorFollow}>
             <span className={s.separator}>·</span>
             <a
-              href={followUrl}
+              href={getFollowUrl(tweet)}
               className={s.follow}
               target="_blank"
               rel="noopener noreferrer"

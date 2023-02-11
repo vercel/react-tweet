@@ -7,6 +7,7 @@ import type {
   UrlEntity,
   MediaEntity,
 } from './lib/twitter/api'
+import { getHashtagUrl, getUserUrl } from './utils'
 import { TweetLink } from './tweet-link'
 import s from './tweet-body.module.css'
 
@@ -81,19 +82,13 @@ export const TweetBody: FC<{ tweet: Tweet }> = ({ tweet }) => {
         switch (item.type) {
           case 'hashtag':
             return (
-              <TweetLink
-                key={i}
-                href={`https://twitter.com/hashtag/${item.text}`}
-              >
+              <TweetLink key={i} href={getHashtagUrl(item)}>
                 {text}
               </TweetLink>
             )
           case 'mention':
             return (
-              <TweetLink
-                key={i}
-                href={`https://twitter.com/${item.screen_name}`}
-              >
+              <TweetLink key={i} href={getUserUrl(item.screen_name)}>
                 {text}
               </TweetLink>
             )

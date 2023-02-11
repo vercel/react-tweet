@@ -1,13 +1,12 @@
 import type { FC } from 'react'
 import format from 'date-fns/format'
 import type { Tweet } from './lib/twitter/api'
+import { getTweetUrl } from './utils'
 import useMounted from './lib/use-mounted'
 import s from './tweet-info.module.css'
 
 export const TweetInfo: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const mounted = useMounted()
-  const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweet.id_str}`
-  const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
   const createdAt =
     typeof window !== 'undefined' && mounted ? new Date(tweet.created_at) : null
 
@@ -16,7 +15,7 @@ export const TweetInfo: FC<{ tweet: Tweet }> = ({ tweet }) => {
       {createdAt && (
         <a
           className={s.time}
-          href={tweetUrl}
+          href={getTweetUrl(tweet)}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={format(createdAt, 'h:mm a · MMM d, y')}

@@ -1,19 +1,15 @@
 import { type FC, useState, useEffect } from 'react'
 import type { Tweet } from './lib/twitter/api'
 import formatNumber from './lib/format-number'
+import { getLikeUrl, getReplyUrl, getTweetUrl } from './utils'
 import s from './tweet-actions.module.css'
 
 export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const [copied, setCopied] = useState(false)
   const [copyAllText, setCopyAltText] = useState(false)
-
-  const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweet.id_str}`
-  const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
-  const replyUrl = `https://twitter.com/intent/tweet?in_reply_to=${tweet.id_str}`
   const favoriteCount = formatNumber(tweet.favorite_count)
-
   const handleCopy = () => {
-    navigator.clipboard.writeText(tweetUrl)
+    navigator.clipboard.writeText(getTweetUrl(tweet))
     setCopied(true)
   }
 
@@ -32,7 +28,7 @@ export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
     <div className={s.actions}>
       <a
         className={s.like}
-        href={likeUrl}
+        href={getLikeUrl(tweet)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Like. This Tweet has ${favoriteCount} likes`}
@@ -48,7 +44,7 @@ export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
       </a>
       <a
         className={s.reply}
-        href={replyUrl}
+        href={getReplyUrl(tweet)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Reply to this Tweet on Twitter"
