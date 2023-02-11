@@ -9,12 +9,7 @@ export async function generateStaticParams() {
   return []
 }
 
-export default async function Page({
-  params,
-  ...props
-}: {
-  params: { tweet: string }
-}) {
+export default async function Page({ params }: { params: { tweet: string } }) {
   // TODO: Figure out why Next.js sends this value at build time
   if (params.tweet === '%5Btweet%5D') return null
   return (

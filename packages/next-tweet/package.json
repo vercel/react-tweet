@@ -31,6 +31,9 @@
       ]
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "next": ">= 13.0.0",
     "react": ">= 18.0.0",
