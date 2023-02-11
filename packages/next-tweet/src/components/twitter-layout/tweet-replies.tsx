@@ -1,6 +1,6 @@
 import type { FC } from 'react'
-import type { Tweet } from 'lib/twitter/api'
-import formatNumber from 'lib/format-number'
+import type { Tweet } from '../../lib/twitter/api'
+import formatNumber from '../../lib/format-number'
 import s from './tweet-replies.module.css'
 
 const TweetReplies: FC<{ tweet: Tweet }> = ({ tweet }) => {

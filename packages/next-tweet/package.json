@@ -8,9 +8,10 @@
   "bugs": {
     "url": "https://github.com/lfades/next-tweet/issues"
   },
-  "type": "module",
   "exports": {
     ".": "./src/index.ts",
+    "./dark.module.css": "./src/dark.module.css",
+    "./light.module.css": "./src/light.module.css",
     "./*": [
       "./src/*.ts",
       "./src/*.tsx",

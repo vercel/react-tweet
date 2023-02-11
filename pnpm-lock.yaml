@@ -6,8 +6,13 @@ importers:
     specifiers:
       '@changesets/cli': ^2.26.0
       '@types/node': ^18.13.0
+      next-tweet: workspace:^0.0.1
       prettier: ^2.8.4
       turbo: ^1.7.4
+      tweets: ^0.0.6
+    dependencies:
+      next-tweet: link:packages/next-tweet
+      tweets: 0.0.6
     devDependencies:
       '@changesets/cli': 2.26.0
       '@types/node': 18.13.0
@@ -21,6 +26,7 @@ importers:
       clsx: ^1.2.1
       date-fns: ^2.9.0
       next: ^13.1.6
+      next-tweet: workspace:^0.0.1
       react: ^18.2.0
       react-dom: ^18.2.0
       typescript: ^4.9.5
@@ -28,6 +34,7 @@ importers:
       clsx: 1.2.1
       date-fns: 2.29.3
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+      next-tweet: link:../../packages/next-tweet
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
@@ -1424,6 +1431,10 @@ packages:
       validate-npm-package-license: 3.0.4
     dev: true
 
+  /oauth/0.9.15:
+    resolution: {integrity: sha512-a5ERWK1kh38ExDEfoO6qUHJb32rd7aYmPHuyCu3Fta/cnICvYmgd2uhuKXvPD+PXB+gCEYYEaQdIRAjCOwAKNA==}
+    dev: false
+
   /object-inspect/1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
     dev: true
@@ -1976,6 +1987,12 @@ packages:
       turbo-windows-64: 1.7.4
       turbo-windows-arm64: 1.7.4
     dev: true
+
+  /tweets/0.0.6:
+    resolution: {integrity: sha512-/kU/AE9nkZV635ZtzOpviCm00NXwp+r1y+BSnLG36xLQ6QorbgzB6sq+y3W8zn8DUI0ruGHG/WHMmE5vTX3hYA==}
+    dependencies:
+      oauth: 0.9.15
+    dev: false
 
   /type-fest/0.13.1:
     resolution: {integrity: sha512-34R7HTnG0XIJcBSn5XhDd7nNFPRcXYRZrBB2O2jdKqYODldSzBAqzsWoZYYvduky73toYS/ESqxPvkDf/F0XMg==}

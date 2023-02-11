@@ -1,4 +1,4 @@
-import type { Tweet } from 'lib/twitter/api'
+import type { Tweet as TweetType } from '../../lib/twitter/api'
 import TweetHeader from './tweet-header'
 import TweetInReplyTo from './tweet-in-reply-to'
 import TweetBody from './tweet-body'
@@ -8,7 +8,7 @@ import TweetActions from './tweet-actions'
 import TweetReplies from './tweet-replies'
 import TweetMedia from './tweet-media'
 
-const Tweet = ({ data: tweet }: { data: Tweet }) => (
+const Tweet = ({ data: tweet }: { data: TweetType }) => (
   <div className={s.tweet}>
     <article className={s.article}>
       <TweetHeader tweet={tweet} />
