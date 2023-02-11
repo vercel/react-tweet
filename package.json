@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=test-app... && changeset publish"
+    "release": "turbo run lint && turbo run build --filter=test-app... && changeset publish"
   },
   "prettier": {
     "semi": false,
