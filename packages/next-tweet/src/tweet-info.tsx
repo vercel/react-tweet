@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 import format from 'date-fns/format'
-import type { Tweet } from './lib/twitter/api'
+import type { Tweet } from './api'
 import { getTweetUrl } from './utils'
 import useMounted from './lib/use-mounted'
 import s from './tweet-info.module.css'

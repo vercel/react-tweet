@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import type { Tweet } from './lib/twitter/api'
+import type { Tweet } from './api'
 import { getTweetUrl } from './utils'
 import formatNumber from './lib/format-number'
 import s from './tweet-replies.module.css'

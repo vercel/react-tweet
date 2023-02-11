@@ -1,4 +1,4 @@
-import type { Tweet as TweetType } from './lib/twitter/api'
+import type { Tweet as TweetType } from './api'
 import { TweetHeader } from './tweet-header'
 import { TweetInReplyTo } from './tweet-in-reply-to'
 import { TweetBody } from './tweet-body'

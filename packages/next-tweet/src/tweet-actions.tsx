@@ -1,5 +1,5 @@
 import { type FC, useState, useEffect } from 'react'
-import type { Tweet } from './lib/twitter/api'
+import type { Tweet } from './api'
 import formatNumber from './lib/format-number'
 import { getLikeUrl, getReplyUrl, getTweetUrl } from './utils'
 import s from './tweet-actions.module.css'

@@ -1,4 +1,4 @@
-import type { Tweet, MediaDetails, HashtagEntity } from './lib/twitter/api'
+import type { Tweet, MediaDetails, HashtagEntity } from './api'
 
 export const getUserUrl = (usernameOrTweet: string | Tweet) =>
   `https://twitter.com/${
