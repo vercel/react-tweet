@@ -3,3 +3,9 @@ node_modules
 .vercel
 public
 dist
+.vscode
+
+# Ignore dependency locks
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
