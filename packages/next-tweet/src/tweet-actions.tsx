@@ -1,7 +1,6 @@
 import { type FC, useState, useEffect } from 'react'
 import type { Tweet } from './api'
-import formatNumber from './lib/format-number'
-import { getLikeUrl, getReplyUrl, getTweetUrl } from './utils'
+import { getLikeUrl, getReplyUrl, getTweetUrl, formatNumber } from './utils'
 import s from './tweet-actions.module.css'
 
 export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {

@@ -6,10 +6,10 @@ import { TweetMedia } from './tweet-media'
 import { TweetInfo } from './tweet-info'
 import { TweetActions } from './tweet-actions'
 import { TweetReplies } from './tweet-replies'
-import s from './tweet.module.css'
+import s from './embedded-tweet.module.css'
 
-export const Tweet = ({ data: tweet }: { data: TweetType }) => (
-  <div className={s.tweet}>
+export const EmbeddedTweet = ({ data: tweet }: { data: TweetType }) => (
+  <div className={s.root}>
     <article className={s.article}>
       <TweetHeader tweet={tweet} />
       {tweet.in_reply_to_status_id_str && <TweetInReplyTo tweet={tweet} />}

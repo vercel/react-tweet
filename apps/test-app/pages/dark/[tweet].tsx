@@ -1,4 +1,4 @@
-import { fetchTweet, type Tweet } from 'next-tweet/lib/twitter/api'
+import { getTweet, type Tweet } from 'next-tweet/api'
 import TweetPage from '../../components/tweet-page'
 import styles from 'next-tweet/dark.module.css'
 
@@ -23,7 +23,7 @@ export async function getStaticProps({
   }
 
   try {
-    const tweet = await fetchTweet(tweetId)
+    const tweet = await getTweet(tweetId)
     return tweet ? { props: { tweet } } : { notFound: true }
   } catch (error) {
     // The Twitter API most likely died
@@ -33,6 +33,5 @@ export async function getStaticProps({
 }
 
 export default function Page({ tweet }: { tweet: Tweet }) {
-  // return <h1>Hello World!</h1>
   return <TweetPage className={styles.theme} tweet={tweet} />
 }

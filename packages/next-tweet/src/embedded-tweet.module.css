@@ -1,4 +1,4 @@
-.tweet {
+.root {
   min-width: 250px;
   max-width: 550px;
   overflow: hidden;
@@ -24,11 +24,4 @@
 }
 .article:hover {
   background-color: var(--tweet-bg-color-hover);
-}
-.tweet :global(.icon) {
-  display: inline-block;
-  height: 1.25em;
-  vertical-align: text-bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
 }

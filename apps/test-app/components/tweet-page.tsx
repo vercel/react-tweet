@@ -1,11 +1,11 @@
 import type { FC } from 'react'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
-import { Tweet as TweetType } from 'next-tweet/lib/twitter/api'
-import { Tweet, TweetSkeleton } from 'next-tweet'
 import s from './tweet-page.module.css'
+import type { Tweet } from 'next-tweet/api'
+import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
 
-const TweetPage: FC<{ tweet: TweetType; className: string }> = ({
+const TweetPage: FC<{ tweet: Tweet; className: string }> = ({
   tweet,
   className,
 }) => {
@@ -14,7 +14,7 @@ const TweetPage: FC<{ tweet: TweetType; className: string }> = ({
   return (
     <div className={clsx(s.page, className)}>
       <main className={s.main}>
-        {isFallback ? <TweetSkeleton /> : <Tweet data={tweet} />}
+        {isFallback ? <TweetSkeleton /> : <EmbeddedTweet data={tweet} />}
       </main>
 
       <footer className={s.footer}>
