@@ -16,7 +16,7 @@ importers:
       prettier: 2.8.4
       turbo: 1.7.4
 
-  apps/tweets:
+  apps/test-app:
     specifiers:
       '@types/node': 18.13.0
       '@types/react': ^18.0.27
