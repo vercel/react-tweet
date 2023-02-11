@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "repository": "https://github.com/lfades/next-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
-  "scripts": {},
+  "scripts": {
+    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "clean": "rm -rf .turbo"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lfades/next-tweet/issues"
@@ -41,6 +44,7 @@
   "devDependencies": {
     "@types/node": "18.13.0",
     "@types/react": "^18.0.27",
+    "eslint": "^8.34.0",
     "typescript": "^4.9.5"
   }
 }
