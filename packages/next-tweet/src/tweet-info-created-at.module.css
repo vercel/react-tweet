@@ -1,0 +1,10 @@
+.root {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+}
+.root:hover {
+  text-decoration-thickness: 1px;
+  text-decoration-line: underline;
+}

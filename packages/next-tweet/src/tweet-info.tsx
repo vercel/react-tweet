@@ -1,30 +1,12 @@
 import type { FC } from 'react'
-import format from 'date-fns/format'
 import type { Tweet } from './api'
-import { getTweetUrl } from './utils'
-import useMounted from './lib/use-mounted'
+import { TweetInfoCreatedAt } from './tweet-info-created-at'
 import s from './tweet-info.module.css'
 
 export const TweetInfo: FC<{ tweet: Tweet }> = ({ tweet }) => {
-  const mounted = useMounted()
-  const createdAt =
-    typeof window !== 'undefined' && mounted ? new Date(tweet.created_at) : null
-
   return (
     <div className={s.info}>
-      {createdAt && (
-        <a
-          className={s.time}
-          href={getTweetUrl(tweet)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={format(createdAt, 'h:mm a · MMM d, y')}
-        >
-          <time dateTime={createdAt.toISOString()}>
-            {format(createdAt, 'h:mm a · MMM d, y')}
-          </time>
-        </a>
-      )}
+      <TweetInfoCreatedAt tweet={tweet} />
       <a
         className={s.infoLink}
         href="https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy"

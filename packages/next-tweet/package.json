@@ -13,8 +13,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./dark.module.css": "./src/dark.module.css",
-    "./light.module.css": "./src/light.module.css",
+    "./theme.module.css": "./src/theme.module.css",
     "./*": [
       "./src/*.ts",
       "./src/*.tsx",

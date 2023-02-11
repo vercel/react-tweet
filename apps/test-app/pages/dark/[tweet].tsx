@@ -1,5 +1,5 @@
 import { getTweet, type Tweet } from 'next-tweet/api'
-import styles from 'next-tweet/dark.module.css'
+import theme from 'next-tweet/theme.module.css'
 import TweetPage from '../../components/tweet-page'
 
 // Regex to test a valid username, you should also test for a max length of 15, but we're not using
@@ -33,5 +33,5 @@ export async function getStaticProps({
 }
 
 export default function Page({ tweet }: { tweet: Tweet }) {
-  return <TweetPage className={styles.theme} tweet={tweet} />
+  return <TweetPage tweet={tweet} className={theme.dark} />
 }

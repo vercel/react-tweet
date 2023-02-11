@@ -1,6 +1,7 @@
 import type { FC, ReactNode } from 'react'
+import '../base.css'
 
-const RootLayout: FC<{ children: React.ReactNode }> = ({ children }) => (
+const RootLayout: FC<{ children: ReactNode }> = ({ children }) => (
   <html>
     <head />
     <body>{children}</body>
