@@ -6,7 +6,7 @@ import type {
   UserMentionEntity,
   UrlEntity,
   MediaEntity,
-} from '../../lib/twitter/api'
+} from './lib/twitter/api'
 import TweetLink from './tweet-link'
 import s from './tweet-body.module.css'
 

@@ -1,6 +1,6 @@
 import format from 'date-fns/format'
-import type { Tweet } from '../../lib/twitter/api'
-import useMounted from '../../lib/use-mounted'
+import type { Tweet } from './lib/twitter/api'
+import useMounted from './lib/use-mounted'
 import s from './tweet-info.module.css'
 
 export default function TweetInfo({ tweet }: { tweet: Tweet }) {

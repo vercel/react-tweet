@@ -1,8 +1,8 @@
 import type { FC } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
-import type { Tweet } from '../../lib/twitter/api'
-import { getMediaUrl, getTweetUrl } from '../../lib/twitter/utils'
+import type { Tweet } from './lib/twitter/api'
+import { getMediaUrl, getTweetUrl } from './lib/twitter/utils'
 import s from './tweet-media.module.css'
 
 const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {

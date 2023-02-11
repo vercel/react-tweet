@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import type { Tweet } from '../../lib/twitter/api'
+import type { Tweet } from './lib/twitter/api'
 import s from './tweet-in-reply-to.module.css'
 
 const TweetInReplyTo: FC<{ tweet: Tweet }> = ({ tweet }) => (

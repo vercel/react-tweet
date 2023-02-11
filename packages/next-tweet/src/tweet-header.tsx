@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
-import type { Tweet } from '../../lib/twitter/api'
+import type { Tweet } from './lib/twitter/api'
 import s from './tweet-header.module.css'
 
 const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
