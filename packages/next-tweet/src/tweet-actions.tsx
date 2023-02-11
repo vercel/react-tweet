@@ -3,7 +3,7 @@ import type { Tweet } from './lib/twitter/api'
 import formatNumber from './lib/format-number'
 import s from './tweet-actions.module.css'
 
-const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const [copied, setCopied] = useState(false)
   const [copyAllText, setCopyAltText] = useState(false)
 
@@ -94,5 +94,3 @@ const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
     </div>
   )
 }
-
-export default TweetActions

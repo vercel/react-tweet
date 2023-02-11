@@ -7,7 +7,7 @@ import type {
   UrlEntity,
   MediaEntity,
 } from './lib/twitter/api'
-import TweetLink from './tweet-link'
+import { TweetLink } from './tweet-link'
 import s from './tweet-body.module.css'
 
 type TextEntity = {
@@ -70,7 +70,7 @@ function getEntities(tweet: Tweet) {
   return result
 }
 
-const TweetBody: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetBody: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const entities = getEntities(tweet)
 
   return (
@@ -114,5 +114,3 @@ const TweetBody: FC<{ tweet: Tweet }> = ({ tweet }) => {
     </p>
   )
 }
-
-export default TweetBody

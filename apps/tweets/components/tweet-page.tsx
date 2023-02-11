@@ -2,8 +2,7 @@ import type { FC } from 'react'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
 import { Tweet as TweetType } from 'next-tweet/lib/twitter/api'
-import TweetSkeleton from 'next-tweet/tweet-skeleton'
-import { Tweet } from 'next-tweet'
+import { Tweet, TweetSkeleton } from 'next-tweet'
 import s from './tweet-page.module.css'
 
 const TweetPage: FC<{ tweet: TweetType; className: string }> = ({

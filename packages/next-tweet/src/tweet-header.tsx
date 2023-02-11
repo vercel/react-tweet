@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import type { Tweet } from './lib/twitter/api'
 import s from './tweet-header.module.css'
 
-const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const username = tweet.user.screen_name
   const url = `https://twitter.com/${username}`
   const followUrl = `https://twitter.com/intent/follow?screen_name=${username}`
@@ -99,5 +99,3 @@ const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
     </div>
   )
 }
-
-export default TweetHeader

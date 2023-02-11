@@ -5,7 +5,7 @@ import type { Tweet } from './lib/twitter/api'
 import { getMediaUrl, getTweetUrl } from './lib/twitter/utils'
 import s from './tweet-media.module.css'
 
-const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const length = tweet.mediaDetails?.length ?? 0
 
   return (
@@ -59,5 +59,3 @@ const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {
     </div>
   )
 }
-
-export default TweetMedia

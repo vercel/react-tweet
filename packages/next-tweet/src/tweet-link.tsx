@@ -4,7 +4,12 @@ import s from './tweet-link.module.css'
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement>
 
-const TweetLink: FC<Props> = ({ href, className, children, ...props }) => (
+export const TweetLink: FC<Props> = ({
+  href,
+  className,
+  children,
+  ...props
+}) => (
   <a
     href={href}
     className={clsx(s.root, className)}
@@ -15,5 +20,3 @@ const TweetLink: FC<Props> = ({ href, className, children, ...props }) => (
     {children}
   </a>
 )
-
-export default TweetLink

@@ -1,12 +1,12 @@
 import type { Tweet as TweetType } from './lib/twitter/api'
-import TweetHeader from './tweet-header'
-import TweetInReplyTo from './tweet-in-reply-to'
-import TweetBody from './tweet-body'
-import TweetInfo from './tweet-info'
+import { TweetHeader } from './tweet-header'
+import { TweetInReplyTo } from './tweet-in-reply-to'
+import { TweetBody } from './tweet-body'
+import { TweetMedia } from './tweet-media'
+import { TweetInfo } from './tweet-info'
+import { TweetActions } from './tweet-actions'
+import { TweetReplies } from './tweet-replies'
 import s from './tweet.module.css'
-import TweetActions from './tweet-actions'
-import TweetReplies from './tweet-replies'
-import TweetMedia from './tweet-media'
 
 export const Tweet = ({ data: tweet }: { data: TweetType }) => (
   <div className={s.tweet}>

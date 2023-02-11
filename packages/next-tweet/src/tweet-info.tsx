@@ -1,9 +1,10 @@
+import type { FC } from 'react'
 import format from 'date-fns/format'
 import type { Tweet } from './lib/twitter/api'
 import useMounted from './lib/use-mounted'
 import s from './tweet-info.module.css'
 
-export default function TweetInfo({ tweet }: { tweet: Tweet }) {
+export const TweetInfo: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const mounted = useMounted()
   const likeUrl = `https://twitter.com/intent/like?tweet_id=${tweet.id_str}`
   const tweetUrl = `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`

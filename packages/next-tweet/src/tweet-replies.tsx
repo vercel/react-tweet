@@ -3,7 +3,7 @@ import type { Tweet } from './lib/twitter/api'
 import formatNumber from './lib/format-number'
 import s from './tweet-replies.module.css'
 
-const TweetReplies: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetReplies: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const userUrl = `https://twitter.com/${tweet.user.screen_name}`
   const tweetUrl = `${userUrl}/status/${tweet.id_str}`
 
@@ -24,5 +24,3 @@ const TweetReplies: FC<{ tweet: Tweet }> = ({ tweet }) => {
     </div>
   )
 }
-
-export default TweetReplies
