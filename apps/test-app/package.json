@@ -15,7 +15,7 @@
     "clsx": "^1.2.1",
     "date-fns": "^2.9.0",
     "next": "^13.1.6",
-    "next-tweet": "workspace:^0.0.1",
+    "next-tweet": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

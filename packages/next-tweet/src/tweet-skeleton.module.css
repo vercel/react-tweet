@@ -3,7 +3,7 @@
   max-width: 550px;
   background: var(--tweet-bg-color);
   border: var(--tweet-border);
-  border-radius: 5px;
+  border-radius: 12px;
   margin: var(--tweet-container-margin);
   transition-property: background-color;
   transition-duration: 0.2s;
