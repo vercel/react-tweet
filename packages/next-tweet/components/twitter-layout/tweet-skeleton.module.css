@@ -1,0 +1,18 @@
+.container {
+  min-width: 250px;
+  max-width: 550px;
+  background: var(--tweet-bg-color);
+  border: var(--tweet-border);
+  border-radius: 5px;
+  margin: var(--tweet-container-margin);
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+.content {
+  padding: 1.25rem 1.25rem 0.625rem 1.25rem;
+}
+.footer {
+  height: 2.5rem;
+  padding: 0.625rem 1.25rem;
+  border-top: var(--tweet-border);
+}

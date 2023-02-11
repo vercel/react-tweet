@@ -1,0 +1,77 @@
+.root {
+  margin-top: 0.75rem;
+  border: var(--tweet-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.mediaWrapper {
+  display: grid;
+  grid-auto-rows: 1fr;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+}
+.grid2Columns {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid3 > a:first-child {
+  grid-row: span 2;
+}
+.grid2x2 {
+  grid-template-rows: repeat(2, 1fr);
+}
+.mediaLink {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  outline-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skeleton {
+  padding-bottom: 56.3542%;
+  width: 100%;
+  display: block;
+}
+.image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.videoButton {
+  position: relative;
+  height: 67px;
+  width: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--tweet-color-blue-primary);
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  border: 4px solid #fff;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.videoButton:hover {
+  background-color: rgb(26, 140, 216);
+}
+.videoButtonIcon {
+  margin-left: 3px;
+  width: calc(50% + 4px);
+  height: calc(50% + 4px);
+  max-width: 100%;
+  color: #fff;
+  fill: currentColor;
+  user-select: none;
+}

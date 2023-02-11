@@ -1,0 +1,34 @@
+.tweet {
+  min-width: 250px;
+  max-width: 550px;
+  overflow: hidden;
+  border: var(--tweet-border);
+  border-radius: 12px;
+  margin: var(--tweet-container-margin);
+  box-sizing: border-box;
+  /* Base font styles */
+  color: var(--tweet-font-color);
+  font: var(--tweet-font-family);
+  font-weight: 400;
+}
+.article {
+  position: relative;
+  outline-style: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem 0.25rem 1rem;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  background-color: var(--tweet-bg-color);
+}
+.article:hover {
+  background-color: var(--tweet-bg-color-hover);
+}
+.tweet :global(.icon) {
+  display: inline-block;
+  height: 1.25em;
+  vertical-align: text-bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

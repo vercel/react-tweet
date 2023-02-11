@@ -1,0 +1,32 @@
+.replies {
+  padding-top: 0.25rem;
+  padding-bottom: 0.75rem;
+}
+.link {
+  text-decoration: none;
+  color: var(--tweet-color-blue-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  user-select: none;
+  outline-style: none;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  padding: 0 1rem;
+  border: var(--tweet-border);
+  border-radius: 9999px;
+}
+.link:hover {
+  background-color: var(--tweet-color-blue-secondary-hover);
+}
+.text {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
