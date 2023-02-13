@@ -5,7 +5,12 @@ import type { Tweet } from './api'
 import { getMediaUrl, getTweetUrl } from './utils'
 import s from './tweet-media.module.css'
 
-export const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {
+type Props = {
+  tweet: Tweet
+  priority?: boolean
+}
+
+export const TweetMedia: FC<Props> = ({ tweet, priority = false }) => {
   const length = tweet.mediaDetails?.length ?? 0
 
   return (
@@ -35,6 +40,7 @@ export const TweetMedia: FC<{ tweet: Tweet }> = ({ tweet }) => {
               fill
               draggable
               unoptimized
+              priority={priority}
             />
             {media.type !== 'photo' && (
               <div

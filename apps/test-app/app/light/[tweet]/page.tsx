@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { tweet: string } }) {
   return (
     <div className={theme.light}>
       {/* @ts-ignore: Async components are valid in the app directory */}
-      <NextTweet id={params.tweet} />
+      <NextTweet id={params.tweet} priority />
     </div>
   )
 }

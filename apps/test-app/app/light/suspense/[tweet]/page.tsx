@@ -10,7 +10,7 @@ export default async function Page({ params }: { params: { tweet: string } }) {
   return (
     <Suspense fallback={<TweetSkeleton />}>
       {/* @ts-ignore: Async components are valid in the app directory */}
-      <TweetPage id={params.tweet} />
+      <TweetPage id={params.tweet} priority />
     </Suspense>
   )
 }

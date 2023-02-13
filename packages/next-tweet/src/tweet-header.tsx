@@ -5,7 +5,12 @@ import type { Tweet } from './api'
 import s from './tweet-header.module.css'
 import { getFollowUrl, getUserUrl } from './utils'
 
-export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
+type Props = {
+  tweet: Tweet
+  priority?: boolean
+}
+
+export const TweetHeader: FC<Props> = ({ tweet, priority = false }) => {
   const url = getUserUrl(tweet)
 
   return (
@@ -22,6 +27,7 @@ export const TweetHeader: FC<{ tweet: Tweet }> = ({ tweet }) => {
             alt={tweet.user.name}
             width={48}
             height={48}
+            priority={priority}
           />
         </div>
         <div className={s.avatarOverflow}>

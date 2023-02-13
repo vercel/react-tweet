@@ -14,7 +14,11 @@ const TweetPage: FC<{ tweet: Tweet; className: string }> = ({
   return (
     <div className={clsx(s.root, className)}>
       <main className={s.main}>
-        {isFallback ? <TweetSkeleton /> : <EmbeddedTweet tweet={tweet} />}
+        {isFallback ? (
+          <TweetSkeleton />
+        ) : (
+          <EmbeddedTweet tweet={tweet} priority />
+        )}
       </main>
 
       <footer className={s.footer}>
