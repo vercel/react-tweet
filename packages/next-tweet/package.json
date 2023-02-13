@@ -1,6 +1,6 @@
 {
   "name": "next-tweet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": "https://github.com/lfades/next-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
