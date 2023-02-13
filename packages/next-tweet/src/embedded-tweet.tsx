@@ -1,4 +1,4 @@
-import type { Tweet as TweetType } from './api'
+import type { Tweet } from './api'
 import { TweetHeader } from './tweet-header'
 import { TweetInReplyTo } from './tweet-in-reply-to'
 import { TweetBody } from './tweet-body'
@@ -8,7 +8,7 @@ import { TweetActions } from './tweet-actions'
 import { TweetReplies } from './tweet-replies'
 import s from './embedded-tweet.module.css'
 
-export const EmbeddedTweet = ({ data: tweet }: { data: TweetType }) => (
+export const EmbeddedTweet = ({ tweet: tweet }: { tweet: Tweet }) => (
   <div className={s.root}>
     <article className={s.article}>
       <TweetHeader tweet={tweet} />
