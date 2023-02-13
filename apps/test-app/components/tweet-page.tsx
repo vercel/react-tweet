@@ -2,17 +2,13 @@ import type { FC } from 'react'
 import { useRouter } from 'next/router'
 import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
 import type { Tweet } from 'next-tweet/api'
-import clsx from 'clsx'
 import s from './tweet-page.module.css'
 
-const TweetPage: FC<{ tweet: Tweet; className: string }> = ({
-  tweet,
-  className,
-}) => {
+const TweetPage: FC<{ tweet: Tweet }> = ({ tweet }) => {
   const { isFallback } = useRouter()
 
   return (
-    <div className={clsx(s.root, className)}>
+    <div className={s.root} data-theme="dark">
       <main className={s.main}>
         {isFallback ? (
           <TweetSkeleton />

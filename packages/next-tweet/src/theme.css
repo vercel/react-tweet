@@ -1,7 +1,7 @@
-.dark {
+[data-theme='dark'] {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
-    rgb(21, 32, 43),
+    #15202b,
     rgb(30, 39, 50),
     rgb(30, 39, 50),
     rgb(21, 32, 43)
@@ -25,7 +25,8 @@
   --tweet-verified-old-color: rgb(130, 154, 171);
   --tweet-verified-blue-color: #fff;
 }
-.light {
+
+[data-theme='light'] {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
     #fafafa,

@@ -13,7 +13,6 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./theme.module.css": "./src/theme.module.css",
     "./*": [
       "./src/*.ts",
       "./src/*.tsx",

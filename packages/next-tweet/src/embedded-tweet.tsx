@@ -7,6 +7,7 @@ import { TweetInfo } from './tweet-info'
 import { TweetActions } from './tweet-actions'
 import { TweetReplies } from './tweet-replies'
 import s from './embedded-tweet.module.css'
+import './theme.css'
 
 type Props = {
   tweet: Tweet
