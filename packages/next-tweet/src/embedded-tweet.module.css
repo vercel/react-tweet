@@ -25,3 +25,13 @@
 .article:hover {
   background-color: var(--tweet-bg-color-hover);
 }
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.75rem;
+}
+.notFound > h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}

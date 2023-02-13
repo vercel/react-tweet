@@ -25,7 +25,6 @@ export async function getStaticProps({
     const tweet = await getTweet(tweetId)
     return tweet ? { props: { tweet } } : { notFound: true }
   } catch (error) {
-    // The Twitter API most likely died
     console.error(error)
     return { notFound: true }
   }

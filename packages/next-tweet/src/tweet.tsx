@@ -6,18 +6,21 @@ import { TweetSkeleton } from './tweet-skeleton'
 type TweetProps = {
   id: string
   priority?: boolean
+  notFoundOnError?: boolean
 }
 
 type Props = TweetProps & {
   fallback?: ReactNode
 }
 
-const Tweet = async ({ id, priority = false }: TweetProps) => {
-  const tweet = await getTweet(id)
-
-  // TODO: a non existing tweet is currently an unhandled case, also when there's an error
-  if (!tweet) return null
-
+const Tweet = async ({ id, priority = false, notFoundOnError }: TweetProps) => {
+  const tweet = await getTweet(id).catch((error) => {
+    if (notFoundOnError) {
+      console.error(error)
+      return undefined
+    }
+    throw error
+  })
   return <EmbeddedTweet tweet={tweet} priority={priority} />
 }
 

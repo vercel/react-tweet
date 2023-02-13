@@ -2,6 +2,26 @@ import type { Tweet } from './types'
 
 const SYNDICATION_URL = 'https://cdn.syndication.twimg.com'
 
+export class TwitterApiError extends Error {
+  status: number
+  data: any
+
+  constructor({
+    message,
+    status,
+    data,
+  }: {
+    message: string
+    status: number
+    data: any
+  }) {
+    super(message)
+    this.name = 'TwitterError'
+    this.status = status
+    this.data = data
+  }
+}
+
 export async function getTweet(id: string): Promise<Tweet | undefined> {
   const url = new URL(`${SYNDICATION_URL}/tweet-result`)
 
@@ -25,14 +45,16 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
   )
 
   const res = await fetch(url)
+  const isJson = res.headers.get('content-type')?.includes('application/json')
 
-  if (res.ok) return res.json()
-  if (res.status === 404) {
-    console.log('JSON', await res.json())
-    return
+  if (res.ok) {
+    return isJson ? res.json() : undefined
   }
+  if (res.status === 404) return
 
-  throw new Error(
-    `Fetch for the embedded tweets of "${id}" failed with code: ${res.status}`
-  )
+  throw new TwitterApiError({
+    message: `Fetch for the embedded tweets of "${id}" failed with: ${res.status}`,
+    status: res.status,
+    data: isJson ? await res.json() : undefined,
+  })
 }
