@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.3.0
+
+### Minor Changes
+
+- 07bce2b: Improved theme support and error handling
+
 ## 0.2.1
 
 ### Patch Changes
