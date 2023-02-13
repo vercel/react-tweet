@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.2.1
+
+### Patch Changes
+
+- ec2e654: Moved use-mounted to typescript to avoid missing declaration error
+
 ## 0.2.0
 
 ### Minor Changes
