@@ -52,7 +52,7 @@ export interface MediaPhoto extends MediaBase {
 }
 
 export interface MediaAnimatedGif extends MediaBase {
-  type: 'animated_gif'
+  type: 'animated_gif' | 'video'
   video_info: {
     aspect_ratio: [number, number]
     variants: {
