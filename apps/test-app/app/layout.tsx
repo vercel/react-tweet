@@ -3,7 +3,7 @@ import '../base.css'
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => (
   <html>
-    <head />
+    <head></head>
     <body>{children}</body>
   </html>
 )
