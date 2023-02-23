@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.4.0
+
+### Minor Changes
+
+- 91cf084: Use SWC for compilation, transpilePackages is no longer required for Next.js apps now
+
 ## 0.3.0
 
 ### Minor Changes
