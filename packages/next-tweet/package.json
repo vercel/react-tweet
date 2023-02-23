@@ -49,7 +49,7 @@
     }
   },
   "peerDependencies": {
-    "next": ">= 13.0.0",
+    "next": ">= 13.1.0",
     "react": ">= 18.0.0",
     "react-dom": ">= 18.0.0"
   },
