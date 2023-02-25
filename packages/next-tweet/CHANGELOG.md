@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.5.0
+
+### Minor Changes
+
+- 3918e7c: Updated Next.js minimum version
+
 ## 0.4.0
 
 ### Minor Changes
