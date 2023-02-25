@@ -22,8 +22,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./*": [
-      "./dist/*.js",
-      "./dist/*/index.js"
+      "./dist/*/index.js",
+      "./dist/*.js"
     ]
   },
   "files": [
@@ -32,8 +32,8 @@
   "typesVersions": {
     "*": {
       "*": [
-        "src/*",
-        "src/*/index"
+        "src/*/index",
+        "src/*"
       ]
     }
   },
@@ -42,14 +42,14 @@
     "typesVersions": {
       "*": {
         "*": [
-          "dist/*.d.ts",
-          "dist/*/index.d.ts"
+          "dist/*/index.d.ts",
+          "dist/*.d.ts"
         ]
       }
     }
   },
   "peerDependencies": {
-    "next": ">= 13.1.0",
+    "next": ">= 13.2.1",
     "react": ">= 18.0.0",
     "react-dom": ">= 18.0.0"
   },
