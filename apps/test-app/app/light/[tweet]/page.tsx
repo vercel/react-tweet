@@ -23,9 +23,6 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  // TODO: Figure out why Next.js sends this value at build time
-  if (params.tweet === '%5Btweet%5D') return null
-
   // @ts-ignore: Async components are valid in the app directory
   return <NextTweet id={params.tweet} priority />
 }
