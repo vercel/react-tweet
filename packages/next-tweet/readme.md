@@ -29,7 +29,11 @@ import { NextTweet } from 'next-tweet'
 
 export default async function Page({ params }: Props) {
   // @ts-ignore: Async components are valid in the app directory
-  return <NextTweet id={params.tweet} priority />
+  return (
+    <div data-theme="light">
+      <NextTweet id={params.tweet} priority />
+    </div>
+  )
 }
 ```
 
@@ -38,6 +42,10 @@ export default async function Page({ params }: Props) {
 - `notFoundOnError` - `boolean`: if `true`, the component will show a not found message if the tweet fails to load (invalid id, no longer exists, account went private, etc). Otherwise, it will throw an error. Defaults to `false`.
 
 `NextTweet` takes care of fetching the tweet and rendering it. You can see it working in the [test app](/apps/test-app/app/light/[tweet]/page.tsx) that's part of this monorepo.
+
+## Choosing a theme
+
+The closest `data-theme` attribute on a parent element determines the theme of the tweet. You can set it to `light` or `dark`.
 
 ## How to use in the pages directory
 

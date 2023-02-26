@@ -18,6 +18,7 @@ importers:
 
   apps/test-app:
     specifiers:
+      '@next/mdx': ^13.2.1
       '@types/node': 18.13.0
       '@types/react': ^18.0.27
       clsx: ^1.2.1
@@ -30,6 +31,7 @@ importers:
       react-dom: ^18.2.0
       typescript: ^4.9.5
     dependencies:
+      '@next/mdx': 13.2.1
       clsx: 1.2.1
       date-fns: 2.29.3
       next: 13.2.1_biqbaboplfbrettd7655fr4n2y
@@ -375,6 +377,20 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/mdx/13.2.1:
+    resolution: {integrity: sha512-kWriuAxU3euPUugwoOI7WEo596QeHsxrbneKvItwrfu4YYZZLKNPHSnkLHvF7tlO9TjiPbFqYlK2xHK02Lp2SA==}
+    peerDependencies:
+      '@mdx-js/loader': '>=0.15.0'
+      '@mdx-js/react': '>=0.15.0'
+    peerDependenciesMeta:
+      '@mdx-js/loader':
+        optional: true
+      '@mdx-js/react':
+        optional: true
+    dependencies:
+      source-map: 0.7.4
+    dev: false
 
   /@next/swc-android-arm-eabi/13.2.1:
     resolution: {integrity: sha512-Yua7mUpEd1wzIT6Jjl3dpRizIfGp9NR4F2xeRuQv+ae+SDI1Em2WyM9m46UL+oeW5GpMiEHoaBagr47RScZFmQ==}
@@ -3472,7 +3488,6 @@ packages:
   /source-map/0.7.4:
     resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
-    dev: true
 
   /spawndamnit/2.0.0:
     resolution: {integrity: sha512-j4JKEcncSjFlqIwU5L/rp2N5SIPsdxaRsIv678+TZxZ0SRDJTm8JrxJMjE/XuiEZNEir3S8l0Fa3Ke339WI4qA==}
