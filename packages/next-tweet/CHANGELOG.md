@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.6.0
+
+### Minor Changes
+
+- 677d907: Added docs and improved theme support
+
 ## 0.5.0
 
 ### Minor Changes
