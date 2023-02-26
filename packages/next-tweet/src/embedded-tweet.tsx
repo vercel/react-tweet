@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { Tweet } from './api'
 import { TweetHeader } from './tweet-header'
 import { TweetInReplyTo } from './tweet-in-reply-to'
@@ -15,7 +16,7 @@ type Props = {
 }
 
 export const EmbeddedTweet = ({ tweet, priority }: Props) => (
-  <div className={s.root}>
+  <div className={clsx('next-tweet-theme', s.root)}>
     <article className={s.article}>
       {tweet ? (
         <>
