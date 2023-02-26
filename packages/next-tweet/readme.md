@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
 
 ## Choosing a theme
 
-The closest `data-theme` attribute on a parent element determines the theme of the tweet. You can set it to `light` or `dark`.
+The closest `data-theme` attribute on a parent element determines the theme of the tweet. You can set it to `light` or `dark`. The default theme is `light`.
 
 ## How to use in the pages directory
 
