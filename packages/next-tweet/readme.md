@@ -1,4 +1,4 @@
-# Static Tweet
+# next-tweet
 
 Embedded and static tweet for Next.js applications.
 
