@@ -1,1 +1,1 @@
-readme.md
+./packages/next-tweet/readme.md
