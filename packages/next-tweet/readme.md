@@ -28,10 +28,8 @@ const nextConfig = {
   images: {
     // If you want to use images.remotePatterns:
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'pbs.twimg.com',
-      },
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
     ],
     // or if you want to use images.domains:
     // domains: ['pbs.twimg.com', 'abs.twimg.com'],
