@@ -20,6 +20,24 @@ yarn add next-tweet
 npm install next-tweet
 ```
 
+Since `next-tweet` uses `next/image` behind the scenes, you also need to configure `next/image` to accept image URLs from Twitter, by using [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) or [`images.domains`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in your `next.config.js`:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    // If you want to use images.remotePatterns:
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
+    ],
+    // or if you want to use images.domains:
+    // domains: ['pbs.twimg.com', 'abs.twimg.com'],
+  },
+  // ... other Next.js config options
+}
+```
+
 ## How to use in the app directory
 
 In any component, import `NextTweet` from `next-tweet` and use it like so:
@@ -28,9 +46,9 @@ In any component, import `NextTweet` from `next-tweet` and use it like so:
 import { NextTweet } from 'next-tweet'
 
 export default async function Page({ params }: Props) {
-  // @ts-ignore: Async components are valid in the app directory
   return (
     <div data-theme="light">
+      {/* @ts-ignore: Async components are valid in the app directory */}
       <NextTweet id={params.tweet} priority />
     </div>
   )
