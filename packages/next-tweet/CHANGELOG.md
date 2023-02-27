@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.6.1
+
+### Patch Changes
+
+- 82c9f9d: Added support for prefers-color-scheme
+
 ## 0.6.0
 
 ### Minor Changes
