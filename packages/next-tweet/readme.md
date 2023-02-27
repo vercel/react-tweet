@@ -27,15 +27,13 @@ In any component, import `NextTweet` from `next-tweet` and use it like so:
 ```tsx
 import { NextTweet } from 'next-tweet'
 
-export default async function Page({ params }: Props) {
+export default function Page({ params }: Props) {
   // @ts-ignore: Async components are valid in the app directory
-  return (
-    <div data-theme="light">
-      <NextTweet id={params.tweet} priority />
-    </div>
-  )
+  return <NextTweet id={params.tweet} />
 }
 ```
+
+`NextTweet` accepts the following props:
 
 - `params.tweet` - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
 - `priority` - `boolean`: sets the [`priority` prop](https://nextjs.org/docs/basic-features/image-optimization#priority) in the Tweet's images. Only enable this if the tweet is visible above the fold. Defaults to `false`.
@@ -45,7 +43,17 @@ export default async function Page({ params }: Props) {
 
 ## Choosing a theme
 
-The closest `data-theme` attribute on a parent element determines the theme of the tweet. You can set it to `light` or `dark`. The default theme is `light`.
+The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media feature is used to select the theme of the tweet.
+
+### Toggling theme manually
+
+The closest `data-theme` attribute on a parent element can determine the theme of the tweet. You can set it to `light` or `dark`, like so:
+
+```tsx
+<div data-theme="dark">
+  <NextTweet id={params.tweet} />
+</div>
+```
 
 ## How to use in the pages directory
 
