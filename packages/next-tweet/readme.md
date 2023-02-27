@@ -20,6 +20,20 @@ yarn add next-tweet
 npm install next-tweet
 ```
 
+Currently, `next-tweet` uses `next/image` behind the scenes. You can configure `next/image` to accept image URLs from Twitter, by using [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in `next.config.js`:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: 'pbs.twimg.com' },
+      { protocol: 'https', hostname: 'abs.twimg.com' },
+    ],
+  },
+}
+```
+
 ## How to use in the app directory
 
 In any component, import `NextTweet` from `next-tweet` and use it like so:
