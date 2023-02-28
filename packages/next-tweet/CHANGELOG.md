@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.7.0
+
+### Minor Changes
+
+- b77efa2: Added video support and theme switching with class
+
 ## 0.6.1
 
 ### Patch Changes
