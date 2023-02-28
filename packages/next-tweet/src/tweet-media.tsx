@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import type { Tweet } from './api'
 import { getMediaUrl, getTweetUrl } from './utils'
 import s from './tweet-media.module.css'
+import { TweetMediaVideo } from './tweet-media-video'
 
 type Props = {
   tweet: Tweet
@@ -24,43 +25,32 @@ export const TweetMedia: FC<Props> = ({ tweet, priority = false }) => {
           length > 4 && s.grid2x2
         )}
       >
-        {tweet.mediaDetails?.map((media) => (
-          <a
-            key={media.media_url_https}
-            href={getTweetUrl(tweet)}
-            className={s.mediaLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={media.type === 'photo' ? 'Image' : 'Embedded Video'}
-          >
-            <Image
-              src={getMediaUrl(media, 'small')}
-              className={s.image}
-              alt={media.type === 'photo' ? 'Image' : 'Embedded Video'}
-              fill
-              draggable
-              unoptimized
-              priority={priority}
-            />
-            {media.type !== 'photo' && (
-              <div
-                className={s.videoButton}
-                role="button"
-                aria-label="View video on Twitter"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className={s.videoButtonIcon}
-                  aria-hidden="true"
-                >
-                  <g>
-                    <path d="M21 12L4 2v20l17-10z"></path>
-                  </g>
-                </svg>
-              </div>
-            )}
-          </a>
-        ))}
+        {tweet.mediaDetails?.map((media) =>
+          media.type === 'photo' ? (
+            <a
+              key={media.media_url_https}
+              href={getTweetUrl(tweet)}
+              className={clsx(s.mediaContainer, s.mediaLink)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={media.type === 'photo' ? 'Image' : 'Embedded Video'}
+            >
+              <Image
+                src={getMediaUrl(media, 'small')}
+                className={s.image}
+                alt={media.type === 'photo' ? 'Image' : 'Embedded Video'}
+                fill
+                draggable
+                unoptimized
+                priority={priority}
+              />
+            </a>
+          ) : (
+            <div key={media.media_url_https} className={s.mediaContainer}>
+              <TweetMediaVideo media={media} />
+            </div>
+          )
+        )}
       </div>
     </div>
   )

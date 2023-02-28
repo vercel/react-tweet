@@ -24,15 +24,17 @@
 .grid2x2 {
   grid-template-rows: repeat(2, 1fr);
 }
-.mediaLink {
+.mediaContainer {
   position: relative;
   height: 100%;
   width: 100%;
-  text-decoration: none;
-  outline-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.mediaLink {
+  text-decoration: none;
+  outline-style: none;
 }
 .skeleton {
   padding-bottom: 56.3542%;
@@ -48,30 +50,4 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-.videoButton {
-  position: relative;
-  height: 67px;
-  width: 67px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--tweet-color-blue-primary);
-  transition-property: background-color;
-  transition-duration: 0.2s;
-  border: 4px solid #fff;
-  border-radius: 9999px;
-  cursor: pointer;
-}
-.videoButton:hover {
-  background-color: rgb(26, 140, 216);
-}
-.videoButtonIcon {
-  margin-left: 3px;
-  width: calc(50% + 4px);
-  height: calc(50% + 4px);
-  max-width: 100%;
-  color: #fff;
-  fill: currentColor;
-  user-select: none;
 }
