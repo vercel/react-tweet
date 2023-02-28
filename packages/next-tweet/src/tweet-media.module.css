@@ -24,15 +24,17 @@
 .grid2x2 {
   grid-template-rows: repeat(2, 1fr);
 }
-.mediaLink {
+.mediaContainer {
   position: relative;
   height: 100%;
   width: 100%;
-  text-decoration: none;
-  outline-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.mediaLink {
+  text-decoration: none;
+  outline-style: none;
 }
 .skeleton {
   padding-bottom: 56.3542%;
@@ -48,7 +50,6 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: 12px;
 }
 .videoButton {
   position: relative;
