@@ -1,4 +1,5 @@
 [data-theme='light'] .next-tweet-theme,
+.light .next-tweet-theme,
 .next-tweet-theme {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
@@ -27,7 +28,8 @@
   --tweet-verified-blue-color: var(--tweet-color-blue-primary);
 }
 
-[data-theme='dark'] .next-tweet-theme {
+[data-theme='dark'] .next-tweet-theme,
+.dark .next-tweet-theme {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
     #15202b,
