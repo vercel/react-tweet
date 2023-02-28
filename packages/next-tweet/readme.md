@@ -69,6 +69,14 @@ The closest `data-theme` attribute on a parent element can determine the theme o
 </div>
 ```
 
+Alternatively, a parent with the class `light` or `dark` will also work:
+
+```tsx
+<div className="dark">
+  <NextTweet id={params.tweet} />
+</div>
+```
+
 ## How to use in the pages directory
 
 First, use the `getTweet` function from `next-tweet` to fetch the tweet and send it as props to the page component:
