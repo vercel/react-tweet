@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC, useState, useMemo } from 'react'
 import { MediaAnimatedGif } from './api'
 import { getMediaUrl } from './utils'
 import mediaStyles from './tweet-media.module.css'
@@ -12,12 +12,15 @@ type Props = {
 
 export const TweetMediaVideo: FC<Props> = ({ media }) => {
   const [playButton, setPlayButton] = useState(true)
-  const sortedMp4Videos = media.video_info.variants
-    .filter((vid) => vid.content_type === 'video/mp4')
-    .sort((a, b) => (b.bitrate ?? 0) - (a.bitrate ?? 0))
-  // Skip the highest quality video and use the next quality
-  const mp4Video =
-    sortedMp4Videos.length > 1 ? sortedMp4Videos[1] : sortedMp4Videos[0]
+  const { variants } = media.video_info
+  const mp4Video = useMemo(() => {
+    const sortedMp4Videos = variants
+      .filter((vid) => vid.content_type === 'video/mp4')
+      .sort((a, b) => (b.bitrate ?? 0) - (a.bitrate ?? 0))
+    // Skip the highest quality video and use the next quality
+
+    return sortedMp4Videos.length > 1 ? sortedMp4Videos[1] : sortedMp4Videos[0]
+  }, [variants])
 
   return (
     <>
