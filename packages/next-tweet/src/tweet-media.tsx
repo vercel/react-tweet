@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import type { Tweet } from './api'
 import { getMediaUrl, getTweetUrl } from './utils'
 import s from './tweet-media.module.css'
-import { VideoPlayer } from './tweet-video'
+import { TweetMediaVideo } from './tweet-media-video'
 
 type Props = {
   tweet: Tweet
@@ -47,7 +47,7 @@ export const TweetMedia: FC<Props> = ({ tweet, priority = false }) => {
             </a>
           ) : (
             <div key={media.media_url_https} className={s.mediaContainer}>
-              <VideoPlayer media={media} priority />
+              <TweetMediaVideo media={media} priority />
             </div>
           )
         )}

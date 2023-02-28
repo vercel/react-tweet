@@ -57,7 +57,7 @@ export interface MediaAnimatedGif extends MediaBase {
     aspect_ratio: [number, number]
     variants: {
       bitrate?: number
-      content_type: string
+      content_type: 'video/mp4' | 'application/x-mpegURL'
       url: string
     }[]
   }
