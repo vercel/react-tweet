@@ -19,6 +19,15 @@ export type Size = {
   resize: string
 }
 
+export interface VideoInfo {
+  aspect_ratio: [number, number]
+  variants: {
+    bitrate?: number
+    content_type: 'video/mp4' | 'application/x-mpegURL'
+    url: string
+  }[]
+}
+
 interface MediaBase {
   display_url: string
   expanded_url: string
@@ -52,15 +61,13 @@ export interface MediaPhoto extends MediaBase {
 }
 
 export interface MediaAnimatedGif extends MediaBase {
-  type: 'animated_gif' | 'video'
-  video_info: {
-    aspect_ratio: [number, number]
-    variants: {
-      bitrate?: number
-      content_type: 'video/mp4' | 'application/x-mpegURL'
-      url: string
-    }[]
-  }
+  type: 'animated_gif'
+  video_info: VideoInfo
 }
 
-export type MediaDetails = MediaPhoto | MediaAnimatedGif
+export interface MediaVideo extends MediaBase {
+  type: 'video'
+  video_info: VideoInfo
+}
+
+export type MediaDetails = MediaPhoto | MediaAnimatedGif | MediaVideo
