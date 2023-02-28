@@ -47,7 +47,7 @@ export const TweetMedia: FC<Props> = ({ tweet, priority = false }) => {
             </a>
           ) : (
             <div key={media.media_url_https} className={s.mediaContainer}>
-              <TweetMediaVideo media={media} priority />
+              <TweetMediaVideo media={media} />
             </div>
           )
         )}

@@ -1,13 +1,13 @@
 'use client'
 
-import { FC, useState, useMemo } from 'react'
-import { MediaAnimatedGif } from './api'
+import { type FC, useState, useMemo } from 'react'
+import type { MediaAnimatedGif, MediaVideo } from './api'
 import { getMediaUrl } from './utils'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 
 type Props = {
-  media: MediaAnimatedGif
+  media: MediaAnimatedGif | MediaVideo
 }
 
 export const TweetMediaVideo: FC<Props> = ({ media }) => {
