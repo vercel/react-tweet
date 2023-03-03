@@ -6,10 +6,6 @@ import TweetPage from '../../components/tweet-page'
 // const USERNAME = /^[a-zA-Z0-9_]+$/;
 const TWEET_ID = /^[0-9]+$/
 
-export async function getStaticPaths() {
-  return { paths: [], fallback: true }
-}
-
 export async function getStaticProps({
   params,
 }: {
@@ -28,6 +24,10 @@ export async function getStaticProps({
     console.error(error)
     return { notFound: true }
   }
+}
+
+export async function getStaticPaths() {
+  return { paths: [], fallback: true }
 }
 
 export default function Page({ tweet }: { tweet: Tweet }) {
