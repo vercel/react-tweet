@@ -1,8 +1,10 @@
+import clsx from 'clsx'
 import { Skeleton } from './skeleton'
 import styles from './tweet-skeleton.module.css'
+import './theme.css'
 
 export const TweetSkeleton = () => (
-  <div className={styles.container}>
+  <div className={clsx('next-tweet-theme', styles.container)}>
     <div className={styles.content}>
       <Skeleton style={{ height: '3rem', marginBottom: '0.75rem' }} />
       <Skeleton style={{ height: '6rem', margin: '0.5rem 0' }} />
