@@ -1,10 +1,9 @@
-import type { FC } from 'react'
 import type { Tweet } from './api'
 import { getLikeUrl, getReplyUrl, formatNumber } from './utils'
 import { TweetActionsCopy } from './tweet-actions-copy'
 import s from './tweet-actions.module.css'
 
-export const TweetActions: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
   const favoriteCount = formatNumber(tweet.favorite_count)
 
   return (

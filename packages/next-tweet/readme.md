@@ -4,19 +4,19 @@ Embedded and static tweet for Next.js applications.
 
 ## Installation
 
-> Next.js 13.2.1 or higher is required in order to use `next-tweet`. I have not yet tested it outside Next.js.
+> Next.js 13.2.1 or higher is required in order to use `next-tweet`.
 
 Install `next-tweet` using your package manager of choice:
 
 ```bash
 pnpm add next-tweet
+```
 
-# or
-
+```bash
 yarn add next-tweet
+```
 
-# or
-
+```bash
 npm install next-tweet
 ```
 
@@ -34,7 +34,9 @@ const nextConfig = {
 }
 ```
 
-## How to use in the app directory
+Now follow the usage instructions below. No API keys are required.
+
+## Usage with App Router
 
 In any component, import `NextTweet` from `next-tweet` and use it like so:
 
@@ -77,9 +79,9 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 </div>
 ```
 
-## How to use in the pages directory
+## Usage in pages directory
 
-First, use the `getTweet` function from `next-tweet` to fetch the tweet and send it as props to the page component:
+Use the `getTweet` function from `next-tweet` to fetch the tweet and send it as props to the page component:
 
 ```tsx
 import { getTweet, type Tweet } from 'next-tweet/api'
@@ -97,20 +99,23 @@ export async function getStaticProps({
   }
 }
 
+export async function getStaticPaths() {
+  return { paths: [], fallback: true }
+}
+
 export default function Page({ tweet }: { tweet: Tweet }) {
   return <TweetPage tweet={tweet} />
 }
 ```
 
-The `TweetPage` component uses `EmbeddedTweet` to render the tweet, and `TweetSkeleton` to render a skeleton in case you need a loading state (e.g. when using [`fallback: true`](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true) in `getStaticProps`):
+The `TweetPage` component uses `EmbeddedTweet` to render the tweet, and `TweetSkeleton` to render a skeleton in case you need a loading state (e.g. when using [`fallback: true`](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true) in `getStaticPaths`):
 
 ```tsx
-import type { FC } from 'react'
 import { useRouter } from 'next/router'
 import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
 import type { Tweet } from 'next-tweet/api'
 
-const TweetPage: FC<{ tweet: Tweet }> = ({ tweet }) => {
+const TweetPage = ({ tweet }: { tweet: Tweet }) => {
   const { isFallback } = useRouter()
 
   return (

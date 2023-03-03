@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
 import type { Tweet } from './api'
@@ -11,7 +10,7 @@ type Props = {
   priority?: boolean
 }
 
-export const TweetMedia: FC<Props> = ({ tweet, priority = false }) => {
+export const TweetMedia = ({ tweet, priority = false }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
 
   return (

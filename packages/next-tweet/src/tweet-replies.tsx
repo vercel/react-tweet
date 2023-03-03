@@ -1,9 +1,8 @@
-import type { FC } from 'react'
 import type { Tweet } from './api'
 import { getTweetUrl, formatNumber } from './utils'
 import s from './tweet-replies.module.css'
 
-export const TweetReplies: FC<{ tweet: Tweet }> = ({ tweet }) => (
+export const TweetReplies = ({ tweet }: { tweet: Tweet }) => (
   <div className={s.replies}>
     <a
       className={s.link}

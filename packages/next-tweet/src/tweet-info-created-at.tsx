@@ -1,13 +1,12 @@
 'use client'
 
-import type { FC } from 'react'
 import format from 'date-fns/format'
 import type { Tweet } from './api'
 import { getTweetUrl } from './utils'
 import useMounted from './lib/use-mounted'
 import s from './tweet-info-created-at.module.css'
 
-export const TweetInfoCreatedAt: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetInfoCreatedAt = ({ tweet }: { tweet: Tweet }) => {
   const mounted = useMounted()
   const createdAt =
     typeof window !== 'undefined' && mounted ? new Date(tweet.created_at) : null

@@ -1,9 +1,8 @@
-import type { FC } from 'react'
 import type { Tweet } from './api'
 import { getInReplyToUrl } from './utils'
 import s from './tweet-in-reply-to.module.css'
 
-export const TweetInReplyTo: FC<{ tweet: Tweet }> = ({ tweet }) => (
+export const TweetInReplyTo = ({ tweet }: { tweet: Tweet }) => (
   <a
     href={getInReplyToUrl(tweet)}
     className={s.root}

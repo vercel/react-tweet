@@ -1,9 +1,8 @@
-import type { FC } from 'react'
 import type { Tweet } from './api'
 import { TweetInfoCreatedAt } from './tweet-info-created-at'
 import s from './tweet-info.module.css'
 
-export const TweetInfo: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetInfo = ({ tweet }: { tweet: Tweet }) => {
   return (
     <div className={s.info}>
       <TweetInfoCreatedAt tweet={tweet} />

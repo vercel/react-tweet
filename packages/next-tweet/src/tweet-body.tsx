@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import type {
   Indices,
   Tweet,
@@ -71,7 +70,7 @@ function getEntities(tweet: Tweet) {
   return result
 }
 
-export const TweetBody: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetBody = ({ tweet }: { tweet: Tweet }) => {
   const entities = getEntities(tweet)
 
   return (
