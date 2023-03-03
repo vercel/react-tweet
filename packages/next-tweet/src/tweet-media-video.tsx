@@ -1,6 +1,6 @@
 'use client'
 
-import { type FC, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import type { MediaAnimatedGif, MediaVideo } from './api'
 import { getMediaUrl } from './utils'
 import mediaStyles from './tweet-media.module.css'
@@ -10,7 +10,7 @@ type Props = {
   media: MediaAnimatedGif | MediaVideo
 }
 
-export const TweetMediaVideo: FC<Props> = ({ media }) => {
+export const TweetMediaVideo = ({ media }: Props) => {
   const [playButton, setPlayButton] = useState(true)
   const { variants } = media.video_info
   const mp4Video = useMemo(() => {

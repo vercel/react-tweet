@@ -1,6 +1,6 @@
-import type { FC, HTMLAttributes } from 'react'
+import type { HTMLAttributes } from 'react'
 import styles from './skeleton.module.css'
 
-export const Skeleton: FC<HTMLAttributes<HTMLSpanElement>> = ({ style }) => (
+export const Skeleton = ({ style }: HTMLAttributes<HTMLSpanElement>) => (
   <span className={styles.skeleton} style={style} />
 )

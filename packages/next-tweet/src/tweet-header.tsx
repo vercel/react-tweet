@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
 import type { Tweet } from './api'
@@ -10,7 +9,7 @@ type Props = {
   priority?: boolean
 }
 
-export const TweetHeader: FC<Props> = ({ tweet, priority = false }) => {
+export const TweetHeader = ({ tweet, priority = false }: Props) => {
   const url = getUserUrl(tweet)
 
   return (

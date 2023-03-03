@@ -1,11 +1,11 @@
 'use client'
 
-import { type FC, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import type { Tweet } from './api'
 import { getTweetUrl } from './utils'
 import s from './tweet-actions.module.css'
 
-export const TweetActionsCopy: FC<{ tweet: Tweet }> = ({ tweet }) => {
+export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {
   const [copied, setCopied] = useState(false)
   const [copyAllText, setCopyAltText] = useState(false)
   const handleCopy = () => {

@@ -111,12 +111,11 @@ export default function Page({ tweet }: { tweet: Tweet }) {
 The `TweetPage` component uses `EmbeddedTweet` to render the tweet, and `TweetSkeleton` to render a skeleton in case you need a loading state (e.g. when using [`fallback: true`](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true) in `getStaticPaths`):
 
 ```tsx
-import type { FC } from 'react'
 import { useRouter } from 'next/router'
 import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
 import type { Tweet } from 'next-tweet/api'
 
-const TweetPage: FC<{ tweet: Tweet }> = ({ tweet }) => {
+const TweetPage = ({ tweet }: { tweet: Tweet }) => {
   const { isFallback } = useRouter()
 
   return (

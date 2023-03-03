@@ -1,15 +1,10 @@
-import type { FC, AnchorHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes } from 'react'
 import clsx from 'clsx'
 import s from './tweet-link.module.css'
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement>
 
-export const TweetLink: FC<Props> = ({
-  href,
-  className,
-  children,
-  ...props
-}) => (
+export const TweetLink = ({ href, className, children, ...props }: Props) => (
   <a
     href={href}
     className={clsx(s.root, className)}
