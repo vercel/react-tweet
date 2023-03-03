@@ -1,7 +1,7 @@
 {
   "name": "next-tweet",
   "version": "0.7.1",
-  "repository": "https://github.com/lfades/next-tweet.git",
+  "repository": "https://github.com/vercel-labs/next-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
     "build": "pnpm build:swc && pnpm types",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lfades/next-tweet/issues"
+    "url": "https://github.com/vercel-labs/next-tweet/issues"
   },
   "sideEffects": [
     "./dist/embedded-tweet.js"
