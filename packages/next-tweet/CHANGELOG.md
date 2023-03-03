@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.7.1
+
+### Patch Changes
+
+- 531bb40: Updated docs
+
 ## 0.7.0
 
 ### Minor Changes
