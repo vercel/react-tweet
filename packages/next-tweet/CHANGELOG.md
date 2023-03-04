@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.7.2
+
+### Patch Changes
+
+- af479ea: Fixed theme in skeleton
+
 ## 0.7.1
 
 ### Patch Changes
