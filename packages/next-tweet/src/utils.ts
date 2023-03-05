@@ -1,4 +1,4 @@
-import type { Tweet, MediaDetails, HashtagEntity } from './api'
+import type { Tweet, MediaDetails, HashtagEntity, SymbolEntity } from './api'
 
 export const getUserUrl = (usernameOrTweet: string | Tweet) =>
   `https://twitter.com/${
@@ -21,6 +21,9 @@ export const getFollowUrl = (tweet: Tweet) =>
 
 export const getHashtagUrl = (hashtag: HashtagEntity) =>
   `https://twitter.com/hashtag/${hashtag.text}`
+
+export const getSymbolUrl = (symbol: SymbolEntity) =>
+  `https://twitter.com/search?q=%24${symbol.text}`
 
 export const getInReplyToUrl = (tweet: Tweet) =>
   `https://twitter.com/${tweet.in_reply_to_screen_name}/status/${tweet.in_reply_to_status_id_str}`

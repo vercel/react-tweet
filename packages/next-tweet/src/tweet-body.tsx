@@ -5,8 +5,9 @@ import type {
   UserMentionEntity,
   UrlEntity,
   MediaEntity,
+  SymbolEntity,
 } from './api'
-import { getHashtagUrl, getUserUrl } from './utils'
+import { getHashtagUrl, getUserUrl, getSymbolUrl } from './utils'
 import { TweetLink } from './tweet-link'
 import s from './tweet-body.module.css'
 
@@ -21,10 +22,11 @@ type Entity =
   | (UserMentionEntity & { type: 'mention' })
   | (UrlEntity & { type: 'url' })
   | (MediaEntity & { type: 'media' })
+  | (SymbolEntity & { type: 'symbol' })
 
 function addEntities(
   result: Entity[],
-  entities: (HashtagEntity | UserMentionEntity | MediaEntity)[],
+  entities: (HashtagEntity | UserMentionEntity | MediaEntity | SymbolEntity)[],
   type: Entity['type']
 ) {
   for (const entity of entities) {
@@ -63,6 +65,7 @@ function getEntities(tweet: Tweet) {
   addEntities(result, tweet.entities.hashtags, 'hashtag')
   addEntities(result, tweet.entities.user_mentions, 'mention')
   addEntities(result, tweet.entities.urls, 'url')
+  addEntities(result, tweet.entities.symbols, 'symbol')
   if (tweet.entities.media) {
     addEntities(result, tweet.entities.media, 'media')
   }
@@ -95,6 +98,12 @@ export const TweetBody = ({ tweet }: { tweet: Tweet }) => {
             return (
               <TweetLink key={i} href={item.expanded_url}>
                 {item.display_url}
+              </TweetLink>
+            )
+          case 'symbol':
+            return (
+              <TweetLink key={i} href={getSymbolUrl(item)}>
+                {text}
               </TweetLink>
             )
           case 'media':
