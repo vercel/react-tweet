@@ -37,6 +37,7 @@ export const TweetMediaVideo = ({ media }: Props) => {
 
       {playButton && (
         <button
+          type="button"
           className={s.videoButton}
           aria-label="View video on Twitter"
           onClick={(e) => {
