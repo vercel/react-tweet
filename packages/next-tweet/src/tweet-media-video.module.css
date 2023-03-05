@@ -12,7 +12,8 @@
   border-radius: 9999px;
   cursor: pointer;
 }
-.videoButton:hover {
+.videoButton:hover,
+.videoButton:focus-visible {
   background-color: rgb(26, 140, 216);
 }
 .videoButtonIcon {
