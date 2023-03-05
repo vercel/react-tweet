@@ -36,9 +36,9 @@ export const TweetMediaVideo = ({ media }: Props) => {
       </video>
 
       {playButton && (
-        <div
+        <button
+          type="button"
           className={s.videoButton}
-          role="button"
           aria-label="View video on Twitter"
           onClick={(e) => {
             const video = e.currentTarget.previousSibling as HTMLMediaElement
@@ -57,7 +57,7 @@ export const TweetMediaVideo = ({ media }: Props) => {
               <path d="M21 12L4 2v20l17-10z"></path>
             </g>
           </svg>
-        </div>
+        </button>
       )}
     </>
   )
