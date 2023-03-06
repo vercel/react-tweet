@@ -7,6 +7,13 @@
   animation: loading 8s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background-position: 200% 0;
+  }
+}
+
 @keyframes loading {
   0% {
     background-position: 200% 0;
