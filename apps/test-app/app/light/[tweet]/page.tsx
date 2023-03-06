@@ -22,7 +22,6 @@ export async function generateMetadata({ params }: Props) {
   return { title: `${text}${username}` }
 }
 
-export default async function Page({ params }: Props) {
-  // @ts-ignore: Async components are valid in the app directory
+export default function Page({ params }: Props) {
   return <NextTweet id={params.tweet} priority />
 }

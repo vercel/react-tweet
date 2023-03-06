@@ -24,7 +24,7 @@ const Tweet = async ({ id, priority = false, notFoundOnError }: TweetProps) => {
   return <EmbeddedTweet tweet={tweet} priority={priority} />
 }
 
-export const NextTweet = async ({
+export const NextTweet = ({
   fallback = <TweetSkeleton />,
   ...props
 }: Props) => (
