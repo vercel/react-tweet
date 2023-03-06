@@ -102,7 +102,7 @@ export const TweetBody = ({ tweet }: { tweet: Tweet }) => {
             // that do match `display_text_range` so for those cases we ignore the content.
             return undefined
           default:
-            return <span key={i}>{text}</span>
+            return <span key={i} dangerouslySetInnerHTML={{ __html: text }} />
         }
       })}
     </p>
