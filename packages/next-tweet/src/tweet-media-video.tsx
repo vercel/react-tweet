@@ -31,6 +31,7 @@ export const TweetMediaVideo = ({ media }: Props) => {
         draggable
         muted
         preload="metadata"
+        tabIndex={playButton ? -1 : 0}
       >
         <source src={mp4Video.url} type={mp4Video.content_type} />
       </video>
@@ -46,6 +47,7 @@ export const TweetMediaVideo = ({ media }: Props) => {
             e.preventDefault()
             setPlayButton(false)
             video.play()
+            video.focus()
           }}
         >
           <svg
