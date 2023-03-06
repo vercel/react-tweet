@@ -10,6 +10,7 @@
 @media (prefers-reduced-motion: reduce) {
   .skeleton {
     animation: none;
+    background-position: 200% 0;
   }
 }
 
