@@ -7,6 +7,8 @@ import { getTweet } from 'next-tweet/api'
 const PORT = 5173
 const isTest = process.env.NODE_ENV === 'test'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
 async function createServer(
   root = process.cwd(),
   isProd = process.env.NODE_ENV === 'production'
