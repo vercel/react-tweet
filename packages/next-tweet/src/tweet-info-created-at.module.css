@@ -1,8 +1,8 @@
 .root {
   color: inherit;
   text-decoration: none;
-  font-size: 0.9375rem;
-  line-height: 1.25rem;
+  font-size: var(--tweet-info-font-size);
+  line-height: var(--tweet-info-line-height);
 }
 .root:hover {
   text-decoration-thickness: 1px;

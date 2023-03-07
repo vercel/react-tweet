@@ -1,6 +1,6 @@
 .root {
-  line-height: 1.5rem;
-  font-size: 1.25rem;
+  line-height: var(--tweet-body-line-height);
+  font-size: var(--tweet-body-font-size);
   overflow-wrap: break-word;
   white-space: pre-wrap;
 }

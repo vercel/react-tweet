@@ -1,6 +1,5 @@
 .replies {
-  padding-top: 0.25rem;
-  padding-bottom: 0.75rem;
+  padding: 0.25rem 0;
 }
 .link {
   text-decoration: none;
@@ -22,9 +21,9 @@
   background-color: var(--tweet-color-blue-secondary-hover);
 }
 .text {
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1rem;
+  font-weight: var(--tweet-replies-font-weight);
+  font-size: var(--tweet-replies-font-size);
+  line-height: var(--tweet-replies-line-height);
   overflow-wrap: break-word;
   white-space: nowrap;
   text-overflow: ellipsis;

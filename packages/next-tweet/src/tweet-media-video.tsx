@@ -17,8 +17,8 @@ export const TweetMediaVideo = ({ media }: Props) => {
     const sortedMp4Videos = variants
       .filter((vid) => vid.content_type === 'video/mp4')
       .sort((a, b) => (b.bitrate ?? 0) - (a.bitrate ?? 0))
-    // Skip the highest quality video and use the next quality
 
+    // Skip the highest quality video and use the next quality
     return sortedMp4Videos.length > 1 ? sortedMp4Videos[1] : sortedMp4Videos[0]
   }, [variants])
 

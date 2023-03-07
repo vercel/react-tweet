@@ -12,8 +12,8 @@
   text-decoration: none;
 }
 .infoLink {
-  height: 32px;
-  width: 32px;
+  height: var(--tweet-actions-icon-wrapper-size);
+  width: var(--tweet-actions-icon-wrapper-size);
   font: inherit;
   margin-left: auto;
   display: flex;
@@ -30,7 +30,7 @@
 .infoIcon {
   color: inherit;
   fill: currentColor;
-  height: 1.25em;
+  height: var(--tweet-actions-icon-size);
   user-select: none;
 }
 .infoLink:hover > .infoIcon {
