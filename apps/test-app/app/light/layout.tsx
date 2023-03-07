@@ -3,7 +3,7 @@ import cslx from 'clsx'
 import s from './layout.module.css'
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => (
-  <div data-theme="light">
+  <div data-theme="dark">
     <div className={cslx(s.root, 'next-tweet-theme')}>
       <main className={s.main}>{children}</main>
       <footer className={s.footer}>
