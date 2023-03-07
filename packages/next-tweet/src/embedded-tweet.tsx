@@ -32,11 +32,8 @@ export const EmbeddedTweet = ({ tweet, priority }: Props) => (
         </>
       ) : (
         <div className={s.notFound}>
-          <h3>Not Found</h3>
-          <p>
-            Sorry, we can&apos;t create an embed for that. It may have been
-            deleted or made private. Please try again.
-          </p>
+          <h3>Tweet not found</h3>
+          <p>The embedded tweet could not be found…</p>
         </div>
       )}
     </article>

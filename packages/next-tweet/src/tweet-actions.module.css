@@ -34,8 +34,8 @@
 .likeIconWrapper,
 .replyIconWrapper,
 .copyIconWrapper {
-  width: 32px;
-  height: 32px;
+  width: var(--tweet-actions-icon-wrapper-size);
+  height: var(--tweet-actions-icon-wrapper-size);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,7 @@
 .likeIcon,
 .replyIcon,
 .copyIcon {
-  height: 1.25em;
+  height: var(--tweet-actions-icon-size);
   fill: currentColor;
   user-select: none;
 }
@@ -55,9 +55,9 @@
 .likeCount,
 .replyText,
 .copyText {
-  font-size: 0.875rem;
-  font-weight: 700;
-  line-height: 1rem;
+  font-size: var(--tweet-actions-font-size);
+  font-weight: var(--tweet-actions-font-weight);
+  line-height: var(--tweet-actions-line-height);
   margin-left: 0.25rem;
 }
 

@@ -1,8 +1,8 @@
 .header {
   display: flex;
   padding-bottom: 0.75rem;
-  line-height: 1.25rem;
-  font-size: 0.9375rem;
+  line-height: var(--tweet-header-line-height);
+  font-size: var(--tweet-header-font-size);
   white-space: nowrap;
   overflow-wrap: break-word;
   overflow: hidden;

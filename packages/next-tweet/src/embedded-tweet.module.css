@@ -1,4 +1,5 @@
 .root {
+  width: 100%;
   min-width: 250px;
   max-width: 550px;
   overflow: hidden;
@@ -8,7 +9,7 @@
   box-sizing: border-box;
   /* Base font styles */
   color: var(--tweet-font-color);
-  font: var(--tweet-font-family);
+  font-family: var(--tweet-font-family);
   font-weight: 400;
 }
 .article {
