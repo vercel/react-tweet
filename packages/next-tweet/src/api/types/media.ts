@@ -58,6 +58,7 @@ interface MediaBase {
 
 export interface MediaPhoto extends MediaBase {
   type: 'photo'
+  ext_alt_text?: string
 }
 
 export interface MediaAnimatedGif extends MediaBase {
