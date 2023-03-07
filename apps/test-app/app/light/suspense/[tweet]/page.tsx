@@ -4,7 +4,7 @@ import TweetPage from './tweet-page'
 
 export const revalidate = 60
 
-export default async function Page({ params }: { params: { tweet: string } }) {
+export default function Page({ params }: { params: { tweet: string } }) {
   // TODO: Figure out why Next.js sends this value at build time
   if (params.tweet === '%5Btweet%5D') return null
   return (

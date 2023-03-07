@@ -44,7 +44,6 @@ In any component, import `NextTweet` from `next-tweet` and use it like so:
 import { NextTweet } from 'next-tweet'
 
 export default function Page({ params }: Props) {
-  // @ts-ignore: Async components are valid in the app directory
   return <NextTweet id={params.tweet} />
 }
 ```
