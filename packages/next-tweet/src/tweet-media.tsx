@@ -32,12 +32,11 @@ export const TweetMedia = ({ tweet, priority = false }: Props) => {
               className={clsx(s.mediaContainer, s.mediaLink)}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={media.type === 'photo' ? 'Image' : 'Embedded Video'}
             >
               <Image
                 src={getMediaUrl(media, 'small')}
                 className={s.image}
-                alt={media.type === 'photo' ? 'Image' : 'Embedded Video'}
+                alt={media.ext_alt_text || 'Image'}
                 fill
                 draggable
                 unoptimized
