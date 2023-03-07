@@ -33,7 +33,7 @@ export const TweetMedia = ({ tweet, priority = false }: Props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
+              {/* <Image
                 src={getMediaUrl(media, 'small')}
                 className={s.image}
                 alt={media.ext_alt_text || 'Image'}
@@ -41,6 +41,12 @@ export const TweetMedia = ({ tweet, priority = false }: Props) => {
                 draggable
                 unoptimized
                 priority={priority}
+              /> */}
+              <img
+                src={getMediaUrl(media, 'small')}
+                className={s.image}
+                alt={media.ext_alt_text || 'Image'}
+                draggable
               />
             </a>
           ) : (
