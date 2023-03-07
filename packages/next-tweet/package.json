@@ -1,6 +1,6 @@
 {
   "name": "next-tweet",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "repository": "https://github.com/vercel-labs/next-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {

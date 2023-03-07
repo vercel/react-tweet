@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.8.0
+
+### Minor Changes
+
+- f5a987e: Improved accessibility, added support for symbols, improved decoding and improved theming.
+
 ## 0.7.2
 
 ### Patch Changes
