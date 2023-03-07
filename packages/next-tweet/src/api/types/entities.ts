@@ -26,10 +26,15 @@ export interface UrlEntity {
   url: string
 }
 
+export interface SymbolEntity {
+  indices: Indices
+  text: string
+}
+
 export interface TweetEntities {
   hashtags: HashtagEntity[]
   urls: UrlEntity[]
   user_mentions: UserMentionEntity[]
-  symbols: { text: string }[]
+  symbols: SymbolEntity[]
   media?: MediaEntity[]
 }
