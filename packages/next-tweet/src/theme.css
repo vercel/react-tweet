@@ -28,9 +28,7 @@
   --tweet-replies-font-weight: 700;
 }
 
-[data-theme='light'] .next-tweet-theme,
-.light .next-tweet-theme,
-.next-tweet-theme {
+:is([data-theme='light'], .light) :where(.next-tweet-theme) {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
     #fafafa,
@@ -57,8 +55,7 @@
   --tweet-verified-blue-color: var(--tweet-color-blue-primary);
 }
 
-[data-theme='dark'] .next-tweet-theme,
-.dark .next-tweet-theme {
+:is([data-theme='dark'], .dark) :where(.next-tweet-theme) {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
     #15202b,
@@ -86,7 +83,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .next-tweet-theme {
+  :where(.next-tweet-theme) {
     --tweet-skeleton-gradient: linear-gradient(
       270deg,
       #15202b,
