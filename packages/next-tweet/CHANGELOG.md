@@ -1,5 +1,11 @@
 # next-tweet
 
+## 0.8.1
+
+### Patch Changes
+
+- 2c38f71: Fix default theme not loading styles
+
 ## 0.8.0
 
 ### Minor Changes
