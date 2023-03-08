@@ -18,7 +18,6 @@ export const EmbeddedTweet = ({ tweet, priority }: Props) => (
   <TweetContainer>
     {tweet ? (
       <>
-        i
         <TweetHeader tweet={tweet} priority={priority} />
         {tweet.in_reply_to_status_id_str && <TweetInReplyTo tweet={tweet} />}
         <TweetBody tweet={tweet} />
