@@ -1,9 +1,9 @@
-import type { TweetEditControl } from './edit'
-import type { Indices, TweetEntities } from './entities'
-import type { MediaDetails } from './media'
-import type { TweetPhoto } from './photo'
-import type { TweetUser } from './user'
-import type { TweetVideo } from './video'
+import type { TweetEditControl } from './edit.js'
+import type { Indices, TweetEntities } from './entities.js'
+import type { MediaDetails } from './media.js'
+import type { TweetPhoto } from './photo.js'
+import type { TweetUser } from './user.js'
+import type { TweetVideo } from './video.js'
 
 interface TweetBase {
   lang: string

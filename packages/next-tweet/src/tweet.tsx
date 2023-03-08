@@ -1,7 +1,7 @@
 import { Suspense, type ReactNode } from 'react'
-import { getTweet } from './api'
-import { EmbeddedTweet } from './embedded-tweet'
-import { TweetSkeleton } from './tweet-skeleton'
+import { getTweet } from './api/index.js'
+import { EmbeddedTweet } from './embedded-tweet.js'
+import { TweetSkeleton } from './tweet-skeleton.js'
 
 type TweetProps = {
   id: string

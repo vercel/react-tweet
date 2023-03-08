@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import clsx from 'clsx'
-import type { Tweet } from './api'
+import type { Tweet } from './api/index.js'
 import s from './tweet-header.module.css'
-import { getFollowUrl, getUserUrl } from './utils'
+import { getFollowUrl, getUserUrl } from './utils.js'
 
 type Props = {
   tweet: Tweet

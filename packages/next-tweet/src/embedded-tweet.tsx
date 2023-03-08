@@ -1,12 +1,12 @@
-import type { Tweet } from './api'
-import { TweetContainer } from './tweet-container'
-import { TweetHeader } from './tweet-header'
-import { TweetInReplyTo } from './tweet-in-reply-to'
-import { TweetBody } from './tweet-body'
-import { TweetMedia } from './tweet-media'
-import { TweetInfo } from './tweet-info'
-import { TweetActions } from './tweet-actions'
-import { TweetReplies } from './tweet-replies'
+import type { Tweet } from './api/index.js'
+import { TweetContainer } from './tweet-container.js'
+import { TweetHeader } from './tweet-header.js'
+import { TweetInReplyTo } from './tweet-in-reply-to.js'
+import { TweetBody } from './tweet-body.js'
+import { TweetMedia } from './tweet-media.js'
+import { TweetInfo } from './tweet-info.js'
+import { TweetActions } from './tweet-actions.js'
+import { TweetReplies } from './tweet-replies.js'
 import s from './embedded-tweet.module.css'
 
 type Props = {
@@ -18,6 +18,7 @@ export const EmbeddedTweet = ({ tweet, priority }: Props) => (
   <TweetContainer>
     {tweet ? (
       <>
+        i
         <TweetHeader tweet={tweet} priority={priority} />
         {tweet.in_reply_to_status_id_str && <TweetInReplyTo tweet={tweet} />}
         <TweetBody tweet={tweet} />

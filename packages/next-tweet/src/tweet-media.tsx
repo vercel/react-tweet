@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import clsx from 'clsx'
-import type { Tweet } from './api'
-import { getMediaUrl, getTweetUrl } from './utils'
+import type { Tweet } from './api/index.js'
+import { getMediaUrl, getTweetUrl } from './utils.js'
 import s from './tweet-media.module.css'
-import { TweetMediaVideo } from './tweet-media-video'
+import { TweetMediaVideo } from './tweet-media-video.js'
 
 type Props = {
   tweet: Tweet
