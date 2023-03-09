@@ -1,39 +1,20 @@
 import * as React from 'react'
-import type { HeadFC, PageProps } from 'gatsby'
 import clsx from 'clsx'
-import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
-import { type Tweet } from 'next-tweet/api'
-import useSWR from 'swr'
+import { NextTweet } from 'next-tweet'
 import styles from './index.module.css'
+// @ts-ignore - this is a workaround for https://github.com/gatsbyjs/gatsby/issues/19446
+import s from 'next-tweet/theme.css'
+console.log(s) // Don't remove this console log unless the workaround is not needed anymore
+import './base.css'
 
-async function fetcher(url: string) {
-  const res = await fetch(url)
-  const json = await res.json()
-  return json.data
-}
-
-const IndexPage = (props: PageProps) => {
-  const tweetId = '1628832338187636740'
-  const { data, error, isLoading } = useSWR<Tweet>(
-    `/api/tweet/${tweetId}`,
-    fetcher
-  )
-
-  return (
-    <div data-theme="dark">
-      <div className={clsx(styles.root, 'next-tweet-theme')}>
-        <main className={styles.main}>
-          {isLoading || error || !data ? (
-            <TweetSkeleton />
-          ) : (
-            <EmbeddedTweet tweet={data} />
-          )}
-        </main>
-      </div>
+const IndexPage = () => (
+  <div data-theme="dark">
+    <div className={clsx(styles.root, 'next-tweet-theme')}>
+      <main className={styles.main}>
+        <NextTweet id={'1628832338187636740'} priority />
+      </main>
     </div>
-  )
-}
+  </div>
+)
 
 export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>

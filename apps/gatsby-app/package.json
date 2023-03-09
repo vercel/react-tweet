@@ -12,10 +12,10 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "gatsby": "^5.7.0",
+    "gatsby": "5.8.0-next.2",
     "next-tweet": "workspace:*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "0.0.0-experimental-9fb2469a6-20230308",
+    "react-dom": "0.0.0-experimental-9fb2469a6-20230308",
     "swr": "^2.1.0"
   },
   "devDependencies": {
