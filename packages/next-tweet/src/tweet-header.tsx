@@ -23,13 +23,6 @@ export const TweetHeader = ({ tweet, components, priority = false }: Props) => {
         rel="noopener noreferrer"
       >
         <div className={s.avatarOverflow}>
-          {/* <Image
-            src={tweet.user.profile_image_url_https}
-            alt={tweet.user.name}
-            width={48}
-            height={48}
-            priority={priority}
-          /> */}
           <AvatarImg
             src={tweet.user.profile_image_url_https}
             alt={tweet.user.name}
