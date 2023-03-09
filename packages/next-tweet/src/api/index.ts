@@ -1,3 +1,3 @@
-export * from './types'
-export * from './get-tweet'
-export * from './get-oembed'
+export * from './types/index.js'
+export * from './get-tweet.js'
+export * from './get-oembed.js'

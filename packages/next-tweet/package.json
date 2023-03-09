@@ -8,7 +8,7 @@
     "build:swc": "swc src -d dist --copy-files",
     "dev": "pnpm build:swc -w",
     "types": "tsc --emitDeclarationOnly",
-    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint": "TIMING=1 eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "clean": "rm -rf dist && rm -rf .turbo"
   },
   "license": "MIT",
@@ -16,10 +16,11 @@
     "url": "https://github.com/vercel-labs/next-tweet/issues"
   },
   "sideEffects": [
-    "./dist/embedded-tweet.js"
+    "./dist/tweet-container.js"
   ],
   "type": "module",
   "exports": {
+    "./theme.css": "./dist/theme.css",
     ".": "./dist/index.js",
     "./*": [
       "./dist/*/index.js",
@@ -49,7 +50,6 @@
     }
   },
   "peerDependencies": {
-    "next": ">= 13.2.1",
     "react": ">= 18.0.0",
     "react-dom": ">= 18.0.0"
   },
@@ -65,6 +65,7 @@
     "@types/react": "^18.0.27",
     "chokidar": "^3.5.3",
     "eslint": "^8.34.0",
+    "eslint-config-next": "^13.2.3",
     "typescript": "^4.9.5"
   }
 }

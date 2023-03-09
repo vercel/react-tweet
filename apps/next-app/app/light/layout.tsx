@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from 'react'
-import cslx from 'clsx'
+import clsx from 'clsx'
 import s from './layout.module.css'
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => (
-  <div data-theme="dark">
-    <div className={cslx(s.root, 'next-tweet-theme')}>
+  <div>
+    <div className={clsx(s.root, 'next-tweet-theme')}>
       <main className={s.main}>{children}</main>
       <footer className={s.footer}>
         <p>🤯 This tweet was statically generated.</p>

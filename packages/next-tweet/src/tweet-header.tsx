@@ -1,16 +1,17 @@
-import Image from 'next/image'
 import clsx from 'clsx'
-import type { Tweet } from './api'
+import type { Tweet } from './api/index.js'
+import { getFollowUrl, getUserUrl } from './utils.js'
+import { type TweetComponents, defaultComponents } from './components.js'
 import s from './tweet-header.module.css'
-import { getFollowUrl, getUserUrl } from './utils'
 
 type Props = {
   tweet: Tweet
-  priority?: boolean
+  components?: TweetComponents
 }
 
-export const TweetHeader = ({ tweet, priority = false }: Props) => {
+export const TweetHeader = ({ tweet, components }: Props) => {
   const url = getUserUrl(tweet)
+  const AvatarImg = components?.AvatarImg ?? defaultComponents.AvatarImg
 
   return (
     <div className={s.header}>
@@ -21,12 +22,11 @@ export const TweetHeader = ({ tweet, priority = false }: Props) => {
         rel="noopener noreferrer"
       >
         <div className={s.avatarOverflow}>
-          <Image
+          <AvatarImg
             src={tweet.user.profile_image_url_https}
             alt={tweet.user.name}
             width={48}
             height={48}
-            priority={priority}
           />
         </div>
         <div className={s.avatarOverflow}>

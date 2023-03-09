@@ -1,3 +1,4 @@
-export * from './embedded-tweet'
-export * from './tweet-skeleton'
-export * from './tweet'
+export * from './embedded-tweet.js'
+export * from './tweet-skeleton.js'
+export * from './tweet.js'
+export * from './components.js'

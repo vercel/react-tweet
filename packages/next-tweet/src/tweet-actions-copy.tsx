@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import type { Tweet } from './api'
-import { getTweetUrl } from './utils'
+import type { Tweet } from './api/index.js'
+import { getTweetUrl } from './utils.js'
 import s from './tweet-actions.module.css'
 
 export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {

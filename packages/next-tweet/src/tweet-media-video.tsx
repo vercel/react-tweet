@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import type { MediaAnimatedGif, MediaVideo } from './api'
-import { getMediaUrl } from './utils'
+import type { MediaAnimatedGif, MediaVideo } from './api/index.js'
+import { getMediaUrl } from './utils.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 

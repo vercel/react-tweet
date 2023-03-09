@@ -20,10 +20,10 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "eslint": "^8.34.0",
-    "eslint-config-turbo": "^0.0.8",
+    "eslint": "^8.35.0",
+    "eslint-config-turbo": "^0.0.9",
     "prettier": "^2.8.4",
-    "turbo": "^1.8.2"
+    "turbo": "^1.8.3"
   },
   "packageManager": "pnpm@7.15.0"
 }

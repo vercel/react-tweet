@@ -6,9 +6,9 @@ import type {
   UrlEntity,
   MediaEntity,
   SymbolEntity,
-} from './api'
-import { getHashtagUrl, getUserUrl, getSymbolUrl } from './utils'
-import { TweetLink } from './tweet-link'
+} from './api/index.js'
+import { getHashtagUrl, getUserUrl, getSymbolUrl } from './utils.js'
+import { TweetLink } from './tweet-link.js'
 import s from './tweet-body.module.css'
 
 type TextEntity = {

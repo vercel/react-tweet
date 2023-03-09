@@ -1,5 +1,6 @@
 import { NextTweet } from 'next-tweet'
 import { getTweet } from 'next-tweet/api'
+import { components } from './tweet-components'
 
 type Props = {
   params: { tweet: string }
@@ -23,5 +24,5 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default function Page({ params }: Props) {
-  return <NextTweet id={params.tweet} priority />
+  return <NextTweet id={params.tweet} components={components} priority />
 }
