@@ -1,17 +1,19 @@
-import Image from 'next/image'
 import clsx from 'clsx'
 import type { Tweet } from './api/index.js'
 import { getMediaUrl, getTweetUrl } from './utils.js'
-import s from './tweet-media.module.css'
+import { type TweetComponents, defaultComponents } from './components.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
+import s from './tweet-media.module.css'
 
 type Props = {
   tweet: Tweet
+  components?: TweetComponents
   priority?: boolean
 }
 
-export const TweetMedia = ({ tweet, priority = false }: Props) => {
+export const TweetMedia = ({ tweet, components, priority = false }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
+  const MediaImg = components?.MediaImg ?? defaultComponents.MediaImg
 
   return (
     <div className={s.root}>
@@ -33,19 +35,10 @@ export const TweetMedia = ({ tweet, priority = false }: Props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {/* <Image
+              <MediaImg
                 src={getMediaUrl(media, 'small')}
-                className={s.image}
                 alt={media.ext_alt_text || 'Image'}
-                fill
-                draggable
-                unoptimized
-                priority={priority}
-              /> */}
-              <img
-                src={getMediaUrl(media, 'small')}
                 className={s.image}
-                alt={media.ext_alt_text || 'Image'}
                 draggable
               />
             </a>

@@ -1,4 +1,5 @@
 import type { Tweet } from './api/index.js'
+import type { TweetComponents } from './components.jsx'
 import { TweetContainer } from './tweet-container.js'
 import { TweetHeader } from './tweet-header.js'
 import { TweetInReplyTo } from './tweet-in-reply-to.js'
@@ -12,13 +13,18 @@ import s from './embedded-tweet.module.css'
 type Props = {
   tweet?: Tweet
   priority?: boolean
+  components?: TweetComponents
 }
 
-export const EmbeddedTweet = ({ tweet, priority }: Props) => (
+export const EmbeddedTweet = ({ tweet, components, priority }: Props) => (
   <TweetContainer>
     {tweet ? (
       <>
-        <TweetHeader tweet={tweet} priority={priority} />
+        <TweetHeader
+          tweet={tweet}
+          priority={priority}
+          components={components}
+        />
         {tweet.in_reply_to_status_id_str && <TweetInReplyTo tweet={tweet} />}
         <TweetBody tweet={tweet} />
         {tweet.mediaDetails?.length ? (
