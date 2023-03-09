@@ -24,5 +24,5 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default function Page({ params }: Props) {
-  return <NextTweet id={params.tweet} components={components} priority />
+  return <NextTweet id={params.tweet} components={components} />
 }
