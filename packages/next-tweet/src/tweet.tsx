@@ -7,7 +7,6 @@ import { TweetSkeleton } from './tweet-skeleton.js'
 type TweetProps = {
   id: string
   components?: TweetComponents
-  priority?: boolean
   notFoundOnError?: boolean
 }
 
@@ -15,12 +14,7 @@ type Props = TweetProps & {
   fallback?: ReactNode
 }
 
-const Tweet = async ({
-  id,
-  components,
-  priority = false,
-  notFoundOnError,
-}: TweetProps) => {
+const Tweet = async ({ id, components, notFoundOnError }: TweetProps) => {
   const tweet = await getTweet(id).catch((error) => {
     if (notFoundOnError) {
       console.error(error)
@@ -28,9 +22,7 @@ const Tweet = async ({
     }
     throw error
   })
-  return (
-    <EmbeddedTweet tweet={tweet} components={components} priority={priority} />
-  )
+  return <EmbeddedTweet tweet={tweet} components={components} />
 }
 
 export const NextTweet = ({

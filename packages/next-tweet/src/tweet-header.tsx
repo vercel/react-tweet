@@ -7,10 +7,9 @@ import s from './tweet-header.module.css'
 type Props = {
   tweet: Tweet
   components?: TweetComponents
-  priority?: boolean
 }
 
-export const TweetHeader = ({ tweet, components, priority = false }: Props) => {
+export const TweetHeader = ({ tweet, components }: Props) => {
   const url = getUserUrl(tweet)
   const AvatarImg = components?.AvatarImg ?? defaultComponents.AvatarImg
 

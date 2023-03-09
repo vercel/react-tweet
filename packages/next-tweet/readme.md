@@ -51,7 +51,6 @@ export default function Page({ params }: Props) {
 `NextTweet` accepts the following props:
 
 - `id` - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
-- `priority` - `boolean`: sets the [`priority` prop](https://nextjs.org/docs/basic-features/image-optimization#priority) in the Tweet's images. Only enable this if the tweet is visible above the fold. Defaults to `false`.
 - `notFoundOnError` - `boolean`: if `true`, the component will show a not found message if the tweet fails to load (invalid id, no longer exists, account went private, etc). Otherwise, it will throw an error. Defaults to `false`.
 
 `NextTweet` takes care of fetching the tweet and rendering it. You can see it working in the [test app](/apps/test-app/app/light/[tweet]/page.tsx) that's part of this monorepo.
@@ -119,11 +118,7 @@ const TweetPage = ({ tweet }: { tweet: Tweet }) => {
 
   return (
     <div data-theme="dark">
-      {isFallback ? (
-        <TweetSkeleton />
-      ) : (
-        <EmbeddedTweet tweet={tweet} priority />
-      )}
+      {isFallback ? <TweetSkeleton /> : <EmbeddedTweet tweet={tweet} />}
     </div>
   )
 }

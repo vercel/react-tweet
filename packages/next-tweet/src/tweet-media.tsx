@@ -8,10 +8,9 @@ import s from './tweet-media.module.css'
 type Props = {
   tweet: Tweet
   components?: TweetComponents
-  priority?: boolean
 }
 
-export const TweetMedia = ({ tweet, components, priority = false }: Props) => {
+export const TweetMedia = ({ tweet, components }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
   const MediaImg = components?.MediaImg ?? defaultComponents.MediaImg
 
