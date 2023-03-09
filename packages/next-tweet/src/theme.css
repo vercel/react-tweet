@@ -28,7 +28,8 @@
   --tweet-replies-font-weight: 700;
 }
 
-:is([data-theme='light'], .light) :where(.next-tweet-theme) {
+:is([data-theme='light'], .light) :where(.next-tweet-theme),
+:where(.next-tweet-theme) {
   --tweet-skeleton-gradient: linear-gradient(
     270deg,
     #fafafa,
