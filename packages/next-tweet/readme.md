@@ -53,7 +53,7 @@ export default function Page({ params }: Props) {
 - `id` - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
 - `notFoundOnError` - `boolean`: if `true`, the component will show a not found message if the tweet fails to load (invalid id, no longer exists, account went private, etc). Otherwise, it will throw an error. Defaults to `false`.
 
-`NextTweet` takes care of fetching the tweet and rendering it. You can see it working in the [test app](/apps/test-app/app/light/[tweet]/page.tsx) that's part of this monorepo.
+`NextTweet` takes care of fetching the tweet and rendering it. You can see it working in the [Next.js sample app](/apps/next-app/app/light/[tweet]/page.tsx) that's part of this monorepo.
 
 ## Choosing a theme
 
@@ -126,7 +126,7 @@ const TweetPage = ({ tweet }: { tweet: Tweet }) => {
 export default TweetPage
 ```
 
-You can see it working in the [test app](/apps/test-app/pages/dark/[tweet].tsx) that's part of this monorepo.
+You can see it working in the [test app](/apps/next-app/pages/dark/[tweet].tsx) that's part of this monorepo.
 
 ## Running the test app
 
