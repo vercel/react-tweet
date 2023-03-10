@@ -16,6 +16,8 @@ type MediaImgProps = {
 }
 
 export type TweetComponents = Partial<typeof defaultComponents>
+// Export the not found component as it could be useful to manually import it for SSG
+export { TweetNotFound }
 
 const AvatarImg = (props: AvatarImgProps) => <img {...props} />
 const MediaImg = (props: MediaImgProps) => <img {...props} />

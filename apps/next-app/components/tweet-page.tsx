@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-import { EmbeddedTweet, TweetSkeleton, Tweet } from 'next-tweet'
+import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
 import type { Tweet as ITweet } from 'next-tweet/api'
 import s from './tweet-page.module.css'
 
