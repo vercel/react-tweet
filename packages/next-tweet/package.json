@@ -20,35 +20,38 @@
   ],
   "type": "module",
   "exports": {
-    "./theme.css": "./dist/theme.css",
     ".": {
       "react-server": "./dist/index.js",
       "default": "./dist/index.client.js"
     },
-    "./*": [
-      "./dist/*/index.js",
-      "./dist/*.js"
-    ]
+    "./api": "./dist/api/index.js",
+    "./theme.css": "./dist/theme.css"
   },
   "files": [
     "dist/**/*.{js,d.ts,css}"
   ],
   "typesVersions": {
     "*": {
-      "*": [
-        "src/*/index",
-        "src/*"
-      ]
+      "index": [
+        "src/index"
+      ],
+      "api": [
+        "src/api/index"
+      ],
+      "*": []
     }
   },
   "publishConfig": {
     "access": "public",
     "typesVersions": {
       "*": {
-        "*": [
-          "dist/*/index.d.ts",
-          "dist/*.d.ts"
-        ]
+        "index": [
+          "dist/index.d.ts"
+        ],
+        "api": [
+          "dist/api/index.d.ts"
+        ],
+        "*": []
       }
     }
   },
