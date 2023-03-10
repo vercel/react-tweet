@@ -42,6 +42,7 @@ importers:
       '@types/react': ^18.0.28
       clsx: ^1.2.1
       date-fns: ^2.29.3
+      edge-cors: ^0.2.1
       eslint: ^8.35.0
       eslint-config-next: ^13.2.3
       next: 13.2.3
@@ -53,6 +54,7 @@ importers:
       '@next/mdx': 13.2.3
       clsx: 1.2.1
       date-fns: 2.29.3
+      edge-cors: 0.2.1
       next: 13.2.3_biqbaboplfbrettd7655fr4n2y
       next-tweet: link:../../packages/next-tweet
       react: 18.2.0
@@ -5173,6 +5175,10 @@ packages:
 
   /duplexer/0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
+    dev: false
+
+  /edge-cors/0.2.1:
+    resolution: {integrity: sha512-ti3F5g96Dx99/+CCPuNpmN0gO5eIxMOTwyMMgNTpxs2rXsmpg6A76yVQZkaKVroWJfJeH6slRqL1HNE52yr5TA==}
     dev: false
 
   /ee-first/1.1.1:
