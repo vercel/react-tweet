@@ -5,14 +5,10 @@ importers:
   .:
     specifiers:
       '@changesets/cli': ^2.26.0
-      eslint: ^8.35.0
-      eslint-config-turbo: ^0.0.9
       prettier: ^2.8.4
       turbo: ^1.8.3
     devDependencies:
       '@changesets/cli': 2.26.0
-      eslint: 8.35.0
-      eslint-config-turbo: 0.0.9_eslint@8.35.0
       prettier: 2.8.4
       turbo: 1.8.3
 
@@ -5487,15 +5483,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-config-turbo/0.0.9_eslint@8.35.0:
-    resolution: {integrity: sha512-j1cTdx3tRmKo0csyfQKhpuT8dynK9oddbK5nmrShoMpXI2qMbxHLYH7MWAid4FmJN8rYympy3VKw5U63Yazycg==}
-    peerDependencies:
-      eslint: '>6.6.0'
-    dependencies:
-      eslint: 8.35.0
-      eslint-plugin-turbo: 0.0.9_eslint@8.35.0
-    dev: true
-
   /eslint-import-resolver-node/0.3.7:
     resolution: {integrity: sha512-gozW2blMLJCeFpBwugLTGyvVjNoeo1knonXAcatC6bjPBZitotxdWf7Gimr25N4c0AAOo4eOUfaG82IJPDpqCA==}
     dependencies:
@@ -5889,14 +5876,6 @@ packages:
       - supports-color
       - typescript
     dev: false
-
-  /eslint-plugin-turbo/0.0.9_eslint@8.35.0:
-    resolution: {integrity: sha512-fEsuSnYU3GLtT+s66mUuzDL1LaSieIx5uk3tPO0ToGv7hI2XzOfP24aPkQItTBGl7kq2JaVkRzPwcnfz8hkp0w==}
-    peerDependencies:
-      eslint: '>6.6.0'
-    dependencies:
-      eslint: 8.35.0
-    dev: true
 
   /eslint-scope/5.1.1:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
