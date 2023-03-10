@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { Tweet } from 'next-tweet'
-import useSWR from 'swr'
 import styles from './app.module.css'
 import './base.css'
 
