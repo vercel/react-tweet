@@ -21,7 +21,10 @@
   "type": "module",
   "exports": {
     "./theme.css": "./dist/theme.css",
-    ".": "./dist/index.js",
+    ".": {
+      "react-server": "./dist/index.js",
+      "default": "./dist/index.client.js"
+    },
     "./*": [
       "./dist/*/index.js",
       "./dist/*.js"

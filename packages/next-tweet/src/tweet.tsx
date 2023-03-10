@@ -4,21 +4,17 @@ import { defaultComponents, TweetComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
 
-export type TweetConfig = {
+export type TweetProps = {
   fallback?: ReactNode
   components?: TweetComponents
   onError?(error: any): any
-}
-
-type TweetProps = TweetConfig & {
-  id: string
-}
+} & ({ id: string; apiUrl?: string } | { id?: string; apiUrl: string })
 
 type Props = Omit<TweetProps, 'fallback'>
 
-const Tweet = async ({ id, components, onError }: Props) => {
+const TweetContent = async ({ id, components, onError }: Props) => {
   let error
-  const tweet = await getTweet(id).catch((err) => {
+  const tweet = await getTweet(id!).catch((err) => {
     if (onError) {
       error = onError(err)
     } else {
@@ -36,12 +32,12 @@ const Tweet = async ({ id, components, onError }: Props) => {
   return <EmbeddedTweet tweet={tweet} components={components} />
 }
 
-export const NextTweet = ({
+export const Tweet = ({
   fallback = <TweetSkeleton />,
   ...props
 }: TweetProps) => (
   <Suspense fallback={fallback}>
     {/* @ts-ignore: Async components are valid in the app directory */}
-    <Tweet {...props} />
+    <TweetContent {...props} />
   </Suspense>
 )

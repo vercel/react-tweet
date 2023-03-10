@@ -1,28 +1,11 @@
 'use client'
 
-import { type ReactNode } from 'react'
 import useSWR from 'swr'
 import { Tweet as ITweet } from './api/index.js'
-import type { TweetConfig } from './tweet.js'
+import type { TweetProps } from './tweet.js'
 import { defaultComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
-
-type TweetProps = TweetConfig &
-  (
-    | {
-        id: string
-        apiUrl?: never
-      }
-    | {
-        id?: never
-        apiUrl: string
-      }
-  )
-
-type Props = TweetProps & {
-  fallback?: ReactNode
-}
 
 async function fetcher(url: string) {
   const res = await fetch(url)
@@ -30,13 +13,15 @@ async function fetcher(url: string) {
   return json.data
 }
 
-export const SWRTweet = ({
+export type { TweetProps }
+
+export const Tweet = ({
   id,
   apiUrl,
   fallback = <TweetSkeleton />,
   components,
   onError,
-}: Props) => {
+}: TweetProps) => {
   const { data, error, isLoading } = useSWR<ITweet>(
     apiUrl || `/api/tweet/${id}`,
     fetcher
