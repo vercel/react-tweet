@@ -2,23 +2,19 @@
   "name": "create-react-app",
   "main": "src/index.js",
   "scripts": {
-    "dev": "concurrently \"react-scripts start\" \"node server.mjs\"",
+    "dev": "react-scripts start",
     "build": "react-scripts build"
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "express": "^4.18.2",
     "next-tweet": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scripts": "5.0.1",
-    "swr": "^2.1.0"
+    "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "@babel/runtime": "7.21.0",
-    "concurrently": "^7.6.0"
+    "@babel/runtime": "7.21.0"
   },
-  "proxy": "http://localhost:4001",
   "browserslist": [
     ">0.2%",
     "not dead",

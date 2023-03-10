@@ -7,6 +7,8 @@ import { defaultComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
 
+const host = 'http://react-tweet-next-app-git-v1-vercel-labs.vercel.app'
+
 async function fetcher(url: string) {
   const res = await fetch(url)
   const json = await res.json()
@@ -23,7 +25,7 @@ export const Tweet = ({
   onError,
 }: TweetProps) => {
   const { data, error, isLoading } = useSWR<ITweet>(
-    apiUrl || `/api/tweet/${id}`,
+    apiUrl || `${host}/api/tweet/${id}`,
     fetcher
   )
 
