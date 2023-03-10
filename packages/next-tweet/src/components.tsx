@@ -1,3 +1,5 @@
+import { TweetNotFound } from './tweet-not-found.js'
+
 /* eslint-disable jsx-a11y/alt-text */
 type AvatarImgProps = {
   src: string
@@ -19,6 +21,7 @@ const AvatarImg = (props: AvatarImgProps) => <img {...props} />
 const MediaImg = (props: MediaImgProps) => <img {...props} />
 
 export const defaultComponents = {
+  TweetNotFound,
   AvatarImg,
   MediaImg,
 }
