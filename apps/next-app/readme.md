@@ -110,7 +110,7 @@ export default function Page() {
 Clone this repository and run the following commands:
 
 ```bash
-pnpm install && pnpm dev --filter=apps/next-app...
+pnpm install && pnpm dev --filter=next-app...
 ```
 
 The app shows the usage of `react-tweet` in different scenarios:
@@ -121,4 +121,4 @@ The app shows the usage of `react-tweet` in different scenarios:
 - http://localhost:3000/light/suspense/1629307668568633344 renders the tweet with a custom `Suspense` wrapper.
 - http://localhost:3000/dark/swr/1629307668568633344 uses `apiUrl` to change the API endpoint from which the tweet is fetched in SWR mode.
 
-The app uses the `react-tweet` package in the root directory, so you can make changes to the package and see the changes reflected in the app immediately.
+`react-tweet` is imported from the root directory, so you can make changes to the package and see the changes reflected in the app immediately.
