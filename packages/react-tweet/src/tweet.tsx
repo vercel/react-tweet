@@ -9,22 +9,24 @@ export type TweetProps = {
   components?: TweetComponents
   onError?(error: any): any
 } & (
-  | { id: string; apiUrl?: string }
   | { id?: string; apiUrl: string | undefined }
+  | { id: string; apiUrl?: string }
 )
 
 type Props = Omit<TweetProps, 'fallback'>
 
 const TweetContent = async ({ id, components, onError }: Props) => {
   let error
-  const tweet = await getTweet(id!).catch((err) => {
-    if (onError) {
-      error = onError(err)
-    } else {
-      console.error(err)
-      error = err
-    }
-  })
+  const tweet = id
+    ? await getTweet(id).catch((err) => {
+        if (onError) {
+          error = onError(err)
+        } else {
+          console.error(err)
+          error = err
+        }
+      })
+    : undefined
 
   if (!tweet) {
     const TweetNotFound =

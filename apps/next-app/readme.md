@@ -116,7 +116,7 @@ pnpm install && pnpm dev --filter=apps/next-app...
 The app shows the usage of `react-tweet` in different scenarios:
 
 - http://localhost:3000/light/1629307668568633344 renders the tweet in the app router.
-- http://localhost:3000/dark/1629307668568633344 renders the tweet in the pages directory.
+- http://localhost:3000/dark/1629307668568633344 renders the tweet using SSG in the pages directory.
 - http://localhost:3000/light/mdx rendes the tweet in MDX (with the experimental `mdxRs` config enabled).
 - http://localhost:3000/light/suspense/1629307668568633344 renders the tweet with a custom `Suspense` wrapper.
 - http://localhost:3000/dark/swr/1629307668568633344 uses `apiUrl` to change the API endpoint from which the tweet is fetched in SWR mode.
