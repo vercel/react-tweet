@@ -1,5 +1,9 @@
 {
   "name": "create-react-app",
+  "private": true,
+  "license": "MIT",
+  "repository": "https://github.com/vercel-labs/next-tweet.git",
+  "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "main": "src/index.js",
   "scripts": {
     "dev": "react-scripts start",
