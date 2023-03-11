@@ -10,7 +10,7 @@ Follow the [installation docs in the main README](/readme.md#installation).
 
 ## Usage
 
-In any component, import `Tweet` from `react-tweet` and use it like so:
+In any component, import [`Tweet`](/readme.md#tweet) from `react-tweet` and use it like so:
 
 ```tsx
 import { Tweet } from 'react-tweet'
@@ -22,9 +22,9 @@ export default function Page() {
 
 To see the code in action go to: [/apps/next-app/app/light/[tweet]/page.tsx](/apps/next-app/app/light/[tweet]/page.tsx).
 
-You can learn more about the `Tweet` component in the [API Reference](/readme.md#api-reference).
-
 `Tweet` works differently depending on where it's used. If it's used in the App Router it will fetch the tweet in the server. If it's used in the pages directory it will fetch the tweet in the client with [SWR](https://swr.vercel.app/).
+
+You can learn more about `react-tweet` in the [API Reference](/readme.md#api-reference).
 
 ## Advanced usage
 
@@ -82,7 +82,7 @@ const nextConfig = {
 }
 ```
 
-In `tweet-components.tsx` or elsewhere, import the `Image` component from `next/image` and use it to replace the default image components:
+In `tweet-components.tsx` or elsewhere, import the `Image` component from `next/image` and use it to define custom image components for the tweet:
 
 ```tsx
 import Image from 'next/image'
