@@ -1,5 +1,12 @@
 # react-tweet
 
+## 2.0.0
+
+### Major Changes
+
+- 54525e6: - Renamed `next-tweet` to `react-tweet`.
+  - The whole API has changed to be more flexible and work outside of Next.js.
+
 ## 0.8.1
 
 ### Patch Changes
