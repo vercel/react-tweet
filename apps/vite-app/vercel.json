@@ -1,0 +1,9 @@
+{
+  "ignoreCommand": "pnpm dlx turbo-ignore",
+  "rewrites": [
+    {
+      "source": "/((?!api/)[^.]+)",
+      "destination": "/"
+    }
+  ]
+}

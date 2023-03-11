@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  line-height: 1.65;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+html,
+body {
+  background: #fff;
+}
