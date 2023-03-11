@@ -21,6 +21,8 @@ npm install react-tweet
 Now follow the usage instructions for your framework or builder:
 
 - [Next.js](/apps/next-app/readme.md)
+- [Vite](/apps/vite-app/readme.md)
+- [Create React App](/apps/create-react-app/readme.md)
 
 ## Choosing a theme
 
@@ -43,6 +45,18 @@ Alternatively, a parent with the class `light` or `dark` will also work:
   <NextTweet id="1629307668568633344" />
 </div>
 ```
+
+### Updating the theme
+
+In CSS Modules, you can use the `:global` selector to update the CSS variables used by themes:
+
+```css
+.my-class :global(.react-tweet-theme) {
+  --tweet-body-font-size: 1rem;
+}
+```
+
+For Global CSS the usage of `:global` is not necessary.
 
 ## API Reference
 
