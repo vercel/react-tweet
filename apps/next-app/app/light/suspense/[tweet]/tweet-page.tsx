@@ -1,12 +1,14 @@
-import { notFound } from 'next/navigation'
 import { getTweet } from 'next-tweet/api'
-import { EmbeddedTweet } from 'next-tweet'
+import { EmbeddedTweet, TweetNotFound } from 'next-tweet'
 
 const TweetPage = async ({ id }: { id: string }) => {
-  const tweet = await getTweet(id)
-  if (!tweet) notFound()
-
-  return <EmbeddedTweet tweet={tweet} />
+  try {
+    const tweet = await getTweet(id)
+    return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />
+  } catch (error) {
+    console.error(error)
+    return <TweetNotFound error={error} />
+  }
 }
 
 export default TweetPage

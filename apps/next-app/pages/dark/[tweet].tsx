@@ -1,5 +1,7 @@
+import { useRouter } from 'next/router'
 import { getTweet, type Tweet } from 'next-tweet/api'
-import TweetPage from '../../components/tweet-page'
+import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
+import { TweetPage } from '../../components/tweet-page'
 
 // Regex to test a valid username, you should also test for a max length of 15, but we're not using
 // the user to get the tweet
@@ -31,5 +33,11 @@ export async function getStaticPaths() {
 }
 
 export default function Page({ tweet }: { tweet: Tweet }) {
-  return <TweetPage tweet={tweet} />
+  const { isFallback } = useRouter()
+
+  return (
+    <TweetPage>
+      {isFallback ? <TweetSkeleton /> : <EmbeddedTweet tweet={tweet} />}
+    </TweetPage>
+  )
 }
