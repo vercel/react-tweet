@@ -1,10 +1,8 @@
 # react-tweet
 
-Embedded and static tweet for Next.js applications.
+Embedded and static tweet for React applications.
 
 ## Installation
-
-> Next.js 13.2.1 or higher is required in order to use `react-tweet`.
 
 Install `react-tweet` using your package manager of choice:
 
@@ -20,40 +18,11 @@ yarn add react-tweet
 npm install react-tweet
 ```
 
-Currently, `react-tweet` uses `next/image` behind the scenes. You can configure `next/image` to accept image URLs from Twitter, by using [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in `next.config.js`:
+Now follow the usage instructions for your framework or builder:
 
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'pbs.twimg.com' },
-      { protocol: 'https', hostname: 'abs.twimg.com' },
-    ],
-  },
-}
-```
-
-Now follow the usage instructions below. No API keys are required.
-
-## Usage with App Router
-
-In any component, import `NextTweet` from `react-tweet` and use it like so:
-
-```tsx
-import { NextTweet } from 'react-tweet'
-
-export default function Page({ params }: Props) {
-  return <NextTweet id={params.tweet} />
-}
-```
-
-`NextTweet` accepts the following props:
-
-- `id` - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
-- `notFoundOnError` - `boolean`: if `true`, the component will show a not found message if the tweet fails to load (invalid id, no longer exists, account went private, etc). Otherwise, it will throw an error. Defaults to `false`.
-
-`NextTweet` takes care of fetching the tweet and rendering it. You can see it working in the [Next.js sample app](/apps/next-app/app/light/[tweet]/page.tsx) that's part of this monorepo.
+- [Next.js](/apps/next-app/readme.md)
+- [Vite](/apps/vite-app/readme.md)
+- [Create React App](/apps/create-react-app/readme.md)
 
 ## Choosing a theme
 
@@ -65,7 +34,7 @@ The closest `data-theme` attribute on a parent element can determine the theme o
 
 ```tsx
 <div data-theme="dark">
-  <NextTweet id={params.tweet} />
+  <NextTweet id="1629307668568633344" />
 </div>
 ```
 
@@ -73,69 +42,123 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 
 ```tsx
 <div className="dark">
-  <NextTweet id={params.tweet} />
+  <NextTweet id="1629307668568633344" />
 </div>
 ```
 
-## Usage in pages directory
+### Updating the theme
 
-Use the `getTweet` function from `react-tweet` to fetch the tweet and send it as props to the page component:
+In CSS Modules, you can use the `:global` selector to update the CSS variables used by themes:
+
+```css
+.my-class :global(.react-tweet-theme) {
+  --tweet-body-font-size: 1rem;
+}
+```
+
+For Global CSS the usage of `:global` is not necessary.
+
+## API Reference
+
+### `Tweet`
 
 ```tsx
-import { getTweet, type Tweet } from 'react-tweet/api'
-
-export async function getStaticProps({
-  params,
-}: {
-  params: { tweet: string }
-}) {
-  try {
-    const tweet = await getTweet(params.tweet)
-    return tweet ? { props: { tweet } } : { notFound: true }
-  } catch (error) {
-    return { notFound: true }
-  }
-}
-
-export async function getStaticPaths() {
-  return { paths: [], fallback: true }
-}
-
-export default function Page({ tweet }: { tweet: Tweet }) {
-  return <TweetPage tweet={tweet} />
-}
+import { Tweet } from 'react-tweet'
 ```
 
-The `TweetPage` component uses `EmbeddedTweet` to render the tweet, and `TweetSkeleton` to render a skeleton in case you need a loading state (e.g. when using [`fallback: true`](https://nextjs.org/docs/api-reference/data-fetching/get-static-paths#fallback-true) in `getStaticPaths`):
+Fetches and renders the tweet. It accepts the following props:
+
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
+- **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
+- **onError** - `(error?: any) => any`: The returned error will be sent to the `TweetNotFound` component.
+- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+
+If the environment where `Tweet` is used does not support React Server Components then it will work with [SWR](https://swr.vercel.app/) instead and the tweet will be fetched from `https://react-tweet.vercel.app/api/tweet/:id`, which is CORS friendly.
+
+We recommend adding your own API route to fetch the tweet in production. You can do it by using the `apiUrl` prop:
 
 ```tsx
-import { useRouter } from 'next/router'
-import { EmbeddedTweet, TweetSkeleton } from 'react-tweet'
-import type { Tweet } from 'react-tweet/api'
+<Tweet apiUrl={id && `/api/tweet/${id}`} />
+```
 
-const TweetPage = ({ tweet }: { tweet: Tweet }) => {
-  const { isFallback } = useRouter()
+> Note: `apiUrl` does nothing if the Tweet is rendered in a server component because it can fetch directly from Twitter's CDN.
 
-  return (
-    <div data-theme="dark">
-      {isFallback ? <TweetSkeleton /> : <EmbeddedTweet tweet={tweet} />}
-    </div>
-  )
+To see it in action go to: [/apps/next-app/pages/dark/swr/[tweet].tsx](/apps/next-app/pages/dark/swr/[tweet].tsx). And here's a good example of how to setup your own API route: [/apps/vite-app/api/tweet/[tweet].ts](/apps/vite-app/api/tweet/[tweet].ts).
+
+### `EmbeddedTweet`
+
+```tsx
+import { EmbeddedTweet } from 'react-tweet'
+```
+
+Renders a tweet. It accepts the following props:
+
+- **tweet** - `Tweet`: the tweet data, as returned by `getTweet`. Required.
+- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+
+### `TweetSkeleton`
+
+```tsx
+import { TweetSkeleton } from 'react-tweet'
+```
+
+A tweet skeleton useful for loading states.
+
+### `TweetNotFound`
+
+```tsx
+import { TweetNotFound } from 'react-tweet'
+```
+
+A tweet not found component. It accepts the following props:
+
+- **error** - `any`: the error that was thrown when fetching the tweet. Not required.
+
+### `getTweet`
+
+```tsx
+import { getTweet } from 'react-tweet/api'
+
+function getTweet(id: string): Promise<Tweet | undefined>
+```
+
+Fetches and returns the tweet data. It accepts the following params:
+
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
+
+If a tweet is not found it returns `undefined`.
+
+## Custom tweet components
+
+Default components used by [`Tweet`](#tweet) and [`EmbeddedTweet`](#embeddedtweet) can be replaced by passing a `components` prop. It extends the `TweetComponents` type exported from `react-tweet`:
+
+```ts
+type TweetComponents = {
+  TweetNotFound?: (props: Props) => JSX.Element
+  AvatarImg?: (props: AvatarImgProps) => JSX.Element
+  MediaImg?: (props: MediaImgProps) => JSX.Element
 }
-
-export default TweetPage
 ```
 
-You can see it working in the [test app](/apps/next-app/pages/dark/[tweet].tsx) that's part of this monorepo.
+For example, to replace the default `img` tag used for the avatar and media with `next/image` you can do the following:
 
-## Running the test app
+```tsx
+// tweet-components.tsx
+import Image from 'next/image'
+import type { TweetComponents } from 'react-tweet'
 
-Clone this repository and run the following command:
-
-```bash
-pnpm install && pnpm dev
+export const components: TweetComponents = {
+  AvatarImg: (props) => <Image {...props} />,
+  MediaImg: (props) => <Image {...props} fill unoptimized />,
+}
 ```
 
-Now visit http://localhost:3000/light/1629307668568633344 to see the tweet in the app directory, and http://localhost:3000/dark/1629307668568633344 to see the tweet in the pages directory.
+And then pass the components to `Tweet` or `EmbeddedTweet`:
 
-The test app uses the `react-tweet` package in the root directory, so you can make changes to the package and see the changes reflected in the test app immediately.
+```tsx
+import { components } from './tweet-components'
+
+const MyTweet = ({ id }: { id: string }) => (
+  <Tweet id={id} components={components} />
+)
+```

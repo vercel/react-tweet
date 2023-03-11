@@ -9,9 +9,6 @@ export default function App() {
       <main className={styles.main}>
         <Tweet id="1628832338187636740" />
       </main>
-      <footer className={styles.footer}>
-        <p>🤯 This tweet was statically generated.</p>
-      </footer>
     </div>
   )
 }
