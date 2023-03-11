@@ -5,11 +5,19 @@ import cors from 'edge-cors'
 type RouteSegment = { params: { id: string } }
 
 export async function GET(req: Request, { params }: RouteSegment) {
-  let tweet
   try {
-    tweet = await getTweet(params.id)
-  } catch (error) {
-    console.error(error)
+    const tweet = await getTweet(params.id)
+    return cors(
+      req,
+      NextResponse.json({ data: tweet ?? null }, { status: tweet ? 200 : 404 })
+    )
+  } catch (error: any) {
+    return cors(
+      req,
+      NextResponse.json(
+        { error: error.message ?? 'Bad Request' },
+        { status: 400 }
+      )
+    )
   }
-  return cors(req, NextResponse.json({ data: tweet ?? null }))
 }

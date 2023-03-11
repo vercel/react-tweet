@@ -1,26 +1,16 @@
-import type { FC } from 'react'
+import type { ReactNode } from 'react'
 import clsx from 'clsx'
-import { useRouter } from 'next/router'
-import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
-import type { Tweet as ITweet } from 'next-tweet/api'
 import s from './tweet-page.module.css'
 
-const TweetPage: FC<{ tweet: ITweet }> = ({ tweet }) => {
-  const { isFallback } = useRouter()
+type Props = { children?: ReactNode }
 
-  return (
-    <div data-theme="dark">
-      <div className={clsx(s.root, 'next-tweet-theme')}>
-        <main className={s.main}>
-          {isFallback ? <TweetSkeleton /> : <EmbeddedTweet tweet={tweet} />}
-        </main>
-
-        <footer className={s.footer}>
-          <p>🤯 This tweet was statically generated.</p>
-        </footer>
-      </div>
+export const TweetPage = ({ children }: Props) => (
+  <div data-theme="dark">
+    <div className={clsx(s.root, 'next-tweet-theme')}>
+      <main className={s.main}>{children}</main>
+      <footer className={s.footer}>
+        <p>🤯 This tweet was statically generated.</p>
+      </footer>
     </div>
-  )
-}
-
-export default TweetPage
+  </div>
+)
