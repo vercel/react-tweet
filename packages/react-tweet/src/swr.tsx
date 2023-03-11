@@ -7,7 +7,7 @@ import { defaultComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
 
-const host = 'https://react-tweet-next-app-git-v1-vercel-labs.vercel.app'
+const host = 'https://react-tweet.vercel.app'
 
 async function fetcher(url: string) {
   const res = await fetch(url)

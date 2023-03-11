@@ -15,7 +15,7 @@ export const TweetPage = () => {
     // `/api/tweet` does not run locally with the vite server but it will work on Vercel.
     import.meta.env.PROD
       ? `/api/tweet/${params.id}`
-      : `https://react-tweet-next-app-git-v1-vercel-labs.vercel.app/api/tweet/${params.id}`,
+      : `https://react-tweet.vercel.app/api/tweet/${params.id}`,
     fetcher
   )
 
