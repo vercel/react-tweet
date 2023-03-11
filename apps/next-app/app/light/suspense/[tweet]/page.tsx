@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { TweetSkeleton } from 'next-tweet'
+import { TweetSkeleton } from 'react-tweet'
 import TweetPage from './tweet-page'
 
 export const revalidate = 3600

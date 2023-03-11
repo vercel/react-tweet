@@ -16,16 +16,16 @@ importers:
     specifiers:
       '@babel/runtime': 7.21.0
       clsx: ^1.2.1
-      next-tweet: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
       react-scripts: 5.0.1
+      react-tweet: workspace:*
     dependencies:
       clsx: 1.2.1
-      next-tweet: link:../../packages/next-tweet
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-scripts: 5.0.1_ttstqpwd5x4n2qlxnjlizm3yxq
+      react-tweet: link:../../packages/next-tweet
     devDependencies:
       '@babel/runtime': 7.21.0
 
@@ -40,9 +40,9 @@ importers:
       eslint: ^8.35.0
       eslint-config-next: ^13.2.3
       next: 13.2.3
-      next-tweet: workspace:*
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-tweet: workspace:*
       typescript: ^4.9.5
     dependencies:
       '@next/mdx': 13.2.3
@@ -50,9 +50,9 @@ importers:
       date-fns: 2.29.3
       edge-cors: 0.2.1
       next: 13.2.3_biqbaboplfbrettd7655fr4n2y
-      next-tweet: link:../../packages/next-tweet
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-tweet: link:../../packages/next-tweet
     devDependencies:
       '@types/node': 18.14.6
       '@types/react': 18.0.28
@@ -67,19 +67,19 @@ importers:
       '@vercel/node': ^2.9.12
       '@vitejs/plugin-react-swc': ^3.0.0
       clsx: ^1.2.1
-      next-tweet: workspace:*
       react: ^18.2.0
       react-dom: ^18.2.0
       react-router-dom: ^6.9.0
+      react-tweet: workspace:*
       swr: ^2.1.0
       typescript: ^4.9.3
       vite: ^4.1.0
     dependencies:
       clsx: 1.2.1
-      next-tweet: link:../../packages/next-tweet
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
+      react-tweet: link:../../packages/next-tweet
       swr: 2.1.0_react@18.2.0
     devDependencies:
       '@types/react': 18.0.28

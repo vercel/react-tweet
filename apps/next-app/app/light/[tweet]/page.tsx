@@ -1,5 +1,5 @@
-import { Tweet } from 'next-tweet'
-import { getTweet } from 'next-tweet/api'
+import { Tweet } from 'react-tweet'
+import { getTweet } from 'react-tweet/api'
 import { components } from './tweet-components'
 
 type Props = {

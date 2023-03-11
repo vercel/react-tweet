@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { getTweet } from 'next-tweet/api'
+import { getTweet } from 'react-tweet/api'
 
 const handler = async (req: VercelRequest, res: VercelResponse) => {
   const tweetId = req.query.tweet

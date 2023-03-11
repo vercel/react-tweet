@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getTweet } from 'next-tweet/api'
+import { getTweet } from 'react-tweet/api'
 import cors from 'edge-cors'
 
 type RouteSegment = { params: { id: string } }

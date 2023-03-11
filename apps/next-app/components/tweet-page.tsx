@@ -6,7 +6,7 @@ type Props = { children?: ReactNode }
 
 export const TweetPage = ({ children }: Props) => (
   <div data-theme="dark">
-    <div className={clsx(s.root, 'next-tweet-theme')}>
+    <div className={clsx(s.root, 'react-tweet-theme')}>
       <main className={s.main}>{children}</main>
       <footer className={s.footer}>
         <p>🤯 This tweet was statically generated.</p>

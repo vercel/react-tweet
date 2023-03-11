@@ -1,4 +1,4 @@
-# next-tweet
+# react-tweet
 
 ## 0.8.1
 

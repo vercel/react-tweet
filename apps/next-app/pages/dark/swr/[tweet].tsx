@@ -1,4 +1,4 @@
-import { Tweet } from 'next-tweet'
+import { Tweet } from 'react-tweet'
 import { useRouter } from 'next/router'
 import { TweetPage } from '../../../components/tweet-page'
 

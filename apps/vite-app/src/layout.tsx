@@ -4,7 +4,7 @@ import styles from './layout.module.css'
 import './base.css'
 
 export const Layout = () => (
-  <div className={clsx(styles.root, 'next-tweet-theme')}>
+  <div className={clsx(styles.root, 'react-tweet-theme')}>
     <main className={styles.main}>
       <Outlet />
     </main>

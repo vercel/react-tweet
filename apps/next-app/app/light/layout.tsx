@@ -4,7 +4,7 @@ import s from './layout.module.css'
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => (
   <div data-theme="light">
-    <div className={clsx(s.root, 'next-tweet-theme')}>
+    <div className={clsx(s.root, 'react-tweet-theme')}>
       <main className={s.main}>{children}</main>
       <footer className={s.footer}>
         <p>🤯 This tweet was statically generated.</p>

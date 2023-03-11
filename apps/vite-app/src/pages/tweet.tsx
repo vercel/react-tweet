@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from 'next-tweet'
-import { type Tweet } from 'next-tweet/api'
+import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from 'react-tweet'
+import { type Tweet } from 'react-tweet/api'
 import useSWR from 'swr'
 
 async function fetcher(url: string) {

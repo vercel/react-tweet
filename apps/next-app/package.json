@@ -2,7 +2,7 @@
   "name": "next-app",
   "private": true,
   "license": "MIT",
-  "repository": "https://github.com/vercel-labs/next-tweet.git",
+  "repository": "https://github.com/vercel-labs/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,7 @@
     "date-fns": "^2.29.3",
     "edge-cors": "^0.2.1",
     "next": "13.2.3",
-    "next-tweet": "workspace:*",
+    "react-tweet": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

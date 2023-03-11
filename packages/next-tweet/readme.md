@@ -1,26 +1,26 @@
-# next-tweet
+# react-tweet
 
 Embedded and static tweet for Next.js applications.
 
 ## Installation
 
-> Next.js 13.2.1 or higher is required in order to use `next-tweet`.
+> Next.js 13.2.1 or higher is required in order to use `react-tweet`.
 
-Install `next-tweet` using your package manager of choice:
+Install `react-tweet` using your package manager of choice:
 
 ```bash
-pnpm add next-tweet
+pnpm add react-tweet
 ```
 
 ```bash
-yarn add next-tweet
+yarn add react-tweet
 ```
 
 ```bash
-npm install next-tweet
+npm install react-tweet
 ```
 
-Currently, `next-tweet` uses `next/image` behind the scenes. You can configure `next/image` to accept image URLs from Twitter, by using [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in `next.config.js`:
+Currently, `react-tweet` uses `next/image` behind the scenes. You can configure `next/image` to accept image URLs from Twitter, by using [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in `next.config.js`:
 
 ```js
 /** @type {import('next').NextConfig} */
@@ -38,10 +38,10 @@ Now follow the usage instructions below. No API keys are required.
 
 ## Usage with App Router
 
-In any component, import `NextTweet` from `next-tweet` and use it like so:
+In any component, import `NextTweet` from `react-tweet` and use it like so:
 
 ```tsx
-import { NextTweet } from 'next-tweet'
+import { NextTweet } from 'react-tweet'
 
 export default function Page({ params }: Props) {
   return <NextTweet id={params.tweet} />
@@ -79,10 +79,10 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 
 ## Usage in pages directory
 
-Use the `getTweet` function from `next-tweet` to fetch the tweet and send it as props to the page component:
+Use the `getTweet` function from `react-tweet` to fetch the tweet and send it as props to the page component:
 
 ```tsx
-import { getTweet, type Tweet } from 'next-tweet/api'
+import { getTweet, type Tweet } from 'react-tweet/api'
 
 export async function getStaticProps({
   params,
@@ -110,8 +110,8 @@ The `TweetPage` component uses `EmbeddedTweet` to render the tweet, and `TweetSk
 
 ```tsx
 import { useRouter } from 'next/router'
-import { EmbeddedTweet, TweetSkeleton } from 'next-tweet'
-import type { Tweet } from 'next-tweet/api'
+import { EmbeddedTweet, TweetSkeleton } from 'react-tweet'
+import type { Tweet } from 'react-tweet/api'
 
 const TweetPage = ({ tweet }: { tweet: Tweet }) => {
   const { isFallback } = useRouter()
@@ -138,4 +138,4 @@ pnpm install && pnpm dev
 
 Now visit http://localhost:3000/light/1629307668568633344 to see the tweet in the app directory, and http://localhost:3000/dark/1629307668568633344 to see the tweet in the pages directory.
 
-The test app uses the `next-tweet` package in the root directory, so you can make changes to the package and see the changes reflected in the test app immediately.
+The test app uses the `react-tweet` package in the root directory, so you can make changes to the package and see the changes reflected in the test app immediately.

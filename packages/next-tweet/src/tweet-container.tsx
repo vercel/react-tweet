@@ -6,7 +6,7 @@ import './theme.css'
 type Props = PropsWithChildren<{ className?: string }>
 
 export const TweetContainer = ({ className, children }: Props) => (
-  <div className={clsx('next-tweet-theme', s.root, className)}>
+  <div className={clsx('react-tweet-theme', s.root, className)}>
     <article className={s.article}>{children}</article>
   </div>
 )

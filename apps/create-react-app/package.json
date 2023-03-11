@@ -2,7 +2,7 @@
   "name": "create-react-app",
   "private": true,
   "license": "MIT",
-  "repository": "https://github.com/vercel-labs/next-tweet.git",
+  "repository": "https://github.com/vercel-labs/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "main": "src/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "next-tweet": "workspace:*",
+    "react-tweet": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"

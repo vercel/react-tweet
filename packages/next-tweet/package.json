@@ -1,7 +1,7 @@
 {
-  "name": "next-tweet",
+  "name": "react-tweet",
   "version": "0.8.1",
-  "repository": "https://github.com/vercel-labs/next-tweet.git",
+  "repository": "https://github.com/vercel-labs/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
     "build": "pnpm build:swc && pnpm types",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vercel-labs/next-tweet/issues"
+    "url": "https://github.com/vercel-labs/react-tweet/issues"
   },
   "sideEffects": [
     "./dist/tweet-container.js"
