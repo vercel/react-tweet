@@ -15,7 +15,7 @@ export async function GET(req: Request, { params }: RouteSegment) {
     return cors(
       req,
       NextResponse.json(
-        { error: error.message ?? 'Bad Request' },
+        { error: error.message ?? 'Bad request.' },
         { status: 400 }
       )
     )

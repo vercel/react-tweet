@@ -12,6 +12,9 @@ async function fetcher(url: string) {
 export const TweetPage = () => {
   const params = useParams()
   const { data, error, isLoading } = useSWR<Tweet>(
+    // This endpoint does not run locally with vite. It will work on Vercel.
+    // If you want to see the tweet locally uncomment the next line:
+    // `https://react-tweet-next-app-git-v1-vercel-labs.vercel.app/api/tweet/${params.id}`,
     `/api/tweet/${params.id}`,
     fetcher
   )

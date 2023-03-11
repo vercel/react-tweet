@@ -9,13 +9,13 @@ const handler = async (req: VercelRequest, res: VercelResponse) => {
     return
   }
 
-  let tweet
   try {
-    tweet = await getTweet(tweetId)
+    const tweet = await getTweet(tweetId)
+    res.status(tweet ? 200 : 404).json({ data: tweet ?? null })
   } catch (error) {
     console.error(error)
+    res.status(400).json({ error: error.message ?? 'Bad request.' })
   }
-  res.json({ data: tweet ?? null })
 }
 
 export default handler
