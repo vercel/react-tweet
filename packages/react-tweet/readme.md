@@ -4,8 +4,6 @@ Embedded and static tweet for React applications.
 
 ## Installation
 
-> Next.js 13.2.1 or higher is required in order to use `react-tweet`.
-
 Install `react-tweet` using your package manager of choice:
 
 ```bash
@@ -34,7 +32,7 @@ The closest `data-theme` attribute on a parent element can determine the theme o
 
 ```tsx
 <div data-theme="dark">
-  <NextTweet id={params.tweet} />
+  <NextTweet id="1629307668568633344" />
 </div>
 ```
 
@@ -42,7 +40,7 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 
 ```tsx
 <div className="dark">
-  <NextTweet id={params.tweet} />
+  <NextTweet id="1629307668568633344" />
 </div>
 ```
 
@@ -54,7 +52,7 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 import { Tweet } from 'react-tweet'
 ```
 
-`Tweet` accepts the following props:
+Fetches and renders the tweet. It accepts the following props:
 
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
 - **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
@@ -79,7 +77,7 @@ To see it in action go to: [/apps/next-app/pages/dark/swr/[tweet].tsx](/apps/nex
 import { EmbeddedTweet } from 'react-tweet'
 ```
 
-`EmbeddedTweet` accepts the following props:
+Renders a tweet. It accepts the following props:
 
 - **tweet** - `Tweet`: the tweet data, as returned by `getTweet`. Required.
 - **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
@@ -107,21 +105,46 @@ A tweet not found component. It accepts the following props:
 ```tsx
 import { getTweet } from 'react-tweet/api'
 
-await getTweet(id)
+function getTweet(id: string): Promise<Tweet | undefined>
 ```
 
 Fetches and returns the tweet data. It accepts the following params:
 
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
 
-## Running the test app
+If a tweet is not found it returns `undefined`.
 
-Clone this repository and run the following command:
+## Custom tweet components
 
-```bash
-pnpm install && pnpm dev
+Default components used by [`Tweet`](#tweet) and [`EmbeddedTweet`](#embeddedtweet) can be replaced by passing a `components` prop. It extends the `TweetComponents` type exported from `react-tweet`:
+
+```ts
+type TweetComponents = {
+  TweetNotFound?: (props: Props) => JSX.Element
+  AvatarImg?: (props: AvatarImgProps) => JSX.Element
+  MediaImg?: (props: MediaImgProps) => JSX.Element
+}
 ```
 
-Now visit http://localhost:3000/light/1629307668568633344 to see the tweet in the app directory, and http://localhost:3000/dark/1629307668568633344 to see the tweet in the pages directory.
+For example, to replace the default `img` tag used for the avatar and media with `next/image` you can do the following:
 
-The test app uses the `react-tweet` package in the root directory, so you can make changes to the package and see the changes reflected in the test app immediately.
+```tsx
+// tweet-components.tsx
+import Image from 'next/image'
+import type { TweetComponents } from 'react-tweet'
+
+export const components: TweetComponents = {
+  AvatarImg: (props) => <Image {...props} />,
+  MediaImg: (props) => <Image {...props} fill unoptimized />,
+}
+```
+
+And then pass the components to `Tweet` or `EmbeddedTweet`:
+
+```tsx
+import { components } from './tweet-components'
+
+const MyTweet = ({ id }: { id: string }) => (
+  <Tweet id={id} components={components} />
+)
+```
