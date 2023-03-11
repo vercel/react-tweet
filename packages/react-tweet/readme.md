@@ -34,7 +34,7 @@ The closest `data-theme` attribute on a parent element can determine the theme o
 
 ```tsx
 <div data-theme="dark">
-  <NextTweet id="1629307668568633344" />
+  <Tweet id="1629307668568633344" />
 </div>
 ```
 
@@ -42,7 +42,7 @@ Alternatively, a parent with the class `light` or `dark` will also work:
 
 ```tsx
 <div className="dark">
-  <NextTweet id="1629307668568633344" />
+  <Tweet id="1629307668568633344" />
 </div>
 ```
 
