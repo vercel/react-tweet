@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR from 'swr'
-import { Tweet as ITweet } from './api/index.js'
+import { Tweet as ITweet, TwitterApiError } from './api/index.js'
 import type { TweetProps } from './tweet.js'
 import { defaultComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
@@ -12,7 +12,14 @@ const host = 'https://react-tweet-next-app-git-v1-vercel-labs.vercel.app'
 async function fetcher(url: string) {
   const res = await fetch(url)
   const json = await res.json()
-  return json.data
+
+  if (res.ok) return json.data
+
+  throw new TwitterApiError({
+    message: `Failed to fetch tweet at "${url}" with "${res.status}".`,
+    data: json,
+    status: res.status,
+  })
 }
 
 export type { TweetProps }

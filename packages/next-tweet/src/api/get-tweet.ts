@@ -16,7 +16,7 @@ export class TwitterApiError extends Error {
     data: any
   }) {
     super(message)
-    this.name = 'TwitterError'
+    this.name = 'TwitterApiError'
     this.status = status
     this.data = data
   }
@@ -44,17 +44,17 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
     ].join(';')
   )
 
-  const res = await fetch(url.toString())
+  // The default `cache: 'force-cache'` can return 200 when there's an error
+  const res = await fetch(url.toString(), { cache: 'no-store' })
   const isJson = res.headers.get('content-type')?.includes('application/json')
+  const data = isJson ? await res.json() : undefined
 
-  if (res.ok) {
-    return isJson ? res.json() : undefined
-  }
+  if (res.ok) return data
   if (res.status === 404) return
 
   throw new TwitterApiError({
-    message: `Fetch for the embedded tweets of "${id}" failed with: ${res.status}`,
+    message: typeof data.error === 'string' ? data.error : 'Bad request.',
     status: res.status,
-    data: isJson ? await res.json() : undefined,
+    data,
   })
 }
