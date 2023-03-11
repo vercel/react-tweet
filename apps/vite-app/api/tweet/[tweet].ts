@@ -4,8 +4,8 @@ import { getTweet } from 'react-tweet/api'
 const handler = async (req: VercelRequest, res: VercelResponse) => {
   const tweetId = req.query.tweet
 
-  if (typeof tweetId !== 'string') {
-    res.status(400).json({ error: 'Invalid tweet ID' })
+  if (req.method !== 'GET' || typeof tweetId !== 'string') {
+    res.status(400).json({ error: 'Bad Request.' })
     return
   }
 

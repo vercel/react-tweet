@@ -8,7 +8,10 @@ export type TweetProps = {
   fallback?: ReactNode
   components?: TweetComponents
   onError?(error: any): any
-} & ({ id: string; apiUrl?: string } | { id?: string; apiUrl: string })
+} & (
+  | { id: string; apiUrl?: string }
+  | { id?: string; apiUrl: string | undefined }
+)
 
 type Props = Omit<TweetProps, 'fallback'>
 

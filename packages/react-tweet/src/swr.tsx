@@ -32,7 +32,7 @@ export const Tweet = ({
   onError,
 }: TweetProps) => {
   const { data, error, isLoading } = useSWR<ITweet>(
-    apiUrl || `${host}/api/tweet/${id}`,
+    apiUrl || (id && `${host}/api/tweet/${id}`),
     fetcher,
     {
       revalidateIfStale: false,
