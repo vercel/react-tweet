@@ -1,1 +1,1 @@
-./packages/next-tweet/readme.md
+./packages/react-tweet/readme.md
