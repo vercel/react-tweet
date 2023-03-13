@@ -19,7 +19,9 @@ export const EmbeddedTweet = ({ tweet, components }: Props) => (
     <TweetHeader tweet={tweet} components={components} />
     {tweet.in_reply_to_status_id_str && <TweetInReplyTo tweet={tweet} />}
     <TweetBody tweet={tweet} />
-    {tweet.mediaDetails?.length ? <TweetMedia tweet={tweet} /> : null}
+    {tweet.mediaDetails?.length ? (
+      <TweetMedia tweet={tweet} components={components} />
+    ) : null}
     <TweetInfo tweet={tweet} />
     <TweetActions tweet={tweet} />
     <TweetReplies tweet={tweet} />
