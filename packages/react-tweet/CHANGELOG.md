@@ -1,5 +1,14 @@
 # react-tweet
 
+## 2.0.1
+
+### Patch Changes
+
+- da92443: - Use `text-overflow: ellipsis` to truncate the user name when the width is small
+  - Updated components type for `EmbeddedTweet` to exclude not found.
+  - Added docs for CSS imports fix when importing the components in Next.js `pages`.
+  - Use custom `MediaImg` component if provided.
+
 ## 2.0.0
 
 ### Major Changes
