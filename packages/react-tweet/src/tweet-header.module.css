@@ -52,6 +52,9 @@
 }
 .authorLinkText {
   font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .authorVerifiedIcon {
   margin-left: 0.125rem;
