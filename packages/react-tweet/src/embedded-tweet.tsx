@@ -11,7 +11,7 @@ import { TweetReplies } from './tweet-replies.js'
 
 type Props = {
   tweet: Tweet
-  components?: TweetComponents
+  components?: Omit<TweetComponents, 'TweetNotFound'>
 }
 
 export const EmbeddedTweet = ({ tweet, components }: Props) => (
