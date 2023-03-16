@@ -26,6 +26,16 @@ To see the code in action go to: [/apps/next-app/app/light/[tweet]/page.tsx](/ap
 
 You can learn more about `react-tweet` in the [API Reference](/readme.md#api-reference).
 
+### Troubleshooting
+
+If you see an error saying that CSS can't be imported from `node_modules` in the `pages` directory. Add the following config to `next.config.js`:
+
+```js
+transpilePackages: ['react-tweet']
+```
+
+The error won't happen if the App Router is enabled, where [Next.js supports CSS imports from `node_modules`](https://github.com/vercel/next.js/discussions/27953#discussioncomment-3978605) and it also applies for the `pages` directory.
+
 ## Advanced usage
 
 ### Manual data fetching
