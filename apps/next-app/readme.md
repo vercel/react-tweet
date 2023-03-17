@@ -1,7 +1,5 @@
 # react-tweet for Next.js
 
-> Next.js 13.2.1 or higher is required in order to use `react-tweet`.
-
 ## Installation
 
 > Next.js 13.2.1 or higher is required in order to use `react-tweet`.
