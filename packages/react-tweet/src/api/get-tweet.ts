@@ -50,8 +50,7 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
     ].join(';')
   )
 
-  // The default `cache: 'force-cache'` can return 200 when there's an error
-  const res = await fetch(url.toString(), { cache: 'no-store' })
+  const res = await fetch(url.toString())
   const isJson = res.headers.get('content-type')?.includes('application/json')
   const data = isJson ? await res.json() : undefined
 
