@@ -75,7 +75,6 @@ function getEntities(tweet: Tweet) {
 
 export const TweetBody = ({ tweet }: { tweet: Tweet }) => {
   const entities = getEntities(tweet)
-  console.log(tweet.display_text_range)
 
   // Update display_text_range to work w/ Array.from
   // Array.from is unicode aware, unlike string.slice() 
