@@ -76,11 +76,20 @@ function getEntities(tweet: Tweet) {
 export const TweetBody = ({ tweet }: { tweet: Tweet }) => {
   const entities = getEntities(tweet)
 
+  // Update display_text_range to work w/ Array.from
+  // Array.from is unicode aware, unlike string.slice() 
+  if (tweet.entities.media && tweet.entities.media[0].indices[0] < tweet.display_text_range[1]) {
+    tweet.display_text_range[1] = tweet.entities.media[0].indices[0]
+  }
+  const lastEntity = entities.at(-1)
+  if (lastEntity && lastEntity.indices[1] > tweet.display_text_range[1]) {
+    lastEntity.indices[1] = tweet.display_text_range[1]
+  }
+
   return (
     <p className={s.root}>
       {entities.map((item, i) => {
-        const text = tweet.text.slice(...item.indices)
-
+        const text = Array.from(tweet.text).splice(item.indices[0], (item.indices[1] - item.indices[0])).join('')
         switch (item.type) {
           case 'hashtag':
             return (
