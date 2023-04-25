@@ -54,3 +54,11 @@ export const formatNumber = (n: number): string => {
   if (n > 999) return `${(n / 1000).toFixed(1)}K`
   return n.toString()
 }
+
+export const getRepliesLinkText = (count: number) => {
+  if (count === 0) return 'Read more on Twitter'
+
+  return count === 1
+    ? `Read ${formatNumber(count)} reply`
+    : `Read ${formatNumber(count)} replies`
+}
