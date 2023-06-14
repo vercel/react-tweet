@@ -1,15 +1,17 @@
 import clsx from 'clsx'
 import type { Tweet } from './api/index.js'
 import { getFollowUrl, getUserUrl } from './utils.js'
+import type { Locales } from './locales.js'
 import { type TweetComponents, defaultComponents } from './components.js'
 import s from './tweet-header.module.css'
 
 type Props = {
   tweet: Tweet
   components?: TweetComponents
+  locales: Locales['header']
 }
 
-export const TweetHeader = ({ tweet, components }: Props) => {
+export const TweetHeader = ({ tweet, components, locales }: Props) => {
   const url = getUserUrl(tweet)
   const AvatarImg = components?.AvatarImg ?? defaultComponents.AvatarImg
 
@@ -53,7 +55,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
               >
                 <svg
                   viewBox="0 0 24 24"
-                  aria-label="Verified account"
+                  aria-label={locales.author.verified.ariaLabel}
                   role="img"
                   className={s.authorVerifiedIcon}
                 >
@@ -83,7 +85,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Follow
+              {locales.authorMeta.followText}
             </a>
           </div>
         </div>
@@ -93,7 +95,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         className={s.brand}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="View on Twitter"
+        aria-label={locales.brand.ariaLabel}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true" className={s.twitterIcon}>
           <g>

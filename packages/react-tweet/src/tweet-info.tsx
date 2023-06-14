@@ -1,17 +1,23 @@
 import type { Tweet } from './api/index.js'
+import type { Locales } from './locales.js'
 import { TweetInfoCreatedAt } from './tweet-info-created-at.js'
 import s from './tweet-info.module.css'
 
-export const TweetInfo = ({ tweet }: { tweet: Tweet }) => {
+type Props = {
+  tweet: Tweet
+  locales: Locales['tweet']['info']
+}
+
+export const TweetInfo = ({ tweet, locales }: Props) => {
   return (
     <div className={s.info}>
-      <TweetInfoCreatedAt tweet={tweet} />
+      <TweetInfoCreatedAt tweet={tweet} locales={locales.createdAt} />
       <a
         className={s.infoLink}
         href="https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Twitter for Websites, Ads Information and Privacy"
+        aria-label={locales.ariaLabel}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true" className={s.infoIcon}>
           <g>

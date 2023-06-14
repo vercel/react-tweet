@@ -1,5 +1,6 @@
 import { Suspense, type ReactNode } from 'react'
 import { getTweet } from './api/index.js'
+import { type Locales, defaultLocales } from './locales.js'
 import { defaultComponents, TweetComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
@@ -7,6 +8,7 @@ import { TweetSkeleton } from './tweet-skeleton.js'
 export type TweetProps = {
   fallback?: ReactNode
   components?: TweetComponents
+  locales?: Locales
   onError?(error: any): any
 } & (
   | { id?: string; apiUrl: string | undefined }
@@ -15,7 +17,7 @@ export type TweetProps = {
 
 type Props = Omit<TweetProps, 'fallback'>
 
-const TweetContent = async ({ id, components, onError }: Props) => {
+const TweetContent = async ({ id, components, onError, locales = defaultLocales}: Props) => {
   let error
   const tweet = id
     ? await getTweet(id).catch((err) => {
@@ -31,10 +33,10 @@ const TweetContent = async ({ id, components, onError }: Props) => {
   if (!tweet) {
     const TweetNotFound =
       components?.TweetNotFound || defaultComponents.TweetNotFound
-    return <TweetNotFound error={error} />
+    return <TweetNotFound error={error} locales={locales.notFound} />
   }
 
-  return <EmbeddedTweet tweet={tweet} components={components} />
+  return <EmbeddedTweet tweet={tweet} components={components} locales={locales} />
 }
 
 export const Tweet = ({

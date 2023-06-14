@@ -1,11 +1,15 @@
 import type { Tweet } from './api/index.js'
-import { getLikeUrl, getReplyUrl, formatNumber } from './utils.js'
+import type { Locales } from './locales.js'
+import { getLikeUrl, getReplyUrl } from './utils.js'
 import { TweetActionsCopy } from './tweet-actions-copy.js'
 import s from './tweet-actions.module.css'
 
-export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
-  const favoriteCount = formatNumber(tweet.favorite_count)
+type Props = {
+  tweet: Tweet
+  locales: Locales['actions']
+}
 
+export const TweetActions = ({ tweet, locales }: Props) => {
   return (
     <div className={s.actions}>
       <a
@@ -13,7 +17,7 @@ export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
         href={getLikeUrl(tweet)}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Like. This Tweet has ${favoriteCount} likes`}
+        aria-label={locales.like.ariaLabel(tweet.favorite_count)}
       >
         <div className={s.likeIconWrapper}>
           <svg viewBox="0 0 24 24" className={s.likeIcon} aria-hidden="true">
@@ -22,14 +26,14 @@ export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
             </g>
           </svg>
         </div>
-        <span className={s.likeCount}>{favoriteCount}</span>
+        <span className={s.likeCount}>{locales.like.text(tweet.favorite_count)}</span>
       </a>
       <a
         className={s.reply}
         href={getReplyUrl(tweet)}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Reply to this Tweet on Twitter"
+        aria-label={locales.reply.ariaLabel}
       >
         <div className={s.replyIconWrapper}>
           <svg viewBox="0 0 24 24" className={s.replyIcon} aria-hidden="true">
@@ -38,9 +42,9 @@ export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
             </g>
           </svg>
         </div>
-        <span className={s.replyText}>Reply</span>
+        <span className={s.replyText}>{locales.reply.text}</span>
       </a>
-      <TweetActionsCopy tweet={tweet} />
+      <TweetActionsCopy tweet={tweet} locales={locales.copy} />
     </div>
   )
 }

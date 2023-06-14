@@ -2,15 +2,17 @@
 
 import { useState, useMemo } from 'react'
 import type { MediaAnimatedGif, MediaVideo } from './api/index.js'
+import type { Locales } from './locales.js'
 import { getMediaUrl } from './utils.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 
 type Props = {
   media: MediaAnimatedGif | MediaVideo
+  locales: Locales['tweet']['media']['video']
 }
 
-export const TweetMediaVideo = ({ media }: Props) => {
+export const TweetMediaVideo = ({ media, locales }: Props) => {
   const [playButton, setPlayButton] = useState(true)
   const { variants } = media.video_info
   const mp4Video = useMemo(() => {
@@ -40,7 +42,7 @@ export const TweetMediaVideo = ({ media }: Props) => {
         <button
           type="button"
           className={s.videoButton}
-          aria-label="View video on Twitter"
+          aria-label={locales.play.ariaLabel}
           onClick={(e) => {
             const video = e.currentTarget.previousSibling as HTMLMediaElement
 
