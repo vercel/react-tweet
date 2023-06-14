@@ -13,7 +13,7 @@ type Props = {
 
 export const TweetActionsCopy = ({ tweet, locales }: Props) => {
   const [copied, setCopied] = useState(false)
-  const [copyAllText, setCopyAltText] = useState(false)
+  const [copyAltText, setCopyAltText] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText(getTweetUrl(tweet))
     setCopied(true)
@@ -53,7 +53,7 @@ export const TweetActionsCopy = ({ tweet, locales }: Props) => {
         )}
       </div>
       <span className={s.copyText}>
-        {copied ? locales.done : copyAllText ? locales.altText : locales.text}
+        {copied ? locales.done : copyAltText ? locales.altText : locales.text}
       </span>
     </button>
   )
