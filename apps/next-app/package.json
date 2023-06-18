@@ -16,7 +16,7 @@
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
     "edge-cors": "^0.2.1",
-    "next": "13.2.3",
+    "next": "13.4.6",
     "react-tweet": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
