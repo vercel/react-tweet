@@ -63,3 +63,14 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
     data,
   })
 }
+
+export async function getTweets(ids: string[]): Promise<(Tweet | undefined)[]> {
+  const tweets = await Promise.allSettled(ids.map((id) => getTweet(id)))
+
+  return tweets.map((tweet) => {
+    if (tweet.status === 'fulfilled') return tweet.value
+
+    console.error(tweet.reason)
+    return undefined
+  })
+}
