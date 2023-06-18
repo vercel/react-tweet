@@ -74,6 +74,8 @@ export default function Page({ tweet }: { tweet: Tweet }) {
 
 To see the code in action go to: [/apps/next-app/pages/dark/[tweet].tsx](/apps/next-app/pages/dark/[tweet].tsx).
 
+You can also use `getTweets` function when you have an array of IDs. Take a look at [/apps/next-app/app/light/get-tweets/page.tsx](/apps/next-app/app/light/get-tweets/page.tsx).
+
 ### Adding `next/image`
 
 Add the domain URLs from Twitter to [`images.remotePatterns`](https://nextjs.org/docs/api-reference/next/image#remote-patterns) in `next.config.js`:
