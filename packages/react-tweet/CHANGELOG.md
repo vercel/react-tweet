@@ -1,5 +1,11 @@
 # react-tweet
 
+## 2.0.2
+
+### Patch Changes
+
+- 938522d: Check for default export in swr import
+
 ## 2.0.1
 
 ### Patch Changes
