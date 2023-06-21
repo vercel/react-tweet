@@ -162,3 +162,7 @@ const MyTweet = ({ id }: { id: string }) => (
   <Tweet id={id} components={components} />
 )
 ```
+
+## Troubleshooting
+
+Currently, `react-tweet` uses CSS Modules to scope the CSS of each component, so the bundler where it's used needs to support CSS Modules. If you get issues about your bundler not recognizing CSS Modules, please open an issue as we would like to know how well supported this is.

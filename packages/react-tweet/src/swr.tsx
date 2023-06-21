@@ -1,6 +1,6 @@
 'use client'
 
-import useSWR from 'swr'
+import swr from 'swr'
 import { Tweet as ITweet, TwitterApiError } from './api/index.js'
 import type { TweetProps } from './tweet.js'
 import { defaultComponents } from './components.js'
@@ -8,6 +8,8 @@ import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
 
 const host = 'https://react-tweet.vercel.app'
+// Avois an error when used in the pages directory where useSWR might be in `default`.
+const useSWR = ((swr as any).default as typeof swr) || swr
 
 async function fetcher(url: string) {
   const res = await fetch(url)
