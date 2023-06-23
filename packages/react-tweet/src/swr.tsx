@@ -1,7 +1,7 @@
 'use client'
 
 import type { TweetProps } from './tweet.js'
-import { defaultComponents } from './components.js'
+import { defaultComponents } from './twitter-theme/components.jsx'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
 import { useTweet } from './hooks.js'

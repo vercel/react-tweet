@@ -1,7 +1,10 @@
 import clsx from 'clsx'
 import type { Tweet } from './api/index.js'
 import { getFollowUrl, getUserUrl } from './utils.js'
-import { type TweetComponents, defaultComponents } from './components.js'
+import {
+  type TweetComponents,
+  defaultComponents,
+} from './twitter-theme/components.jsx'
 import s from './tweet-header.module.css'
 
 type Props = {

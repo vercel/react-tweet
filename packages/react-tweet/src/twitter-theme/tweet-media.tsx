@@ -1,7 +1,10 @@
 import clsx from 'clsx'
 import type { Tweet } from './api/index.js'
 import { getMediaUrl, getTweetUrl } from './utils.js'
-import { type TweetComponents, defaultComponents } from './components.js'
+import {
+  type TweetComponents,
+  defaultComponents,
+} from './twitter-theme/components.jsx'
 import { TweetMediaVideo } from './tweet-media-video.js'
 import s from './tweet-media.module.css'
 
