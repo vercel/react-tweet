@@ -1,17 +1,13 @@
-import type { AnchorHTMLAttributes } from 'react'
-import clsx from 'clsx'
+import type { ReactNode } from 'react'
 import s from './tweet-link.module.css'
 
-type Props = AnchorHTMLAttributes<HTMLAnchorElement>
+type Props = {
+  children: ReactNode
+  href: string
+}
 
-export const TweetLink = ({ href, className, children, ...props }: Props) => (
-  <a
-    href={href}
-    className={clsx(s.root, className)}
-    target="_blank"
-    rel="noopener noreferrer"
-    {...props}
-  >
+export const TweetLink = ({ href, children }: Props) => (
+  <a href={href} className={s.root} target="_blank" rel="noopener noreferrer">
     {children}
   </a>
 )
