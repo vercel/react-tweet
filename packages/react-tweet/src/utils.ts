@@ -3,7 +3,18 @@ import type {
   MediaDetails,
   HashtagEntity,
   SymbolEntity,
+  Indices,
+  UserMentionEntity,
+  UrlEntity,
+  MediaEntity,
 } from './api/index.js'
+
+export type TweetCoreProps = {
+  onError?(error: any): any
+} & (
+  | { id?: string; apiUrl: string | undefined }
+  | { id: string; apiUrl?: string }
+)
 
 export const getUserUrl = (usernameOrTweet: string | Tweet) =>
   `https://twitter.com/${
@@ -54,3 +65,88 @@ export const formatNumber = (n: number): string => {
   if (n > 999) return `${(n / 1000).toFixed(1)}K`
   return n.toString()
 }
+
+type TextEntity = {
+  indices: Indices
+  type: 'text'
+}
+
+type Entity =
+  | TextEntity
+  | (HashtagEntity & { type: 'hashtag' })
+  | (UserMentionEntity & { type: 'mention' })
+  | (UrlEntity & { type: 'url' })
+  | (MediaEntity & { type: 'media' })
+  | (SymbolEntity & { type: 'symbol' })
+
+export function getEntities(tweet: Tweet): Entity[] {
+  const result: Entity[] = [{ indices: tweet.display_text_range, type: 'text' }]
+
+  addEntities(result, tweet.entities.hashtags, 'hashtag')
+  addEntities(result, tweet.entities.user_mentions, 'mention')
+  addEntities(result, tweet.entities.urls, 'url')
+  addEntities(result, tweet.entities.symbols, 'symbol')
+  if (tweet.entities.media) {
+    addEntities(result, tweet.entities.media, 'media')
+  }
+  fixRange(tweet, result)
+
+  return result
+}
+
+function addEntities(
+  result: Entity[],
+  entities: (HashtagEntity | UserMentionEntity | MediaEntity | SymbolEntity)[],
+  type: Entity['type']
+) {
+  for (const entity of entities) {
+    for (const [i, item] of result.entries()) {
+      if (
+        entity.indices[0] < item.indices[0] ||
+        entity.indices[1] > item.indices[1]
+      ) {
+        continue
+      }
+
+      const items = [{ ...entity, type }] as Entity[]
+
+      if (item.indices[0] < entity.indices[0]) {
+        items.unshift({
+          indices: [item.indices[0], entity.indices[0]],
+          type: 'text',
+        })
+      }
+      if (item.indices[1] > entity.indices[1]) {
+        items.push({
+          indices: [entity.indices[1], item.indices[1]],
+          type: 'text',
+        })
+      }
+
+      result.splice(i, 1, ...items)
+      break // Break out of the loop to avoid iterating over the new items
+    }
+  }
+}
+
+/**
+ * Update display_text_range to work w/ Array.from
+ * Array.from is unicode aware, unlike string.slice()
+ */
+function fixRange(tweet: Tweet, entities: Entity[]) {
+  if (
+    tweet.entities.media &&
+    tweet.entities.media[0].indices[0] < tweet.display_text_range[1]
+  ) {
+    tweet.display_text_range[1] = tweet.entities.media[0].indices[0]
+  }
+  const lastEntity = entities.at(-1)
+  if (lastEntity && lastEntity.indices[1] > tweet.display_text_range[1]) {
+    lastEntity.indices[1] = tweet.display_text_range[1]
+  }
+}
+
+export const getEntityText = (tweet: Tweet, entity: Entity) =>
+  Array.from(tweet.text)
+    .splice(entity.indices[0], entity.indices[1] - entity.indices[0])
+    .join('')
