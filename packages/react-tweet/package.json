@@ -16,7 +16,7 @@
     "url": "https://github.com/vercel-labs/react-tweet/issues"
   },
   "sideEffects": [
-    "./dist/tweet-container.js"
+    "./dist/twitter-theme/tweet-container.js"
   ],
   "type": "module",
   "exports": {

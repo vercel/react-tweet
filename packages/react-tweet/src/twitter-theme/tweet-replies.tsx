@@ -1,5 +1,5 @@
-import type { Tweet } from './api/index.js'
-import { getTweetUrl, formatNumber } from './utils.js'
+import type { Tweet } from '../api/index.js'
+import { getTweetUrl, formatNumber } from '../utils.js'
 import s from './tweet-replies.module.css'
 
 export const TweetReplies = ({ tweet }: { tweet: Tweet }) => {

@@ -1,9 +1,9 @@
 'use client'
 
 import format from 'date-fns/format/index.js'
-import type { Tweet } from './api/index.js'
-import { getTweetUrl } from './utils.js'
-import useMounted from './lib/use-mounted.js'
+import type { Tweet } from '../api/index.js'
+import { getTweetUrl } from '../utils.js'
+import { useMounted } from '../hooks.js'
 import s from './tweet-info-created-at.module.css'
 
 export const TweetInfoCreatedAt = ({ tweet }: { tweet: Tweet }) => {

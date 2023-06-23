@@ -1,5 +1,5 @@
-import type { Tweet } from './api/index.js'
-import { getLikeUrl, getReplyUrl, formatNumber } from './utils.js'
+import type { Tweet } from '../api/index.js'
+import { getLikeUrl, getReplyUrl, formatNumber } from '../utils.js'
 import { TweetActionsCopy } from './tweet-actions-copy.js'
 import s from './tweet-actions.module.css'
 

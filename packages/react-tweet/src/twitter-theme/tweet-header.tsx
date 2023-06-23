@@ -1,15 +1,15 @@
 import clsx from 'clsx'
-import type { Tweet } from './api/index.js'
-import { getFollowUrl, getUserUrl } from './utils.js'
+import type { Tweet } from '../api/index.js'
+import { getFollowUrl, getUserUrl } from '../utils.js'
 import {
-  type TweetComponents,
+  type TwitterComponents,
   defaultComponents,
-} from './twitter-theme/components.jsx'
+} from './default-components.js'
 import s from './tweet-header.module.css'
 
 type Props = {
   tweet: Tweet
-  components?: TweetComponents
+  components?: TwitterComponents
 }
 
 export const TweetHeader = ({ tweet, components }: Props) => {

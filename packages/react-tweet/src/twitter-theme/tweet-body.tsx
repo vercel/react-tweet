@@ -1,11 +1,11 @@
-import type { Tweet } from './api/index.js'
+import type { Tweet } from '../api/index.js'
 import {
   getHashtagUrl,
   getUserUrl,
   getSymbolUrl,
   getEntities,
   getEntityText,
-} from './utils.js'
+} from '../utils.js'
 import { TweetLink } from './tweet-link.js'
 import s from './tweet-body.module.css'
 

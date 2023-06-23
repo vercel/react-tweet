@@ -1,4 +1,4 @@
-import type { Tweet } from './api/index.js'
+import type { Tweet } from '../api/index.js'
 import { TweetInfoCreatedAt } from './tweet-info-created-at.js'
 import s from './tweet-info.module.css'
 

@@ -1,5 +1,5 @@
-import type { Tweet } from './api/index.js'
-import type { TweetComponents } from './components.js'
+import type { Tweet } from '../api/index.js'
+import type { TwitterComponents } from './default-components.js'
 import { TweetContainer } from './tweet-container.js'
 import { TweetHeader } from './tweet-header.js'
 import { TweetInReplyTo } from './tweet-in-reply-to.js'
@@ -11,7 +11,7 @@ import { TweetReplies } from './tweet-replies.js'
 
 type Props = {
   tweet: Tweet
-  components?: Omit<TweetComponents, 'TweetNotFound'>
+  components?: Omit<TwitterComponents, 'TweetNotFound'>
 }
 
 export const EmbeddedTweet = ({ tweet, components }: Props) => (

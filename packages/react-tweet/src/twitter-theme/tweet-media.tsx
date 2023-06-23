@@ -1,16 +1,16 @@
 import clsx from 'clsx'
-import type { Tweet } from './api/index.js'
-import { getMediaUrl, getTweetUrl } from './utils.js'
+import type { Tweet } from '../api/index.js'
+import { getMediaUrl, getTweetUrl } from '../utils.js'
 import {
-  type TweetComponents,
+  type TwitterComponents,
   defaultComponents,
-} from './twitter-theme/components.jsx'
+} from './default-components.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
 import s from './tweet-media.module.css'
 
 type Props = {
   tweet: Tweet
-  components?: TweetComponents
+  components?: TwitterComponents
 }
 
 export const TweetMedia = ({ tweet, components }: Props) => {

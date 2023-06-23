@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import type { MediaAnimatedGif, MediaVideo } from './api/index.js'
-import { getMediaUrl } from './utils.js'
+import type { MediaAnimatedGif, MediaVideo } from '../api/index.js'
+import { getMediaUrl } from '../utils.js'
+import { useMp4Video } from '../hooks.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
-import { useMp4Video } from './hooks.js'
 
 type Props = {
   media: MediaAnimatedGif | MediaVideo
