@@ -3,19 +3,20 @@ import { getTweet } from './api/index.js'
 import { defaultComponents, TweetComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
 import { TweetSkeleton } from './tweet-skeleton.js'
+import type { TweetCoreProps } from './utils.js'
 
-export type TweetProps = {
+export type TweetProps = TweetCoreProps & {
   fallback?: ReactNode
   components?: TweetComponents
-  onError?(error: any): any
-} & (
-  | { id?: string; apiUrl: string | undefined }
-  | { id: string; apiUrl?: string }
-)
+}
 
-type Props = Omit<TweetProps, 'fallback'>
+export type TweetContentProps = Omit<TweetProps, 'fallback'>
 
-const TweetContent = async ({ id, components, onError }: Props) => {
+export const TweetContent = async ({
+  id,
+  components,
+  onError,
+}: TweetContentProps) => {
   let error
   const tweet = id
     ? await getTweet(id).catch((err) => {
