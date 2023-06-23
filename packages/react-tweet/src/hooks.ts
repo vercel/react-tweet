@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import swr from 'swr'
 import {
   TwitterApiError,
@@ -43,4 +43,12 @@ export const useMp4Video = (media: MediaAnimatedGif | MediaVideo) => {
   }, [variants])
 
   return mp4Video
+}
+
+export const useMounted = () => {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  return mounted
 }
