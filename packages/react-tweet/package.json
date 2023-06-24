@@ -25,7 +25,7 @@
       "default": "./dist/index.client.js"
     },
     "./api": "./dist/api/index.js",
-    "./theme.css": "./dist/theme.css"
+    "./theme.css": "./dist/twitter-theme/theme.css"
   },
   "files": [
     "dist/**/*.{js,d.ts,css}"
