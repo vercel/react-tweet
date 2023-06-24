@@ -1,9 +1,11 @@
 'use client'
 
 import type { TweetProps } from './tweet.js'
-import { defaultComponents } from './twitter-theme/components.jsx'
-import { EmbeddedTweet } from './embedded-tweet.js'
-import { TweetSkeleton } from './tweet-skeleton.js'
+import {
+  EmbeddedTweet,
+  TweetNotFound,
+  TweetSkeleton,
+} from './twitter-theme/components.js'
 import { useTweet } from './hooks.js'
 
 export type { TweetProps }
@@ -19,9 +21,8 @@ export const Tweet = ({
 
   if (isLoading) return fallback
   if (error || !data) {
-    const TweetNotFound =
-      components?.TweetNotFound || defaultComponents.TweetNotFound
-    return <TweetNotFound error={onError ? onError(error) : error} />
+    const NotFound = components?.TweetNotFound || TweetNotFound
+    return <NotFound error={onError ? onError(error) : error} />
   }
 
   return <EmbeddedTweet tweet={data} components={components} />

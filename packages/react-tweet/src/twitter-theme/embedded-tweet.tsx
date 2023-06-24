@@ -1,5 +1,5 @@
 import type { Tweet } from '../api/index.js'
-import type { TwitterComponents } from './default-components.js'
+import type { TwitterComponents } from './types.js'
 import { TweetContainer } from './tweet-container.js'
 import { TweetHeader } from './tweet-header.js'
 import { TweetInReplyTo } from './tweet-in-reply-to.js'

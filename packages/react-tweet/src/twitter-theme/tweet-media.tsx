@@ -1,11 +1,9 @@
 import clsx from 'clsx'
 import type { Tweet } from '../api/index.js'
 import { getMediaUrl, getTweetUrl } from '../utils.js'
-import {
-  type TwitterComponents,
-  defaultComponents,
-} from './default-components.js'
+import type { TwitterComponents } from './types.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
+import { MediaImg } from './media-img.js'
 import s from './tweet-media.module.css'
 
 type Props = {
@@ -15,7 +13,7 @@ type Props = {
 
 export const TweetMedia = ({ tweet, components }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
-  const MediaImg = components?.MediaImg ?? defaultComponents.MediaImg
+  const Img = components?.MediaImg ?? MediaImg
 
   return (
     <div className={s.root}>
@@ -37,7 +35,7 @@ export const TweetMedia = ({ tweet, components }: Props) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MediaImg
+              <Img
                 src={getMediaUrl(media, 'small')}
                 alt={media.ext_alt_text || 'Image'}
                 className={s.image}

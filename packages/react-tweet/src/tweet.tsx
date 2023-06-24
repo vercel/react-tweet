@@ -1,16 +1,16 @@
 import { Suspense, type ReactNode } from 'react'
 import { getTweet } from './api/index.js'
 import {
-  defaultComponents,
-  TweetComponents,
-} from './twitter-theme/components.jsx'
-import { EmbeddedTweet } from './embedded-tweet.js'
-import { TweetSkeleton } from './tweet-skeleton.js'
+  EmbeddedTweet,
+  TweetNotFound,
+  TweetSkeleton,
+  type TwitterComponents,
+} from './twitter-theme/components.js'
 import type { TweetCoreProps } from './utils.js'
 
 export type TweetProps = TweetCoreProps & {
   fallback?: ReactNode
-  components?: TweetComponents
+  components?: TwitterComponents
 }
 
 export type TweetContentProps = Omit<TweetProps, 'fallback'>
@@ -33,9 +33,8 @@ export const TweetContent = async ({
     : undefined
 
   if (!tweet) {
-    const TweetNotFound =
-      components?.TweetNotFound || defaultComponents.TweetNotFound
-    return <TweetNotFound error={error} />
+    const NotFound = components?.TweetNotFound || TweetNotFound
+    return <NotFound error={error} />
   }
 
   return <EmbeddedTweet tweet={tweet} components={components} />
