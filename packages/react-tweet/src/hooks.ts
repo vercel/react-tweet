@@ -17,7 +17,9 @@ async function fetcher(url: string) {
   const res = await fetch(url)
   const json = await res.json()
 
-  if (res.ok) return json.data
+  // We return null in case `json.data` is undefined, that way we can check for "loading" by
+  // checking if data is `undefined`. `null` means it was fetched.
+  if (res.ok) return json.data || null
 
   throw new TwitterApiError({
     message: `Failed to fetch tweet at "${url}" with "${res.status}".`,
@@ -26,12 +28,25 @@ async function fetcher(url: string) {
   })
 }
 
-export const useTweet = (id?: string, apiUrl?: string) =>
-  useSWR<Tweet>(apiUrl || (id && `${host}/api/tweet/${id}`), fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    shouldRetryOnError: false,
-  })
+export const useTweet = (id?: string, apiUrl?: string) => {
+  const { isLoading, data, error } = useSWR<Tweet>(
+    apiUrl || (id && `${host}/api/tweet/${id}`),
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+    }
+  )
+
+  return {
+    // If data is `undefined` then it might be the first render where SWR hasn't started doing
+    // any work, so we set `isLoading` to `true`.
+    isLoading: Boolean(isLoading || (data === undefined && !error)),
+    data,
+    error,
+  }
+}
 
 export const useMp4Video = (media: MediaAnimatedGif | MediaVideo) => {
   const { variants } = media.video_info
