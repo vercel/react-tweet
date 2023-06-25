@@ -7,7 +7,7 @@ import {
   type MediaAnimatedGif,
   type MediaVideo,
   type Tweet,
-} from './api'
+} from './api/index.js'
 
 // Avois an error when used in the pages directory where useSWR might be in `default`.
 const useSWR = ((swr as any).default as typeof swr) || swr
