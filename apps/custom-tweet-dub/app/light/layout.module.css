@@ -1,0 +1,17 @@
+.root {
+  font-family: var(--tweet-font-family);
+  color: var(--tweet-font-color);
+  background: var(--tweet-bg-color);
+  height: 100vh;
+  overflow: auto;
+  padding: 2rem 1rem;
+}
+.main {
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: -0.5rem;
+}

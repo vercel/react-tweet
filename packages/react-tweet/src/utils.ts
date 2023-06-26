@@ -7,6 +7,8 @@ import type {
   UserMentionEntity,
   UrlEntity,
   MediaEntity,
+  MediaAnimatedGif,
+  MediaVideo,
 } from './api/index.js'
 
 export type TweetCoreProps = {
@@ -58,6 +60,21 @@ export const getMediaUrl = (
   url.searchParams.set('name', size)
 
   return url.toString()
+}
+
+export const getMp4Videos = (media: MediaAnimatedGif | MediaVideo) => {
+  const { variants } = media.video_info
+  const sortedMp4Videos = variants
+    .filter((vid) => vid.content_type === 'video/mp4')
+    .sort((a, b) => (b.bitrate ?? 0) - (a.bitrate ?? 0))
+
+  return sortedMp4Videos
+}
+
+export const getMp4Video = (media: MediaAnimatedGif | MediaVideo) => {
+  const mp4Videos = getMp4Videos(media)
+  // Skip the highest quality video and use the next quality
+  return mp4Videos.length > 1 ? mp4Videos[1] : mp4Videos[0]
 }
 
 export const formatNumber = (n: number): string => {
