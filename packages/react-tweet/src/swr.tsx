@@ -2,6 +2,7 @@
 
 import swr from 'swr'
 import { Tweet as ITweet, TwitterApiError } from './api/index.js'
+import { type Locales, defaultLocales } from './locales.js'
 import type { TweetProps } from './tweet.js'
 import { defaultComponents } from './components.js'
 import { EmbeddedTweet } from './embedded-tweet.js'
@@ -31,6 +32,7 @@ export const Tweet = ({
   apiUrl,
   fallback = <TweetSkeleton />,
   components,
+  locales = defaultLocales,
   onError,
 }: TweetProps) => {
   const { data, error, isLoading } = useSWR<ITweet>(
@@ -47,8 +49,8 @@ export const Tweet = ({
   if (error || !data) {
     const TweetNotFound =
       components?.TweetNotFound || defaultComponents.TweetNotFound
-    return <TweetNotFound error={onError ? onError(error) : error} />
+    return <TweetNotFound error={onError ? onError(error) : error} locales={locales.notFound} />
   }
 
-  return <EmbeddedTweet tweet={data} components={components} />
+  return <EmbeddedTweet tweet={data} components={components} locales={locales} />
 }

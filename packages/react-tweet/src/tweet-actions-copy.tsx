@@ -2,12 +2,18 @@
 
 import { useState, useEffect } from 'react'
 import type { Tweet } from './api/index.js'
+import type { Locales } from './locales.js'
 import { getTweetUrl } from './utils.js'
 import s from './tweet-actions.module.css'
 
-export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {
+type Props = {
+  tweet: Tweet
+  locales: Locales['actions']['copy']
+}
+
+export const TweetActionsCopy = ({ tweet, locales }: Props) => {
   const [copied, setCopied] = useState(false)
-  const [copyAllText, setCopyAltText] = useState(false)
+  const [copyAltText, setCopyAltText] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText(getTweetUrl(tweet))
     setCopied(true)
@@ -28,7 +34,7 @@ export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {
     <button
       type="button"
       className={s.copy}
-      aria-label="Copy link"
+      aria-label={locales.ariaLabel}
       onClick={handleCopy}
     >
       <div className={s.copyIconWrapper}>
@@ -47,7 +53,7 @@ export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {
         )}
       </div>
       <span className={s.copyText}>
-        {copied ? 'Copied!' : copyAllText ? 'Copy link to Tweet' : 'Copy link'}
+        {copied ? locales.done : copyAltText ? locales.altText : locales.text}
       </span>
     </button>
   )

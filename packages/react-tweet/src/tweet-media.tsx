@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import type { Tweet } from './api/index.js'
+import type { Locales } from './locales.js'
 import { getMediaUrl, getTweetUrl } from './utils.js'
 import { type TweetComponents, defaultComponents } from './components.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
@@ -8,9 +9,10 @@ import s from './tweet-media.module.css'
 type Props = {
   tweet: Tweet
   components?: TweetComponents
+  locales: Locales['tweet']['media']
 }
 
-export const TweetMedia = ({ tweet, components }: Props) => {
+export const TweetMedia = ({ tweet, components, locales }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
   const MediaImg = components?.MediaImg ?? defaultComponents.MediaImg
 
@@ -43,7 +45,7 @@ export const TweetMedia = ({ tweet, components }: Props) => {
             </a>
           ) : (
             <div key={media.media_url_https} className={s.mediaContainer}>
-              <TweetMediaVideo media={media} />
+              <TweetMediaVideo media={media} locales={locales.video} />
             </div>
           )
         )}

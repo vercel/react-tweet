@@ -72,6 +72,7 @@ Fetches and renders the tweet. It accepts the following props:
 - **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
 - **onError** - `(error?: any) => any`: The returned error will be sent to the `TweetNotFound` component.
 - **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+- **locales** - `Locales`: Locales to replace the default locales.
 
 If the environment where `Tweet` is used does not support React Server Components then it will work with [SWR](https://swr.vercel.app/) instead and the tweet will be fetched from `https://react-tweet.vercel.app/api/tweet/:id`, which is CORS friendly.
 
@@ -95,6 +96,7 @@ Renders a tweet. It accepts the following props:
 
 - **tweet** - `Tweet`: the tweet data, as returned by `getTweet`. Required.
 - **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+- **locales** - `Locales`: Locales to replace the default locales.
 
 ### `TweetSkeleton`
 
