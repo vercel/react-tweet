@@ -1,5 +1,5 @@
 import type { Tweet } from 'react-tweet/api'
-import { getInReplyToUrl, getTweetUrl, getUserUrl } from 'react-tweet'
+import { getTweetUrl, getUserUrl } from 'react-tweet'
 import { truncate } from './utils'
 import { Twitter } from './icons'
 import BlurImage from './blur-image'

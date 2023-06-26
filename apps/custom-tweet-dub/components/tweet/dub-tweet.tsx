@@ -2,7 +2,7 @@
 
 import type { Tweet } from 'react-tweet/api'
 import { nFormatter } from './utils'
-import { Heart, Message, Repeat } from './icons'
+import { Heart, Message } from './icons'
 import Tilt from 'react-parallax-tilt'
 import {
   getInReplyToUrl,
