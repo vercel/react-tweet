@@ -1,15 +1,13 @@
-'use client'
-
 import type { Tweet } from 'react-tweet/api'
-import { nFormatter } from './utils'
-import { Heart, Message } from './icons'
-import Tilt from 'react-parallax-tilt'
 import {
   getInReplyToUrl,
   getLikeUrl,
   getReplyUrl,
   getTweetUrl,
 } from 'react-tweet'
+import { nFormatter } from './utils'
+import { Heart, Message } from './icons'
+import { Tilt } from './tilt'
 import { TweetHeader } from './tweet-header'
 import { TweetText } from './tweet-text'
 import { TweetMedia } from './tweet-media'
@@ -41,7 +39,6 @@ export const DubTweet = ({
         )}
         <TweetText tweet={tweet} />
       </div>
-
       {/* Images, Preview images, videos, polls, etc. */}
       <div className="-mb-2 mt-3">
         {tweet.mediaDetails?.length ? (
@@ -60,7 +57,6 @@ export const DubTweet = ({
           </div>
         ) : null}
       </div>
-
       <div className="flex justify-center space-x-8 text-sm text-gray-500 mt-5">
         <a
           className="group flex items-center space-x-3 hover:text-red-600"
