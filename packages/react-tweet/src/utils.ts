@@ -12,11 +12,9 @@ import type {
 } from './api/index.js'
 
 export type TweetCoreProps = {
+  id: string
   onError?(error: any): any
-} & (
-  | { id?: string; apiUrl: string | undefined }
-  | { id: string; apiUrl?: string }
-)
+}
 
 export const getUserUrl = (usernameOrTweet: string | Tweet) =>
   `https://twitter.com/${
