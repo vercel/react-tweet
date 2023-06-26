@@ -2,8 +2,7 @@
 
 import { useState } from 'react'
 import type { MediaAnimatedGif, MediaVideo } from '../api/index.js'
-import { getMediaUrl } from '../utils.js'
-import { useMp4Video } from '../hooks.js'
+import { getMediaUrl, getMp4Video } from '../utils.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 
@@ -13,7 +12,7 @@ type Props = {
 
 export const TweetMediaVideo = ({ media }: Props) => {
   const [playButton, setPlayButton] = useState(true)
-  const mp4Video = useMp4Video(media)
+  const mp4Video = getMp4Video(media)
 
   return (
     <>
