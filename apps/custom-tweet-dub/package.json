@@ -14,8 +14,6 @@
   "dependencies": {
     "@next/mdx": "^13.4.6",
     "clsx": "^1.2.1",
-    "date-fns": "^2.30.0",
-    "edge-cors": "^0.2.1",
     "next": "13.4.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

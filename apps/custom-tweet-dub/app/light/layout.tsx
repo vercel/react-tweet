@@ -1,11 +1,12 @@
-import type { FC, ReactNode } from 'react'
-import clsx from 'clsx'
+import type { ReactNode } from 'react'
 import s from './layout.module.css'
 
-const Layout: FC<{ children: ReactNode }> = ({ children }) => (
+const Layout = ({ children }: { children: ReactNode }) => (
   <div data-theme="light">
-    <div className={clsx(s.root, 'react-tweet-theme')}>
-      <main className={s.main}>{children}</main>
+    <div className={s.root}>
+      <main className={s.main}>
+        <div className="max-w-[550px] min-w-[250px]">{children}</div>
+      </main>
     </div>
   </div>
 )

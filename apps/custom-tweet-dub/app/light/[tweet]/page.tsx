@@ -22,10 +22,6 @@ export async function generateMetadata({ params }: Props) {
   return { title: `${text}${username}` }
 }
 
-export default function Page({ params }: Props) {
-  return (
-    <div className="max-w-[550px] min-w-[250px]">
-      <Tweet id={params.tweet} />
-    </div>
-  )
-}
+const Page = ({ params }: Props) => <Tweet id={params.tweet} />
+
+export default Page
