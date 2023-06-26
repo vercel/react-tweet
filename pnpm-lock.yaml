@@ -38,8 +38,6 @@ importers:
       '@types/react': ^18.2.13
       autoprefixer: ^10.4.14
       clsx: ^1.2.1
-      date-fns: ^2.30.0
-      edge-cors: ^0.2.1
       eslint: ^8.43.0
       eslint-config-next: ^13.4.6
       next: 13.4.6
@@ -55,8 +53,6 @@ importers:
     dependencies:
       '@next/mdx': 13.4.6
       clsx: 1.2.1
-      date-fns: 2.30.0
-      edge-cors: 0.2.1
       next: 13.4.6_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
