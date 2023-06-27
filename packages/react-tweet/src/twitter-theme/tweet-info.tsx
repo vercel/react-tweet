@@ -1,8 +1,8 @@
-import type { Tweet } from '../api/index.js'
+import type { TweetData } from '../utils.js'
 import { TweetInfoCreatedAt } from './tweet-info-created-at.js'
 import s from './tweet-info.module.css'
 
-export const TweetInfo = ({ tweet }: { tweet: Tweet }) => (
+export const TweetInfo = ({ tweet }: { tweet: TweetData }) => (
   <div className={s.info}>
     <TweetInfoCreatedAt tweet={tweet} />
     <a

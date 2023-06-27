@@ -1,15 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import type { Tweet } from '../api/index.js'
-import { getTweetUrl } from '../utils.js'
+import type { TweetData } from '../utils.js'
 import s from './tweet-actions.module.css'
 
-export const TweetActionsCopy = ({ tweet }: { tweet: Tweet }) => {
+export const TweetActionsCopy = ({ tweet }: { tweet: TweetData }) => {
   const [copied, setCopied] = useState(false)
   const [copyAllText, setCopyAltText] = useState(false)
   const handleCopy = () => {
-    navigator.clipboard.writeText(getTweetUrl(tweet))
+    navigator.clipboard.writeText(tweet.url)
     setCopied(true)
   }
 

@@ -1,13 +1,12 @@
 import clsx from 'clsx'
-import type { Tweet } from '../api/index.js'
-import { getMediaUrl, getTweetUrl } from '../utils.js'
+import { type TweetData, getMediaUrl } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
 import { MediaImg } from './media-img.js'
 import s from './tweet-media.module.css'
 
 type Props = {
-  tweet: Tweet
+  tweet: TweetData
   components?: TwitterComponents
 }
 
@@ -30,7 +29,7 @@ export const TweetMedia = ({ tweet, components }: Props) => {
           media.type === 'photo' ? (
             <a
               key={media.media_url_https}
-              href={getTweetUrl(tweet)}
+              href={tweet.url}
               className={clsx(s.mediaContainer, s.mediaLink)}
               target="_blank"
               rel="noopener noreferrer"

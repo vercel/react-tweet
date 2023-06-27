@@ -1,4 +1,4 @@
-import type { Tweet } from '../api/index.js'
+import type { TweetData } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { TweetContainer } from './tweet-container.js'
 import { TweetHeader } from './tweet-header.js'
@@ -10,7 +10,7 @@ import { TweetActions } from './tweet-actions.js'
 import { TweetReplies } from './tweet-replies.js'
 
 type Props = {
-  tweet: Tweet
+  tweet: TweetData
   components?: Omit<TwitterComponents, 'TweetNotFound'>
 }
 

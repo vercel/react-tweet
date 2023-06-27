@@ -1,12 +1,11 @@
 'use client'
 
 import format from 'date-fns/format/index.js'
-import type { Tweet } from '../api/index.js'
-import { getTweetUrl } from '../utils.js'
+import type { TweetData } from '../utils.js'
 import { useMounted } from '../hooks.js'
 import s from './tweet-info-created-at.module.css'
 
-export const TweetInfoCreatedAt = ({ tweet }: { tweet: Tweet }) => {
+export const TweetInfoCreatedAt = ({ tweet }: { tweet: TweetData }) => {
   const mounted = useMounted()
   // If the date is displayed immediately, it will produce a server/client mismatch because the date
   // format will change depending on the user's browser. If the format were to be simplified to
@@ -17,7 +16,7 @@ export const TweetInfoCreatedAt = ({ tweet }: { tweet: Tweet }) => {
   return !createdAt ? null : (
     <a
       className={s.root}
-      href={getTweetUrl(tweet)}
+      href={tweet.url}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={format(createdAt, 'h:mm a · MMM d, y')}

@@ -16,32 +16,32 @@ export type TweetCoreProps = {
   onError?(error: any): any
 }
 
-export const getUserUrl = (usernameOrTweet: string | Tweet) =>
+const getTweetUrl = (tweet: Tweet) =>
+  `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+
+const getUserUrl = (usernameOrTweet: string | Tweet) =>
   `https://twitter.com/${
     typeof usernameOrTweet === 'string'
       ? usernameOrTweet
       : usernameOrTweet.user.screen_name
   }`
 
-export const getTweetUrl = (tweet: Tweet) =>
-  `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
-
-export const getLikeUrl = (tweet: Tweet) =>
+const getLikeUrl = (tweet: Tweet) =>
   `https://twitter.com/intent/like?tweet_id=${tweet.id_str}`
 
-export const getReplyUrl = (tweet: Tweet) =>
+const getReplyUrl = (tweet: Tweet) =>
   `https://twitter.com/intent/tweet?in_reply_to=${tweet.id_str}`
 
-export const getFollowUrl = (tweet: Tweet) =>
+const getFollowUrl = (tweet: Tweet) =>
   `https://twitter.com/intent/follow?screen_name=${tweet.user.screen_name}`
 
-export const getHashtagUrl = (hashtag: HashtagEntity) =>
+const getHashtagUrl = (hashtag: HashtagEntity) =>
   `https://twitter.com/hashtag/${hashtag.text}`
 
-export const getSymbolUrl = (symbol: SymbolEntity) =>
+const getSymbolUrl = (symbol: SymbolEntity) =>
   `https://twitter.com/search?q=%24${symbol.text}`
 
-export const getInReplyToUrl = (tweet: Tweet) =>
+const getInReplyToUrl = (tweet: Tweet) =>
   `https://twitter.com/${tweet.in_reply_to_screen_name}/status/${tweet.in_reply_to_status_id_str}`
 
 export const getMediaUrl = (
@@ -112,7 +112,7 @@ type Entity = {
   | (SymbolEntity & { type: 'symbol'; href: string })
 )
 
-export function getEntities(tweet: Tweet): Entity[] {
+function getEntities(tweet: Tweet): Entity[] {
   const textMap = Array.from(tweet.text)
   const result: EntityWithType[] = [
     { indices: tweet.display_text_range, type: 'text' },
@@ -204,11 +204,13 @@ function fixRange(tweet: Tweet, entities: EntityWithType[]) {
 }
 
 export type TweetData = Omit<Tweet, 'entities'> & {
-  user_url: string
-  tweet_url: string
+  url: string
+  user: {
+    url: string
+    follow_url: string
+  }
   like_url: string
   reply_url: string
-  follow_url: string
   in_reply_to_url?: string
   entities: Entity[]
 }
@@ -218,11 +220,14 @@ export type TweetData = Omit<Tweet, 'entities'> & {
  */
 export const getTweetData = (tweet: Tweet): TweetData => ({
   ...tweet,
-  user_url: getUserUrl(tweet),
-  tweet_url: getTweetUrl(tweet),
+  url: getTweetUrl(tweet),
+  user: {
+    ...tweet.user,
+    url: getUserUrl(tweet),
+    follow_url: getFollowUrl(tweet),
+  },
   like_url: getLikeUrl(tweet),
   reply_url: getReplyUrl(tweet),
-  follow_url: getFollowUrl(tweet),
   in_reply_to_url: tweet.in_reply_to_screen_name
     ? getInReplyToUrl(tweet)
     : undefined,

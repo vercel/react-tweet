@@ -1,11 +1,12 @@
 import { Suspense } from 'react'
 import { getTweet } from './api/index.js'
+import { getTweetData } from './utils.js'
 import {
   EmbeddedTweet,
   TweetNotFound,
   TweetSkeleton,
 } from './twitter-theme/components.js'
-import type { TweetProps } from './swr.jsx'
+import type { TweetProps } from './swr.js'
 
 // This is not ideal because we don't use the `apiUrl` prop here and `id` is required. But as the
 // type is shared with the SWR version when the Tweet component is imported, we need to have a type
@@ -32,7 +33,7 @@ const TweetContent = async ({ id, components, onError }: TweetContentProps) => {
     return <NotFound error={error} />
   }
 
-  return <EmbeddedTweet tweet={tweet} components={components} />
+  return <EmbeddedTweet tweet={getTweetData(tweet)} components={components} />
 }
 
 export const Tweet = ({

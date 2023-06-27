@@ -1,10 +1,9 @@
-import type { Tweet } from '../api/index.js'
-import { getInReplyToUrl } from '../utils.js'
+import type { TweetData } from '../utils.js'
 import s from './tweet-in-reply-to.module.css'
 
-export const TweetInReplyTo = ({ tweet }: { tweet: Tweet }) => (
+export const TweetInReplyTo = ({ tweet }: { tweet: TweetData }) => (
   <a
-    href={getInReplyToUrl(tweet)}
+    href={tweet.in_reply_to_url}
     className={s.root}
     target="_blank"
     rel="noopener noreferrer"

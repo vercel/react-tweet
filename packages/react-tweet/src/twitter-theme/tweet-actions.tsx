@@ -1,16 +1,15 @@
-import type { Tweet } from '../api/index.js'
-import { getLikeUrl, getReplyUrl, formatNumber } from '../utils.js'
+import { type TweetData, formatNumber } from '../utils.js'
 import { TweetActionsCopy } from './tweet-actions-copy.js'
 import s from './tweet-actions.module.css'
 
-export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
+export const TweetActions = ({ tweet }: { tweet: TweetData }) => {
   const favoriteCount = formatNumber(tweet.favorite_count)
 
   return (
     <div className={s.actions}>
       <a
         className={s.like}
-        href={getLikeUrl(tweet)}
+        href={tweet.like_url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Like. This Tweet has ${favoriteCount} likes`}
@@ -26,7 +25,7 @@ export const TweetActions = ({ tweet }: { tweet: Tweet }) => {
       </a>
       <a
         className={s.reply}
-        href={getReplyUrl(tweet)}
+        href={tweet.reply_url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Reply to this Tweet on Twitter"

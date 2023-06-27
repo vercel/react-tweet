@@ -1,12 +1,11 @@
-import type { Tweet } from '../api/index.js'
-import { getTweetUrl, formatNumber } from '../utils.js'
+import { type TweetData, formatNumber } from '../utils.js'
 import s from './tweet-replies.module.css'
 
-export const TweetReplies = ({ tweet }: { tweet: Tweet }) => (
+export const TweetReplies = ({ tweet }: { tweet: TweetData }) => (
   <div className={s.replies}>
     <a
       className={s.link}
-      href={getTweetUrl(tweet)}
+      href={tweet.url}
       target="_blank"
       rel="noopener noreferrer"
     >

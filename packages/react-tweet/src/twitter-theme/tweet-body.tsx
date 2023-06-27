@@ -1,11 +1,10 @@
-import type { Tweet } from '../api/index.js'
-import { getEntities } from '../utils.js'
+import type { TweetData } from '../utils.js'
 import { TweetLink } from './tweet-link.js'
 import s from './tweet-body.module.css'
 
-export const TweetBody = ({ tweet }: { tweet: Tweet }) => (
+export const TweetBody = ({ tweet }: { tweet: TweetData }) => (
   <p className={s.root}>
-    {getEntities(tweet).map((item, i) => {
+    {tweet.entities.map((item, i) => {
       switch (item.type) {
         case 'hashtag':
         case 'mention':

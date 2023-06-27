@@ -1,23 +1,21 @@
 import clsx from 'clsx'
-import type { Tweet } from '../api/index.js'
-import { getFollowUrl, getUserUrl } from '../utils.js'
+import type { TweetData } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { AvatarImg } from './avatar-img.js'
 import s from './tweet-header.module.css'
 
 type Props = {
-  tweet: Tweet
+  tweet: TweetData
   components?: TwitterComponents
 }
 
 export const TweetHeader = ({ tweet, components }: Props) => {
-  const url = getUserUrl(tweet)
   const Img = components?.AvatarImg ?? AvatarImg
 
   return (
     <div className={s.header}>
       <a
-        href={url}
+        href={tweet.url}
         className={s.avatar}
         target="_blank"
         rel="noopener noreferrer"
@@ -36,7 +34,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
       </a>
       <div className={s.author}>
         <a
-          href={url}
+          href={tweet.url}
           className={s.authorLink}
           target="_blank"
           rel="noopener noreferrer"
@@ -67,7 +65,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         </a>
         <div className={s.authorMeta}>
           <a
-            href={url}
+            href={tweet.url}
             className={s.username}
             target="_blank"
             rel="noopener noreferrer"
@@ -79,7 +77,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
           <div className={s.authorFollow}>
             <span className={s.separator}>·</span>
             <a
-              href={getFollowUrl(tweet)}
+              href={tweet.user.follow_url}
               className={s.follow}
               target="_blank"
               rel="noopener noreferrer"
@@ -90,7 +88,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         </div>
       </div>
       <a
-        href={url}
+        href={tweet.url}
         className={s.brand}
         target="_blank"
         rel="noopener noreferrer"
