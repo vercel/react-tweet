@@ -1,13 +1,13 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import {
   EmbeddedTweet,
   TweetNotFound,
   TweetSkeleton,
   type TwitterComponents,
 } from './twitter-theme/components.js'
-import type { TweetCoreProps } from './utils.js'
+import { type TweetCoreProps } from './utils.js'
 import { useTweet } from './hooks.js'
 
 export type TweetProps = Omit<TweetCoreProps, 'id'> & {

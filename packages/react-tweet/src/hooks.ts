@@ -1,13 +1,9 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import swr from 'swr'
-import {
-  TwitterApiError,
-  type MediaAnimatedGif,
-  type MediaVideo,
-  type Tweet,
-} from './api/index.js'
+import { TwitterApiError } from './api/index.js'
+import { getTweetData } from './utils.js'
 
 // Avois an error when used in the pages directory where useSWR might be in `default`.
 const useSWR = ((swr as any).default as typeof swr) || swr
@@ -19,7 +15,7 @@ async function fetcher(url: string) {
 
   // We return null in case `json.data` is undefined, that way we can check for "loading" by
   // checking if data is `undefined`. `null` means it was fetched.
-  if (res.ok) return json.data || null
+  if (res.ok) return json.data ? getTweetData(json.data) : null
 
   throw new TwitterApiError({
     message: `Failed to fetch tweet at "${url}" with "${res.status}".`,
@@ -29,7 +25,7 @@ async function fetcher(url: string) {
 }
 
 export const useTweet = (id?: string, apiUrl?: string) => {
-  const { isLoading, data, error } = useSWR<Tweet>(
+  const { isLoading, data, error } = useSWR(
     apiUrl || (id && `${host}/api/tweet/${id}`),
     fetcher,
     {
