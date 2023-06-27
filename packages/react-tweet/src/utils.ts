@@ -86,7 +86,14 @@ type TextEntity = {
   type: 'text'
 }
 
-type Entity =
+type TweetEntity =
+  | HashtagEntity
+  | UserMentionEntity
+  | UrlEntity
+  | MediaEntity
+  | SymbolEntity
+
+type EntityWithType =
   | TextEntity
   | (HashtagEntity & { type: 'hashtag' })
   | (UserMentionEntity & { type: 'mention' })
@@ -94,36 +101,71 @@ type Entity =
   | (MediaEntity & { type: 'media' })
   | (SymbolEntity & { type: 'symbol' })
 
-export function getEntities(tweet: Tweet): Entity[] {
-  const result: Entity[] = [{ indices: tweet.display_text_range, type: 'text' }]
+type Entity = {
+  text: string
+} & (
+  | TextEntity
+  | (HashtagEntity & { type: 'hashtag'; href: string })
+  | (UserMentionEntity & { type: 'mention'; href: string })
+  | (UrlEntity & { type: 'url'; href: string })
+  | (MediaEntity & { type: 'media'; href: string })
+  | (SymbolEntity & { type: 'symbol'; href: string })
+)
 
-  addEntities(result, tweet.entities.hashtags, 'hashtag')
-  addEntities(result, tweet.entities.user_mentions, 'mention')
-  addEntities(result, tweet.entities.urls, 'url')
-  addEntities(result, tweet.entities.symbols, 'symbol')
+export function getEntities(tweet: Tweet): Entity[] {
+  const textMap = Array.from(tweet.text)
+  const result: EntityWithType[] = [
+    { indices: tweet.display_text_range, type: 'text' },
+  ]
+
+  addEntities(result, 'hashtag', tweet.entities.hashtags)
+  addEntities(result, 'mention', tweet.entities.user_mentions)
+  addEntities(result, 'url', tweet.entities.urls)
+  addEntities(result, 'symbol', tweet.entities.symbols)
   if (tweet.entities.media) {
-    addEntities(result, tweet.entities.media, 'media')
+    addEntities(result, 'media', tweet.entities.media)
   }
   fixRange(tweet, result)
 
-  return result
+  return result.map((entity) => {
+    const text = textMap.slice(entity.indices[0], entity.indices[1]).join('')
+    switch (entity.type) {
+      case 'hashtag':
+        return Object.assign(entity, { href: getHashtagUrl(entity), text })
+      case 'mention':
+        return Object.assign(entity, {
+          href: getUserUrl(entity.screen_name),
+          text,
+        })
+      case 'url':
+      case 'media':
+        return Object.assign(entity, {
+          href: entity.expanded_url,
+          text: entity.display_url,
+        })
+      case 'symbol':
+        return Object.assign(entity, { href: getSymbolUrl(entity), text })
+      default:
+        return Object.assign(entity, { text })
+    }
+  })
 }
 
 function addEntities(
-  result: Entity[],
-  entities: (HashtagEntity | UserMentionEntity | MediaEntity | SymbolEntity)[],
-  type: Entity['type']
+  result: EntityWithType[],
+  type: EntityWithType['type'],
+  entities: TweetEntity[]
 ) {
   for (const entity of entities) {
     for (const [i, item] of result.entries()) {
       if (
-        entity.indices[0] < item.indices[0] ||
-        entity.indices[1] > item.indices[1]
+        item.indices[0] > entity.indices[0] ||
+        item.indices[1] < entity.indices[1]
       ) {
         continue
       }
 
-      const items = [{ ...entity, type }] as Entity[]
+      const items = [{ ...entity, type }] as EntityWithType[]
 
       if (item.indices[0] < entity.indices[0]) {
         items.unshift({
@@ -148,7 +190,7 @@ function addEntities(
  * Update display_text_range to work w/ Array.from
  * Array.from is unicode aware, unlike string.slice()
  */
-function fixRange(tweet: Tweet, entities: Entity[]) {
+function fixRange(tweet: Tweet, entities: EntityWithType[]) {
   if (
     tweet.entities.media &&
     tweet.entities.media[0].indices[0] < tweet.display_text_range[1]
@@ -161,7 +203,28 @@ function fixRange(tweet: Tweet, entities: Entity[]) {
   }
 }
 
-export const getEntityText = (tweet: Tweet, entity: Entity) =>
-  Array.from(tweet.text)
-    .splice(entity.indices[0], entity.indices[1] - entity.indices[0])
-    .join('')
+export type TweetData = Omit<Tweet, 'entities'> & {
+  user_url: string
+  tweet_url: string
+  like_url: string
+  reply_url: string
+  follow_url: string
+  in_reply_to_url?: string
+  entities: Entity[]
+}
+
+/**
+ * Returns the tweet with additional data used to more easily render the tweet
+ */
+export const getTweetData = (tweet: Tweet): TweetData => ({
+  ...tweet,
+  user_url: getUserUrl(tweet),
+  tweet_url: getTweetUrl(tweet),
+  like_url: getLikeUrl(tweet),
+  reply_url: getReplyUrl(tweet),
+  follow_url: getFollowUrl(tweet),
+  in_reply_to_url: tweet.in_reply_to_screen_name
+    ? getInReplyToUrl(tweet)
+    : undefined,
+  entities: getEntities(tweet),
+})
