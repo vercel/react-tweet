@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import swr from 'swr'
 import { TwitterApiError } from './api/index.js'
-import { getTweetData } from './utils.js'
+import { addTweetData } from './utils.js'
 
 // Avois an error when used in the pages directory where useSWR might be in `default`.
 const useSWR = ((swr as any).default as typeof swr) || swr
@@ -15,7 +15,7 @@ async function fetcher(url: string) {
 
   // We return null in case `json.data` is undefined, that way we can check for "loading" by
   // checking if data is `undefined`. `null` means it was fetched.
-  if (res.ok) return json.data ? getTweetData(json.data) : null
+  if (res.ok) return json.data ? addTweetData(json.data) : null
 
   throw new TwitterApiError({
     message: `Failed to fetch tweet at "${url}" with "${res.status}".`,

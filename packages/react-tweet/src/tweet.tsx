@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { getTweet } from './api/index.js'
-import { getTweetData } from './utils.js'
+import { addTweetData } from './utils.js'
 import {
   EmbeddedTweet,
   TweetNotFound,
@@ -33,7 +33,7 @@ const TweetContent = async ({ id, components, onError }: TweetContentProps) => {
     return <NotFound error={error} />
   }
 
-  return <EmbeddedTweet tweet={getTweetData(tweet)} components={components} />
+  return <EmbeddedTweet tweet={addTweetData(tweet)} components={components} />
 }
 
 export const Tweet = ({

@@ -18,7 +18,7 @@ export const TweetBody = ({ tweet }: { tweet: TweetData }) => (
         case 'media':
           // Media text is currently never displayed, some tweets however might have indices
           // that do match `display_text_range` so for those cases we ignore the content.
-          return undefined
+          return
         default:
           // We use `dangerouslySetInnerHTML` to preserve the text encoding.
           // https://github.com/vercel-labs/react-tweet/issues/29

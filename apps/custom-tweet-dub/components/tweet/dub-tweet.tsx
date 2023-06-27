@@ -1,10 +1,4 @@
-import type { Tweet } from 'react-tweet/api'
-import {
-  getInReplyToUrl,
-  getLikeUrl,
-  getReplyUrl,
-  getTweetUrl,
-} from 'react-tweet'
+import { type TweetData } from 'react-tweet'
 import { nFormatter } from './utils'
 import { Heart, Message } from './icons'
 import { Tilt } from './tilt'
@@ -16,10 +10,9 @@ export const DubTweet = ({
   tweet,
   noTilt,
 }: {
-  tweet: Tweet
+  tweet: TweetData
   noTilt?: boolean
 }) => {
-  const tweetUrl = getTweetUrl(tweet)
   const TweetBody = (
     <div className="break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter">
       {/* User info, verified badge, twitter logo, text, etc. */}
@@ -30,7 +23,7 @@ export const DubTweet = ({
             Replying to{' '}
             <a
               className="text-[#1da1f2] no-underline"
-              href={getInReplyToUrl(tweet)}
+              href={tweet.in_reply_to_url}
               target="_blank"
             >
               @{tweet.in_reply_to_screen_name}
@@ -50,7 +43,7 @@ export const DubTweet = ({
             }
           >
             {tweet.mediaDetails?.map((media) => (
-              <a key={media.media_url_https} href={tweetUrl} target="_blank">
+              <a key={media.media_url_https} href={tweet.url} target="_blank">
                 <TweetMedia tweet={tweet} media={media} />
               </a>
             ))}
@@ -60,7 +53,7 @@ export const DubTweet = ({
       <div className="flex justify-center space-x-8 text-sm text-gray-500 mt-5">
         <a
           className="group flex items-center space-x-3 hover:text-red-600"
-          href={getLikeUrl(tweet)}
+          href={tweet.like_url}
           target="_blank"
           rel="noreferrer"
         >
@@ -69,7 +62,7 @@ export const DubTweet = ({
         </a>
         <a
           className="group flex items-center space-x-3 hover:text-blue-600"
-          href={getReplyUrl(tweet)}
+          href={tweet.reply_url}
           target="_blank"
           rel="noreferrer"
         >

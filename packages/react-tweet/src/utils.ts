@@ -218,7 +218,7 @@ export type TweetData = Omit<Tweet, 'entities'> & {
 /**
  * Returns the tweet with additional data used to more easily render the tweet
  */
-export const getTweetData = (tweet: Tweet): TweetData => ({
+export const addTweetData = (tweet: Tweet): TweetData => ({
   ...tweet,
   url: getTweetUrl(tweet),
   user: {
