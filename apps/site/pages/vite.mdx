@@ -1,4 +1,4 @@
-# Create React App
+# Vite
 
 ## Installation
 
@@ -11,9 +11,7 @@ In any component, import `Tweet` from `react-tweet` and use it like so:
 ```tsx copy
 import { Tweet } from 'react-tweet'
 
-export default function App() {
-  return <Tweet id="1628832338187636740" />
-}
+export const IndexPage = () => <Tweet id="1628832338187636740" />
 ```
 
 You can learn more about `Tweet` in the [Twitter theme docs](/twitter-theme).
@@ -23,9 +21,14 @@ You can learn more about `Tweet` in the [Twitter theme docs](/twitter-theme).
 Clone the [`react-tweet`](https://github.com/vercel-labs/react-tweet) repository and then run the following command:
 
 ```bash copy
-pnpm install && pnpm dev --filter=create-react-app...
+pnpm install && pnpm dev --filter=vite-app...
 ```
 
-The app will be up and running at http://localhost:3002 for the [CRA example](https://github.com/vercel-labs/react-tweet/tree/main/apps/create-react-app).
+The app will be up and running at http://localhost:5173 for the [Vite app example](https://github.com/vercel-labs/react-tweet/tree/main/apps/vite-app).
+
+The app shows the usage of `react-tweet` in different scenarios:
+
+- [The index page](http://localhost:5173) renders a single tweet.
+- [/tweet/1629307668568633344](http://localhost:5173/tweet/1629307668568633344) renders dynamic tweets with SWR. `Tweet` already uses SWR and this page shows how to implement it manually.
 
 The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel-labs/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.

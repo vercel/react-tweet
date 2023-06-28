@@ -1,15 +1,31 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
     "href": "https://twitter.com/shuding_",
+    "newWindow": true
+  },
+  "-- Usage": {
+    "type": "separator",
+    "title": "Usage"
+  },
+  "next": "Next.js",
+  "create-react-app": "CRA",
+  "vite": "Vite",
+  "api-reference": "",
+  "-- Themes": {
+    "type": "separator",
+    "title": "Themes"
+  },
+  "twitter-theme": "",
+  "-- More": {
+    "type": "separator",
+    "title": "More"
+  },
+  "next.js-link": {
+    "title": "Next.js Docs ↗",
+    "href": "https://nextjs.org?utm_source=react-tweet.site&utm_medium=referral&utm_campaign=sidebar",
     "newWindow": true
   }
 }
