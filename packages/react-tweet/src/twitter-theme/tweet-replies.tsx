@@ -1,7 +1,7 @@
-import { type TweetData, formatNumber } from '../utils.js'
+import { type EnrichedTweet, formatNumber } from '../utils.js'
 import s from './tweet-replies.module.css'
 
-export const TweetReplies = ({ tweet }: { tweet: TweetData }) => (
+export const TweetReplies = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className={s.replies}>
     <a
       className={s.link}

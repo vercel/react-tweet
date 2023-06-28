@@ -1,11 +1,11 @@
 import clsx from 'clsx'
-import type { TweetData } from '../utils.js'
+import type { EnrichedTweet } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { AvatarImg } from './avatar-img.js'
 import s from './tweet-header.module.css'
 
 type Props = {
-  tweet: TweetData
+  tweet: EnrichedTweet
   components?: TwitterComponents
 }
 

@@ -1,7 +1,7 @@
-import type { TweetData } from '../utils.js'
+import type { EnrichedTweet } from '../utils.js'
 import s from './tweet-in-reply-to.module.css'
 
-export const TweetInReplyTo = ({ tweet }: { tweet: TweetData }) => (
+export const TweetInReplyTo = ({ tweet }: { tweet: EnrichedTweet }) => (
   <a
     href={tweet.in_reply_to_url}
     className={s.root}

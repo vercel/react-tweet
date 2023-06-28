@@ -203,7 +203,7 @@ function fixRange(tweet: Tweet, entities: EntityWithType[]) {
   }
 }
 
-export type TweetData = Omit<Tweet, 'entities'> & {
+export type EnrichedTweet = Omit<Tweet, 'entities'> & {
   url: string
   user: {
     url: string
@@ -218,7 +218,7 @@ export type TweetData = Omit<Tweet, 'entities'> & {
 /**
  * Returns the tweet with additional data used to more easily render the tweet
  */
-export const addTweetData = (tweet: Tweet): TweetData => ({
+export const enrichTweet = (tweet: Tweet): EnrichedTweet => ({
   ...tweet,
   url: getTweetUrl(tweet),
   user: {

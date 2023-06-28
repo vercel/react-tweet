@@ -1,4 +1,4 @@
-import { type TweetData } from 'react-tweet'
+import { type EnrichedTweet } from 'react-tweet'
 import { nFormatter } from './utils'
 import { Heart, Message } from './icons'
 import { Tilt } from './tilt'
@@ -10,7 +10,7 @@ export const DubTweet = ({
   tweet,
   noTilt,
 }: {
-  tweet: TweetData
+  tweet: EnrichedTweet
   noTilt?: boolean
 }) => {
   const TweetBody = (

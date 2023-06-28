@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import type { TweetData } from '../utils.js'
+import type { EnrichedTweet } from '../utils.js'
 import s from './tweet-actions.module.css'
 
-export const TweetActionsCopy = ({ tweet }: { tweet: TweetData }) => {
+export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
   const [copied, setCopied] = useState(false)
   const [copyAllText, setCopyAltText] = useState(false)
   const handleCopy = () => {

@@ -1,12 +1,12 @@
 import type { MediaDetails } from 'react-tweet/api'
-import { type TweetData, getMediaUrl, getMp4Video } from 'react-tweet'
+import { type EnrichedTweet, getMediaUrl, getMp4Video } from 'react-tweet'
 import BlurImage from './blur-image'
 
 export const TweetMedia = ({
   tweet,
   media,
 }: {
-  tweet: TweetData
+  tweet: EnrichedTweet
   media: MediaDetails
 }) => {
   if (media.type == 'video') {

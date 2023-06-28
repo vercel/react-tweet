@@ -1,8 +1,8 @@
-import type { TweetData } from '../utils.js'
+import type { EnrichedTweet } from '../utils.js'
 import { TweetLink } from './tweet-link.js'
 import s from './tweet-body.module.css'
 
-export const TweetBody = ({ tweet }: { tweet: TweetData }) => (
+export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
   <p className={s.root}>
     {tweet.entities.map((item, i) => {
       switch (item.type) {

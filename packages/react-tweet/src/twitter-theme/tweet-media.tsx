@@ -1,12 +1,12 @@
 import clsx from 'clsx'
-import { type TweetData, getMediaUrl } from '../utils.js'
+import { type EnrichedTweet, getMediaUrl } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
 import { MediaImg } from './media-img.js'
 import s from './tweet-media.module.css'
 
 type Props = {
-  tweet: TweetData
+  tweet: EnrichedTweet
   components?: TwitterComponents
 }
 

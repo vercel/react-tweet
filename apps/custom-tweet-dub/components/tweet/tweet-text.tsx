@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { type TweetData } from 'react-tweet'
+import { type EnrichedTweet } from 'react-tweet'
 
 const Link = ({ href, children }: { href: string; children: ReactNode }) => (
   <a
@@ -12,7 +12,7 @@ const Link = ({ href, children }: { href: string; children: ReactNode }) => (
   </a>
 )
 
-export const TweetText = ({ tweet }: { tweet: TweetData }) => (
+export const TweetText = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="mb-2 mt-4 truncate whitespace-pre-wrap text-[15px] text-gray-700">
     {tweet.entities.map((item, i) => {
       switch (item.type) {

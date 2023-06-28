@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { type TweetCoreProps, addTweetData } from 'react-tweet'
+import { type TweetCoreProps, enrichTweet } from 'react-tweet'
 import { getTweet } from 'react-tweet/api'
 import { DubTweet } from './dub-tweet'
 
@@ -26,7 +26,7 @@ export const TweetContent = async ({ id, noTilt, onError }: Props) => {
     )
   }
 
-  return <DubTweet tweet={addTweetData(tweet)} noTilt={noTilt} />
+  return <DubTweet tweet={enrichTweet(tweet)} noTilt={noTilt} />
 }
 
 export const Tweet = (props: Props) => (

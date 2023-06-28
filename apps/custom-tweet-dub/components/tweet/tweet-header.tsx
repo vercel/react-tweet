@@ -1,9 +1,9 @@
-import { type TweetData } from 'react-tweet'
+import { type EnrichedTweet } from 'react-tweet'
 import { truncate } from './utils'
 import { Twitter } from './icons'
 import BlurImage from './blur-image'
 
-export const TweetHeader = ({ tweet }: { tweet: TweetData }) => (
+export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex items-center justify-between">
     <div className="flex items-center space-x-2">
       <a href={tweet.user.url} target="_blank" rel="noreferrer">
