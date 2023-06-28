@@ -1,0 +1,63 @@
+# API Reference
+
+This is the reference for the utility functions that `react-tweet` provides for building your own Tweet components or simply fetching a tweet. Navigate to the docs for the [Twitter theme](/twitter-theme) if you want to render the existing Tweet components instead.
+
+## `getTweet`
+
+```tsx
+import { getTweet, type Tweet } from 'react-tweet/api'
+
+function getTweet(id: string): Promise<Tweet | undefined>
+```
+
+Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts). It accepts the following params:
+
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
+
+If a tweet is not found it returns `undefined`.
+
+## `enrichTweet`
+
+```tsx
+import { enrichTweet, type EnrichedTweet } from 'react-tweet'
+
+const enrichTweet: (tweet: Tweet) => EnrichedTweet
+```
+
+Enriches a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) as returned by [`getTweet`](#gettweet) with additional data. This is useful to more easily build custom tweet components.
+
+It returns an [`EnrichedTweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/utils.ts).
+
+## `useTweet`
+
+> If your app supports React Server Components, use [`getTweet`](#gettweet) instead.
+
+```tsx
+import { useTweet } from 'react-tweet'
+
+const useTweet: (
+  id?: string,
+  apiUrl?: string
+) => {
+  isLoading: boolean
+  data: Tweet | null | undefined
+  error: any
+}
+```
+
+SWR hook for fetching a tweet in the browser. It accepts the following parameters:
+
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This parameter is not used if `apiUrl` is provided.
+- **apiUrl** - `string`: the API URL to fetch the tweet from. Defaults to `https://react-tweet.vercel.app`.
+
+We highly recommend adding your own API endpoint to fetch the tweet from in `apiUrl` for production:
+
+```ts
+const tweet = useTweet(null, id && `/api/tweet/${id}`)
+```
+
+It's likely you'll never use this hook directly, and the `apiUrl` is passed as a prop to a component instead:
+
+```tsx
+<Tweet apiUrl={id && `/api/tweet/${id}`} />
+```
