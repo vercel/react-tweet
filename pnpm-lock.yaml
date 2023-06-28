@@ -106,6 +106,7 @@ importers:
   apps/site:
     specifiers:
       '@types/node': 20.3.2
+      '@types/react': ^18.2.14
       next: ^13.4.7
       nextra: ^2.8.0
       nextra-theme-docs: ^2.8.0
@@ -120,6 +121,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@types/node': 20.3.2
+      '@types/react': 18.2.14
       typescript: 5.1.5
 
   apps/vite-app:
@@ -3790,7 +3792,6 @@ packages:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
       csstype: 3.1.2
-    dev: false
 
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
