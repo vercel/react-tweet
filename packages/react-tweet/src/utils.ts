@@ -216,7 +216,7 @@ export type EnrichedTweet = Omit<Tweet, 'entities'> & {
 }
 
 /**
- * Returns the tweet with additional data used to more easily render the tweet
+ * Enriches a tweet with additional data used to more easily use the tweet in a UI.
  */
 export const enrichTweet = (tweet: Tweet): EnrichedTweet => ({
   ...tweet,

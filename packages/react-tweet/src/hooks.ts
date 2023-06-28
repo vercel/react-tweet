@@ -23,6 +23,9 @@ async function fetcher(url: string): Promise<Tweet | null> {
   })
 }
 
+/**
+ * SWR hook for fetching a tweet in the browser.
+ */
 export const useTweet = (id?: string, apiUrl?: string) => {
   const { isLoading, data, error } = useSWR(
     apiUrl || (id && `${host}/api/tweet/${id}`),
