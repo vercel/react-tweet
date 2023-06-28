@@ -107,11 +107,14 @@ importers:
     specifiers:
       '@types/node': 20.3.2
       '@types/react': ^18.2.14
+      autoprefixer: ^10.4.14
       next: ^13.4.7
       nextra: ^2.8.0
       nextra-theme-docs: ^2.8.0
+      postcss: ^8.4.24
       react: ^18.2.0
       react-dom: ^18.2.0
+      tailwindcss: ^3.3.2
       typescript: ^5.1.5
     dependencies:
       next: 13.4.7_biqbaboplfbrettd7655fr4n2y
@@ -122,6 +125,9 @@ importers:
     devDependencies:
       '@types/node': 20.3.2
       '@types/react': 18.2.14
+      autoprefixer: 10.4.14_postcss@8.4.24
+      postcss: 8.4.24
+      tailwindcss: 3.3.2
       typescript: 5.1.5
 
   apps/vite-app:
@@ -4591,7 +4597,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001505
+      caniuse-lite: 1.0.30001509
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4924,7 +4930,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001505
+      caniuse-lite: 1.0.30001509
       electron-to-chromium: 1.4.322
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
@@ -5036,10 +5042,10 @@ packages:
 
   /caniuse-lite/1.0.30001505:
     resolution: {integrity: sha512-jaAOR5zVtxHfL0NjZyflVTtXm3D3J9P15zSJ7HmQF8dSKGA6tqzQq+0ZI3xkjyQj46I4/M0K2GbMpcAFOcbr3A==}
+    dev: false
 
   /caniuse-lite/1.0.30001509:
     resolution: {integrity: sha512-2uDDk+TRiTX5hMcUYT/7CSyzMZxjfGu0vAUjS2g0LSD8UoXOv0LtpH4LxGMemsiPq6LCVIUjNwVM0erkOkGCDA==}
-    dev: false
 
   /case-sensitive-paths-webpack-plugin/2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}

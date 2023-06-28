@@ -1,23 +1,13 @@
-# Nextra Docs Template 
+# react-tweet site
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+This is documentation site app for `react-tweet`. It uses [Nextra](https://nextra.site).
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+## Running the app locally
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+Clone this repository and run the following command:
 
-## Quick Start
+```bash
+pnpm install && pnpm dev --filter=site
+```
 
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
-
-## Local Development
-
-First, run `pnpm i` to install the dependencies.
-
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
-
-## License
-
-This project is licensed under the MIT License.
+The app will be up at running at http://localhost:3000.
