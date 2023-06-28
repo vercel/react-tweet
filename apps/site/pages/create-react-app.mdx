@@ -1,0 +1,31 @@
+# Create React App
+
+## Installation
+
+Follow the [installation docs in the Introduction](/#installation).
+
+## Usage
+
+In any component, import [`Tweet`](/readme.md#tweet) from `react-tweet` and use it like so:
+
+```tsx copy
+import { Tweet } from 'react-tweet'
+
+export default function App() {
+  return <Tweet id="1628832338187636740" />
+}
+```
+
+You can learn more about `Tweet` in the [Twitter theme docs](/twitter-theme).
+
+## Running the test app
+
+Clone the [`react-tweet`](https://github.com/vercel-labs/react-tweet) repository and then run the following command:
+
+```bash copy
+pnpm install && pnpm dev --filter=create-react-app...
+```
+
+The app will be up and running at http://localhost:3002 for the [CRA example](https://github.com/vercel-labs/react-tweet/tree/main/apps/create-react-app).
+
+The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel-labs/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.

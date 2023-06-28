@@ -28,6 +28,6 @@ Clone this repository and run the following commands:
 pnpm install && pnpm dev --filter=create-react-app...
 ```
 
-The app will be up and running at http://localhost:3001.
+The app will be up and running at http://localhost:3002.
 
 `react-tweet` is imported from the root directory, so you can make changes to the package and see the changes reflected in the app immediately.
