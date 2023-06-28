@@ -24,6 +24,9 @@ export class TwitterApiError extends Error {
 
 const TWEET_ID = /^[0-9]+$/
 
+/**
+ * Fetches a tweet from the Twitter syndication API.
+ */
 export async function getTweet(id: string): Promise<Tweet | undefined> {
   if (id.length > 40 || !TWEET_ID.test(id)) {
     throw new Error(`Invalid tweet id: ${id}`)
