@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.0.0
+
+### Major Changes
+
+- 7a92646: Theme support
+
 ## 2.0.2
 
 ### Patch Changes
