@@ -27,7 +27,10 @@ const TWEET_ID = /^[0-9]+$/
 /**
  * Fetches a tweet from the Twitter syndication API.
  */
-export async function getTweet(id: string): Promise<Tweet | undefined> {
+export async function getTweet(
+  id: string,
+  fetchOptions?: RequestInit
+): Promise<Tweet | undefined> {
   if (id.length > 40 || !TWEET_ID.test(id)) {
     throw new Error(`Invalid tweet id: ${id}`)
   }
@@ -53,7 +56,7 @@ export async function getTweet(id: string): Promise<Tweet | undefined> {
     ].join(';')
   )
 
-  const res = await fetch(url.toString())
+  const res = await fetch(url.toString(), fetchOptions)
   const isJson = res.headers.get('content-type')?.includes('application/json')
   const data = isJson ? await res.json() : undefined
 
