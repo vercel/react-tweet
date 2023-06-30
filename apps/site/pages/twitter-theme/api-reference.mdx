@@ -1,0 +1,116 @@
+## API Reference
+
+### `Tweet`
+
+```tsx copy
+import { Tweet } from 'react-tweet'
+```
+
+Fetches and renders the tweet. It accepts the following props:
+
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
+- **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
+- **onError** - `(error?: any) => any`: The returned error will be sent to the `TweetNotFound` component.
+- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+
+If the environment where `Tweet` is used does not support React Server Components then it will work with [SWR](https://swr.vercel.app/) instead and the tweet will be fetched from `https://react-tweet.vercel.app/api/tweet/:id`, which is CORS friendly.
+
+We recommend adding your own API route to fetch the tweet in production. You can do it by using the `apiUrl` prop:
+
+```tsx copy
+<Tweet apiUrl={id && `/api/tweet/${id}`} />
+```
+
+> Note: `apiUrl` does nothing if the Tweet is rendered in a server component because it can fetch directly from Twitter's CDN.
+
+Here's a good example of how to setup your own API route:
+
+```ts filename="api/tweet/[tweet].ts" copy
+import type { VercelRequest, VercelResponse } from '@vercel/node'
+import { getTweet } from 'react-tweet/api'
+
+const handler = async (req: VercelRequest, res: VercelResponse) => {
+  const tweetId = req.query.tweet
+
+  if (req.method !== 'GET' || typeof tweetId !== 'string') {
+    res.status(400).json({ error: 'Bad Request.' })
+    return
+  }
+
+  try {
+    const tweet = await getTweet(tweetId)
+    res.status(tweet ? 200 : 404).json({ data: tweet ?? null })
+  } catch (error) {
+    console.error(error)
+    res.status(400).json({ error: error.message ?? 'Bad request.' })
+  }
+}
+
+export default handler
+```
+
+Something similar can be done with Next.js API Routes or Route Handlers.
+
+### `EmbeddedTweet`
+
+```tsx copy
+import { EmbeddedTweet } from 'react-tweet'
+```
+
+Renders a tweet. It accepts the following props:
+
+- **tweet** - `Tweet`: the tweet data, as returned by `getTweet`. Required.
+- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+
+### `TweetSkeleton`
+
+```tsx copy
+import { TweetSkeleton } from 'react-tweet'
+```
+
+A tweet skeleton useful for loading states.
+
+### `TweetNotFound`
+
+```tsx copy
+import { TweetNotFound } from 'react-tweet'
+```
+
+A tweet not found component. It accepts the following props:
+
+- **error** - `any`: the error that was thrown when fetching the tweet. Not required.
+
+## Custom tweet components
+
+Default components used by [`Tweet`](#tweet) and [`EmbeddedTweet`](#embeddedtweet) can be replaced by passing a `components` prop. It extends the `TweetComponents` type exported from `react-tweet`:
+
+```ts copy
+type TweetComponents = {
+  TweetNotFound?: (props: Props) => JSX.Element
+  AvatarImg?: (props: AvatarImgProps) => JSX.Element
+  MediaImg?: (props: MediaImgProps) => JSX.Element
+}
+```
+
+For example, to replace the default `img` tag used for the avatar and media with `next/image` you can do the following:
+
+```tsx copy
+// tweet-components.tsx
+import Image from 'next/image'
+import type { TweetComponents } from 'react-tweet'
+
+export const components: TweetComponents = {
+  AvatarImg: (props) => <Image {...props} />,
+  MediaImg: (props) => <Image {...props} fill unoptimized />,
+}
+```
+
+And then pass the components to `Tweet` or `EmbeddedTweet`:
+
+```tsx copy
+import { components } from './tweet-components'
+
+const MyTweet = ({ id }: { id: string }) => (
+  <Tweet id={id} components={components} />
+)
+```
