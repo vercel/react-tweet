@@ -13,6 +13,7 @@
     "title": "Themes"
   },
   "twitter-theme": "",
+  "custom-theme": "",
   "-- More": {
     "type": "separator",
     "title": "More"
