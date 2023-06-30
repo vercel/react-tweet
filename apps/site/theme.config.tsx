@@ -65,7 +65,7 @@ const config: DocsThemeConfig = {
           </a>
         </div>
         <p className="mt-6 text-xs">
-          © {new Date().getFullYear()} react-tweet.
+          © {new Date().getFullYear()} Vercel, Inc. All rights reserved.
         </p>
       </div>
     ),
