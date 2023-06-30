@@ -5,9 +5,9 @@
   "repository": "https://github.com/vercel-labs/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "next lint",
     "clean": "rm -rf .next && rm -rf .turbo"
   },

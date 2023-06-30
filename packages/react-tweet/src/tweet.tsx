@@ -1,21 +1,20 @@
-import { Suspense, type ReactNode } from 'react'
+import { Suspense } from 'react'
 import { getTweet } from './api/index.js'
-import { defaultComponents, TweetComponents } from './components.js'
-import { EmbeddedTweet } from './embedded-tweet.js'
-import { TweetSkeleton } from './tweet-skeleton.js'
+import {
+  EmbeddedTweet,
+  TweetNotFound,
+  TweetSkeleton,
+} from './twitter-theme/components.js'
+import type { TweetProps } from './swr.js'
 
-export type TweetProps = {
-  fallback?: ReactNode
-  components?: TweetComponents
-  onError?(error: any): any
-} & (
-  | { id?: string; apiUrl: string | undefined }
-  | { id: string; apiUrl?: string }
-)
+// This is not ideal because we don't use the `apiUrl` prop here and `id` is required. But as the
+// type is shared with the SWR version when the Tweet component is imported, we need to have a type
+// that supports both versions of the component.
+export type { TweetProps }
 
-type Props = Omit<TweetProps, 'fallback'>
+type TweetContentProps = Omit<TweetProps, 'fallback'>
 
-const TweetContent = async ({ id, components, onError }: Props) => {
+const TweetContent = async ({ id, components, onError }: TweetContentProps) => {
   let error
   const tweet = id
     ? await getTweet(id).catch((err) => {
@@ -29,9 +28,8 @@ const TweetContent = async ({ id, components, onError }: Props) => {
     : undefined
 
   if (!tweet) {
-    const TweetNotFound =
-      components?.TweetNotFound || defaultComponents.TweetNotFound
-    return <TweetNotFound error={error} />
+    const NotFound = components?.TweetNotFound || TweetNotFound
+    return <NotFound error={error} />
   }
 
   return <EmbeddedTweet tweet={tweet} components={components} />
