@@ -1,0 +1,19 @@
+# Twitter Theme
+
+This is the theme you'll see in [publish.twitter.com](https://publish.twitter.com/?query=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F463440424141459456&widget=Tweet) and the default theme included in `react-tweet`.
+
+## Usage
+
+In any component, import `Tweet` from `react-tweet` and use it like so:
+
+```tsx copy
+import { Tweet } from 'react-tweet'
+
+export default function Page() {
+  return <Tweet id="1628832338187636740" />
+}
+```
+
+## Troubleshooting
+
+Currently, `react-tweet` uses CSS Modules to scope the CSS of each component, so the bundler where it's used needs to support CSS Modules. If you get issues about your bundler not recognizing CSS Modules, please open an issue as we would like to know how well supported this is.
