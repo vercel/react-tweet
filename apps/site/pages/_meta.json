@@ -5,8 +5,8 @@
     "title": "Usage"
   },
   "next": "Next.js",
-  "create-react-app": "CRA",
   "vite": "Vite",
+  "create-react-app": "CRA",
   "api-reference": "",
   "-- Themes": {
     "type": "separator",

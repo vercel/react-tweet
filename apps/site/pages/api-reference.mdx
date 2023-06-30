@@ -1,6 +1,6 @@
 # API Reference
 
-This is the reference for the utility functions that `react-tweet` provides for building your own Tweet components or simply fetching a tweet. Navigate to the docs for the [Twitter theme](/twitter-theme) if you want to render the existing Tweet components instead.
+This is the reference for the utility functions that `react-tweet` provides for [building your own tweet components](/custom-theme) or simply fetching a tweet. Navigate to the docs for the [Twitter theme](/twitter-theme) if you want to render the existing Tweet components instead.
 
 ## `getTweet`
 
@@ -50,14 +50,20 @@ SWR hook for fetching a tweet in the browser. It accepts the following parameter
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This parameter is not used if `apiUrl` is provided.
 - **apiUrl** - `string`: the API URL to fetch the tweet from. Defaults to `https://react-tweet.vercel.app`.
 
-We highly recommend adding your own API endpoint to fetch the tweet from in `apiUrl` for production:
+We highly recommend adding your own API endpoint in `apiUrl` for production:
 
-```ts
+```ts copy
 const tweet = useTweet(null, id && `/api/tweet/${id}`)
 ```
 
-It's likely you'll never use this hook directly, and the `apiUrl` is passed as a prop to a component instead:
+It's likely you'll never use this hook directly, and `apiUrl` is passed as a prop to a component instead:
 
-```tsx
+```tsx copy
 <Tweet apiUrl={id && `/api/tweet/${id}`} />
+```
+
+Or if the tweet component already knows about the endpoint it needs to use, you can use `id` instead:
+
+```tsx copy
+<Tweet id={id} />
 ```
