@@ -5,7 +5,7 @@
 To get started, we recommend using the [source for the Twitter theme](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/tweet.tsx) as the base and start customizing from there. Which more precisely is all of the components in the [`react-tweet` package](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet):
 
 - [`src/tweet.tsx`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/tweet.tsx): Exports the async `Tweet` component that fetches the tweet data and renders the tweet. This is a [React Server Component](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023#react-server-components).
-- [`src/twitter-theme/*.tsx`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/twitter-them): All the components that make up the theme.
+- [`src/twitter-theme/*.tsx`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/twitter-theme): All the components that make up the theme.
 - [`src/swr.tsx`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/swr.tsx): Exports the `Tweet` component but it uses [SWR](https://swr.vercel.app/) to fetch the tweet client-side. This is useful if React Server Components are not supported by your React environment.
 
 You can see a custom theme in action by looking at our [custom-tweet-dub](https://github.com/vercel-labs/react-tweet/blob/main/apps/custom-tweet-dub) example.
