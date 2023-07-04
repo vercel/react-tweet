@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.0.1
+
+### Patch Changes
+
+- cc13ec8: Allow fetch options to be customized
+
 ## 3.0.0
 
 ### Major Changes
