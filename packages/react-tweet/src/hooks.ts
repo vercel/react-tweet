@@ -8,8 +8,11 @@ import { type Tweet, TwitterApiError } from './api/index.js'
 const useSWR = ((swr as any).default as typeof swr) || swr
 const host = 'https://react-tweet.vercel.app'
 
-async function fetcher(url: string): Promise<Tweet | null> {
-  const res = await fetch(url)
+async function fetcher([url, fetchOptions]: [
+  string,
+  RequestInit
+]): Promise<Tweet | null> {
+  const res = await fetch(url, fetchOptions)
   const json = await res.json()
 
   // We return null in case `json.data` is undefined, that way we can check for "loading" by
@@ -26,9 +29,16 @@ async function fetcher(url: string): Promise<Tweet | null> {
 /**
  * SWR hook for fetching a tweet in the browser.
  */
-export const useTweet = (id?: string, apiUrl?: string) => {
+export const useTweet = (
+  id?: string,
+  apiUrl?: string,
+  fetchOptions?: RequestInit
+) => {
   const { isLoading, data, error } = useSWR(
-    apiUrl || (id && `${host}/api/tweet/${id}`),
+    () =>
+      apiUrl || id
+        ? [apiUrl || (id && `${host}/api/tweet/${id}`), fetchOptions]
+        : null,
     fetcher,
     {
       revalidateIfStale: false,
