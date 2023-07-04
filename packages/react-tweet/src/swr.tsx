@@ -13,6 +13,7 @@ import { useTweet } from './hooks.js'
 export type TweetProps = Omit<TweetCoreProps, 'id'> & {
   fallback?: ReactNode
   components?: TwitterComponents
+  fetchOptions?: RequestInit
 } & (
     | {
         id: string
@@ -29,9 +30,10 @@ export const Tweet = ({
   apiUrl,
   fallback = <TweetSkeleton />,
   components,
+  fetchOptions,
   onError,
 }: TweetProps) => {
-  const { data, error, isLoading } = useTweet(id, apiUrl)
+  const { data, error, isLoading } = useTweet(id, apiUrl, fetchOptions)
 
   if (isLoading) return fallback
   if (error || !data) {

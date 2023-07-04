@@ -7,12 +7,16 @@ This is the reference for the utility functions that `react-tweet` provides for 
 ```tsx
 import { getTweet, type Tweet } from 'react-tweet/api'
 
-function getTweet(id: string): Promise<Tweet | undefined>
+function getTweet(
+  id: string,
+  fetchOptions?: RequestInit
+): Promise<Tweet | undefined>
 ```
 
 Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts). It accepts the following params:
 
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
+- **fetchOptions** - `RequestInit` (Optional): options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch).
 
 If a tweet is not found it returns `undefined`.
 
@@ -37,7 +41,8 @@ import { useTweet } from 'react-tweet'
 
 const useTweet: (
   id?: string,
-  apiUrl?: string
+  apiUrl?: string,
+  fetchOptions?: RequestInit
 ) => {
   isLoading: boolean
   data: Tweet | null | undefined
@@ -49,6 +54,7 @@ SWR hook for fetching a tweet in the browser. It accepts the following parameter
 
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This parameter is not used if `apiUrl` is provided.
 - **apiUrl** - `string`: the API URL to fetch the tweet from. Defaults to `https://react-tweet.vercel.app`.
+- **fetchOptions** - `RequestInit` (Optional): options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch). Try to pass down a reference to the same object to avoid unnecessary re-renders.
 
 We highly recommend adding your own API endpoint in `apiUrl` for production:
 

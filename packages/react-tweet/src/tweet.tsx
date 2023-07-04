@@ -14,10 +14,15 @@ export type { TweetProps }
 
 type TweetContentProps = Omit<TweetProps, 'fallback'>
 
-const TweetContent = async ({ id, components, onError }: TweetContentProps) => {
+const TweetContent = async ({
+  id,
+  components,
+  fetchOptions,
+  onError,
+}: TweetContentProps) => {
   let error
   const tweet = id
-    ? await getTweet(id).catch((err) => {
+    ? await getTweet(id, fetchOptions).catch((err) => {
         if (onError) {
           error = onError(err)
         } else {
