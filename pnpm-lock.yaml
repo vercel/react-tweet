@@ -108,20 +108,24 @@ importers:
       '@types/node': 20.3.2
       '@types/react': ^18.2.14
       autoprefixer: ^10.4.14
+      edge-cors: ^0.2.1
       next: ^13.4.7
       nextra: ^2.8.0
       nextra-theme-docs: ^2.8.0
       postcss: ^8.4.24
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-tweet: workspace:*
       tailwindcss: ^3.3.2
       typescript: ^5.1.5
     dependencies:
+      edge-cors: 0.2.1
       next: 13.4.7_biqbaboplfbrettd7655fr4n2y
       nextra: 2.8.0_5v7kwk6wz2hvmegftnptprfjvm
       nextra-theme-docs: 2.8.0_s3swf6snrbkiqrvkexxg6t2uqi
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-tweet: link:../../packages/react-tweet
     devDependencies:
       '@types/node': 20.3.2
       '@types/react': 18.2.14
