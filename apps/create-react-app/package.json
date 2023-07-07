@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "react-tweet": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-tweet": "workspace:*"
   },
   "devDependencies": {
-    "@babel/runtime": "7.21.0"
+    "@babel/runtime": "7.22.6"
   },
   "browserslist": [
     ">0.2%",

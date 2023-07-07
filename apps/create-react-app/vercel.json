@@ -1,3 +1,4 @@
 {
+  "buildCommand": "pnpm turbo build --filter=create-react-app...",
   "ignoreCommand": "pnpm dlx turbo-ignore"
 }
