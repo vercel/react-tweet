@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm run build --filter=vite-app...",
+  "buildCommand": "pnpm turbo build --filter=vite-app...",
   "ignoreCommand": "pnpm dlx turbo-ignore",
   "rewrites": [
     {
