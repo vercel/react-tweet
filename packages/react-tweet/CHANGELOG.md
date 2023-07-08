@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.0.2
+
+### Patch Changes
+
+- af50d09: Better CSS defaults to avoid external CSS conflicts
+
 ## 3.0.1
 
 ### Patch Changes
