@@ -7,7 +7,9 @@
 
   /* Text */
   --tweet-body-font-size: 1.25rem;
+  --tweet-body-font-weight: 400;
   --tweet-body-line-height: 1.5rem;
+  --tweet-body-margin: 0;
 
   /* Info */
   --tweet-info-font-size: 0.9375rem;
@@ -26,6 +28,12 @@
   --tweet-replies-font-size: 0.875rem;
   --tweet-replies-line-height: 1rem;
   --tweet-replies-font-weight: 700;
+}
+
+:where(.react-tweet-theme) * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :is([data-theme='light'], .light) :where(.react-tweet-theme),

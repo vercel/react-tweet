@@ -1,4 +1,5 @@
 .root {
+  font-weight: inherit;
   color: var(--tweet-color-blue-secondary);
   text-decoration: none;
   cursor: pointer;
