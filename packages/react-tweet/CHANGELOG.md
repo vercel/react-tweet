@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.0.3
+
+### Patch Changes
+
+- 42d317f: Updated Twitter theme
+
 ## 3.0.2
 
 ### Patch Changes
