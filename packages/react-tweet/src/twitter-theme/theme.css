@@ -53,6 +53,7 @@
   --tweet-bg-color: #fff;
   --tweet-bg-color-hover: rgb(247, 249, 249);
   --tweet-color-blue-primary: rgb(29, 155, 240);
+  --tweet-color-blue-primary-hover: rgb(26, 140, 216);
   --tweet-color-blue-secondary: rgb(0, 111, 214);
   --tweet-color-blue-secondary-hover: rgba(0, 111, 214, 0.1);
   --tweet-color-red-primary: rgb(249, 24, 128);
@@ -80,6 +81,7 @@
   --tweet-bg-color: rgb(21, 32, 43);
   --tweet-bg-color-hover: rgb(30, 39, 50);
   --tweet-color-blue-primary: rgb(29, 155, 240);
+  --tweet-color-blue-primary-hover: rgb(26, 140, 216);
   --tweet-color-blue-secondary: rgb(107, 201, 251);
   --tweet-color-blue-secondary-hover: rgba(107, 201, 251, 0.1);
   --tweet-color-red-primary: rgb(249, 24, 128);
@@ -108,6 +110,7 @@
     --tweet-bg-color: rgb(21, 32, 43);
     --tweet-bg-color-hover: rgb(30, 39, 50);
     --tweet-color-blue-primary: rgb(29, 155, 240);
+    --tweet-color-blue-primary-hover: rgb(26, 140, 216);
     --tweet-color-blue-secondary: rgb(107, 201, 251);
     --tweet-color-blue-secondary-hover: rgba(107, 201, 251, 0.1);
     --tweet-color-red-primary: rgb(249, 24, 128);

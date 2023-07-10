@@ -20,6 +20,9 @@
   overflow: hidden;
   border-radius: 9999px;
 }
+.avatarSquare {
+  border-radius: 4px;
+}
 .avatarShadow {
   height: 100%;
   width: 100%;
@@ -56,20 +59,15 @@
   overflow: hidden;
   white-space: nowrap;
 }
-.authorVerifiedIcon {
-  margin-left: 0.125rem;
-  max-width: 20px;
-  max-height: 20px;
-  height: 1.25em;
-  fill: currentColor;
-  user-select: none;
-  vertical-align: text-bottom;
-}
 .verifiedOld {
   color: var(--tweet-verified-old-color);
 }
 .verifiedBlue {
   color: var(--tweet-verified-blue-color);
+}
+.verifiedGovernment {
+  /* color: var(--tweet-verified-government-color); */
+  color: rgb(130, 154, 171);
 }
 .authorMeta {
   display: flex;
