@@ -1,3 +1,3 @@
-export * from './verified'
-export * from './verified-business'
-export * from './verified-government'
+export * from './verified.js'
+export * from './verified-business.js'
+export * from './verified-government.js'
