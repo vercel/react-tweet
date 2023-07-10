@@ -37,7 +37,6 @@ export const TweetHeader = ({ tweet, components }: Props) => {
     }
   }
 
-  console.log(tweet.user)
   return (
     <div className={s.header}>
       <a
@@ -49,12 +48,12 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         <div
           className={clsx(
             s.avatarOverflow,
-            tweet.user.profile_image_shape === 'Square' && s.avatarSquare
+            user.profile_image_shape === 'Square' && s.avatarSquare
           )}
         >
           <Img
-            src={tweet.user.profile_image_url_https}
-            alt={tweet.user.name}
+            src={user.profile_image_url_https}
+            alt={user.name}
             width={48}
             height={48}
           />
@@ -71,7 +70,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
           rel="noopener noreferrer"
         >
           <div className={s.authorLinkText}>
-            <span title={tweet.user.name}>{tweet.user.name}</span>
+            <span title={user.name}>{user.name}</span>
           </div>
           {verified && (
             <div className={clsx(s.authorVerified, iconClassName)}>{icon}</div>
@@ -84,14 +83,12 @@ export const TweetHeader = ({ tweet, components }: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span title={`@${tweet.user.screen_name}`}>
-              @{tweet.user.screen_name}
-            </span>
+            <span title={`@${user.screen_name}`}>@{user.screen_name}</span>
           </a>
           <div className={s.authorFollow}>
             <span className={s.separator}>·</span>
             <a
-              href={tweet.user.follow_url}
+              href={user.follow_url}
               className={s.follow}
               target="_blank"
               rel="noopener noreferrer"
