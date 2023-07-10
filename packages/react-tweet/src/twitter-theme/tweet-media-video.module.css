@@ -30,7 +30,7 @@
 }
 .videoButton:hover,
 .videoButton:focus-visible {
-  background-color: rgb(26, 140, 216);
+  background-color: var(--tweet-color-blue-primary-hover);
 }
 .videoButtonIcon {
   margin-left: 3px;
@@ -60,11 +60,11 @@
 .viewReplies {
   position: relative;
   min-height: 2rem;
-  background-color: rgb(29, 155, 240);
-  border-color: rgb(29, 155, 240);
+  background-color: var(--tweet-color-blue-primary);
+  border-color: var(--tweet-color-blue-primary);
   font-size: 0.9375rem;
   line-height: 1.25rem;
 }
 .viewReplies:hover {
-  background-color: rgb(26, 140, 216);
+  background-color: var(--tweet-color-blue-primary-hover);
 }
