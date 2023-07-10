@@ -1,4 +1,5 @@
 export * from './types.js'
+export * from './icons/index.js'
 export * from './embedded-tweet.js'
 export * from './tweet-actions-copy.js'
 export * from './tweet-actions.js'
