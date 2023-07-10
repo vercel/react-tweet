@@ -57,7 +57,7 @@ export const TweetMedia = ({ tweet, components }: Props) => {
               </a>
             ) : (
               <div key={media.media_url_https} className={s.mediaContainer}>
-                <TweetMediaVideo media={media} />
+                <TweetMediaVideo tweet={tweet} media={media} />
               </div>
             )}
           </div>
