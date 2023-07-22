@@ -8,10 +8,7 @@
 .mediaWrapper {
   display: grid;
   grid-auto-rows: 1fr;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
+  gap: 2px;
   height: 100%;
   width: 100%;
 }
