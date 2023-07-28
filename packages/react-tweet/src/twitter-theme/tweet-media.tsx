@@ -7,13 +7,22 @@ import { TweetMediaVideo } from './tweet-media-video.js'
 import { MediaImg } from './media-img.js'
 import s from './tweet-media.module.css'
 
-const getSkeletonStyle = (media: MediaDetails) => ({
-  width: media.type === 'video' ? 'unset' : undefined,
-  paddingBottom: `${Math.max(
-    (100 / media.original_info.width) * media.original_info.height,
-    56.25
-  )}%`,
-})
+const getSkeletonStyle = (media: MediaDetails, itemCount: number) => {
+  let paddingBottom = 56.25 // default of 16x9
+
+  // if we only have 1 item, show at original ratio
+  if (itemCount === 1)
+    paddingBottom =
+      (100 / media.original_info.width) * media.original_info.height
+
+  // if we have 2 items, double the default to be 16x9 total
+  if (itemCount === 2) paddingBottom = paddingBottom * 2
+
+  return {
+    width: media.type === 'photo' ? undefined : 'unset',
+    paddingBottom: `${paddingBottom}%`,
+  }
+}
 
 type Props = {
   tweet: EnrichedTweet
@@ -44,7 +53,10 @@ export const TweetMedia = ({ tweet, components }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className={s.skeleton} style={getSkeletonStyle(media)} />
+                <div
+                  className={s.skeleton}
+                  style={getSkeletonStyle(media, length)}
+                />
                 <Img
                   src={getMediaUrl(media, 'small')}
                   alt={media.ext_alt_text || 'Image'}
@@ -54,7 +66,10 @@ export const TweetMedia = ({ tweet, components }: Props) => {
               </a>
             ) : (
               <div key={media.media_url_https} className={s.mediaContainer}>
-                <div className={s.skeleton} style={getSkeletonStyle(media)} />
+                <div
+                  className={s.skeleton}
+                  style={getSkeletonStyle(media, length)}
+                />
                 <TweetMediaVideo tweet={tweet} media={media} />
               </div>
             )}
