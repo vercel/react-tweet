@@ -53,6 +53,7 @@ export const TweetMedia = ({ tweet, components }: Props) => {
                   alt={media.ext_alt_text || 'Image'}
                   className={s.image}
                   draggable
+                  decoding="async"
                 />
               </a>
             ) : (
