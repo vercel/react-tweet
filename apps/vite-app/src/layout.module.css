@@ -7,7 +7,6 @@
   padding: 2rem 1rem;
 }
 .main {
-  display: grid;
+  display: flex;
   justify-content: center;
-  grid-template-columns: minmax(max-content, 550px);
 }
