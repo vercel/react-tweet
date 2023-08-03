@@ -9,6 +9,7 @@ import type {
   MediaEntity,
   MediaAnimatedGif,
   MediaVideo,
+  QuotedTweet,
 } from './api/index.js'
 
 export type TweetCoreProps = {
@@ -16,7 +17,7 @@ export type TweetCoreProps = {
   onError?(error: any): any
 }
 
-const getTweetUrl = (tweet: Tweet) =>
+const getTweetUrl = (tweet: Tweet | QuotedTweet) =>
   `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
 
 const getUserUrl = (usernameOrTweet: string | Tweet) =>
@@ -46,7 +47,7 @@ const getInReplyToUrl = (tweet: Tweet) =>
 
 export const getMediaUrl = (
   media: MediaDetails,
-  size: 'small' | 'medium' | 'larget'
+  size: 'small' | 'medium' | 'large'
 ): string => {
   const url = new URL(media.media_url_https)
   const extension = url.pathname.split('.').pop()
@@ -112,7 +113,7 @@ type Entity = {
   | (SymbolEntity & { type: 'symbol'; href: string })
 )
 
-function getEntities(tweet: Tweet): Entity[] {
+function getEntities(tweet: Tweet | QuotedTweet): Entity[] {
   const textMap = Array.from(tweet.text)
   const result: EntityWithType[] = [
     { indices: tweet.display_text_range, type: 'text' },
@@ -190,7 +191,7 @@ function addEntities(
  * Update display_text_range to work w/ Array.from
  * Array.from is unicode aware, unlike string.slice()
  */
-function fixRange(tweet: Tweet, entities: EntityWithType[]) {
+function fixRange(tweet: Tweet | QuotedTweet, entities: EntityWithType[]) {
   if (
     tweet.entities.media &&
     tweet.entities.media[0].indices[0] < tweet.display_text_range[1]
@@ -215,6 +216,11 @@ export type EnrichedTweet = Omit<Tweet, 'entities'> & {
   entities: Entity[]
 }
 
+export type EnrichedQuotedTweet = Omit<QuotedTweet, 'entities'> & {
+  url: string
+  entities: Entity[]
+}
+
 /**
  * Enriches a tweet with additional data used to more easily use the tweet in a UI.
  */
@@ -231,5 +237,11 @@ export const enrichTweet = (tweet: Tweet): EnrichedTweet => ({
   in_reply_to_url: tweet.in_reply_to_screen_name
     ? getInReplyToUrl(tweet)
     : undefined,
+  entities: getEntities(tweet),
+})
+
+export const enrichQuotedTweet = (tweet: QuotedTweet): EnrichedQuotedTweet => ({
+  ...tweet,
+  url: getTweetUrl(tweet),
   entities: getEntities(tweet),
 })

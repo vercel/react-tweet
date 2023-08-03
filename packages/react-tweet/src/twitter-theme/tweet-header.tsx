@@ -2,12 +2,8 @@ import clsx from 'clsx'
 import type { EnrichedTweet } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { AvatarImg } from './avatar-img.js'
-import {
-  Verified,
-  VerifiedGovernment,
-  VerifiedBusiness,
-} from './icons/index.js'
 import s from './tweet-header.module.css'
+import { TweetAuthorVerifiedBadge } from './tweet-author-verified-badge.js'
 
 type Props = {
   tweet: EnrichedTweet
@@ -17,25 +13,6 @@ type Props = {
 export const TweetHeader = ({ tweet, components }: Props) => {
   const Img = components?.AvatarImg ?? AvatarImg
   const { user } = tweet
-  const verified = user.verified || user.is_blue_verified || user.verified_type
-  let icon = <Verified />
-  let iconClassName: string | null = s.verifiedBlue
-
-  if (verified) {
-    if (!user.is_blue_verified) {
-      iconClassName = s.verifiedOld
-    }
-    switch (user.verified_type) {
-      case 'Government':
-        icon = <VerifiedGovernment />
-        iconClassName = s.verifiedGovernment
-        break
-      case 'Business':
-        icon = <VerifiedBusiness />
-        iconClassName = null
-        break
-    }
-  }
 
   return (
     <div className={s.header}>
@@ -72,9 +49,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
           <div className={s.authorLinkText}>
             <span title={user.name}>{user.name}</span>
           </div>
-          {verified && (
-            <div className={clsx(s.authorVerified, iconClassName)}>{icon}</div>
-          )}
+          <TweetAuthorVerifiedBadge user={user} className={s.authorVerified} />
         </a>
         <div className={s.authorMeta}>
           <a
