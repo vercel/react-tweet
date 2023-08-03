@@ -1,5 +1,13 @@
 # react-tweet
 
+## 3.0.4
+
+### Patch Changes
+
+- 96e539a: - Fix position twitter icon for dir=rtl (#102)
+  - Fix: bump author padding (#106)
+  - Fix regression in media layout with multiple images (#103)
+
 ## 3.0.3
 
 ### Patch Changes
