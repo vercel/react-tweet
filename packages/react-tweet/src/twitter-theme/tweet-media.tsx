@@ -1,10 +1,28 @@
 import { Fragment } from 'react'
 import clsx from 'clsx'
 import { type EnrichedTweet, getMediaUrl } from '../utils.js'
+import { MediaDetails } from '../api/index.js'
 import type { TwitterComponents } from './types.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
 import { MediaImg } from './media-img.js'
 import s from './tweet-media.module.css'
+
+const getSkeletonStyle = (media: MediaDetails, itemCount: number) => {
+  let paddingBottom = 56.25 // default of 16x9
+
+  // if we only have 1 item, show at original ratio
+  if (itemCount === 1)
+    paddingBottom =
+      (100 / media.original_info.width) * media.original_info.height
+
+  // if we have 2 items, double the default to be 16x9 total
+  if (itemCount === 2) paddingBottom = paddingBottom * 2
+
+  return {
+    width: media.type === 'photo' ? undefined : 'unset',
+    paddingBottom: `${paddingBottom}%`,
+  }
+}
 
 type Props = {
   tweet: EnrichedTweet
@@ -17,29 +35,16 @@ export const TweetMedia = ({ tweet, components }: Props) => {
 
   return (
     <div className={s.root}>
-      {tweet.mediaDetails?.map((media) => (
-        <Fragment key={media.media_url_https}>
-          <div
-            className={s.skeleton}
-            style={
-              media.type === 'photo'
-                ? {
-                    paddingBottom: `${
-                      (100 / media.original_info.width) *
-                      media.original_info.height
-                    }%`,
-                  }
-                : undefined
-            }
-          />
-          <div
-            className={clsx(
-              s.mediaWrapper,
-              length > 1 && s.grid2Columns,
-              length === 3 && s.grid3,
-              length > 4 && s.grid2x2
-            )}
-          >
+      <div
+        className={clsx(
+          s.mediaWrapper,
+          length > 1 && s.grid2Columns,
+          length === 3 && s.grid3,
+          length > 4 && s.grid2x2
+        )}
+      >
+        {tweet.mediaDetails?.map((media) => (
+          <Fragment key={media.media_url_https}>
             {media.type === 'photo' ? (
               <a
                 key={media.media_url_https}
@@ -48,6 +53,10 @@ export const TweetMedia = ({ tweet, components }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <div
+                  className={s.skeleton}
+                  style={getSkeletonStyle(media, length)}
+                />
                 <Img
                   src={getMediaUrl(media, 'small')}
                   alt={media.ext_alt_text || 'Image'}
@@ -57,12 +66,16 @@ export const TweetMedia = ({ tweet, components }: Props) => {
               </a>
             ) : (
               <div key={media.media_url_https} className={s.mediaContainer}>
+                <div
+                  className={s.skeleton}
+                  style={getSkeletonStyle(media, length)}
+                />
                 <TweetMediaVideo tweet={tweet} media={media} />
               </div>
             )}
-          </div>
-        </Fragment>
-      ))}
+          </Fragment>
+        ))}
+      </div>
     </div>
   )
 }
