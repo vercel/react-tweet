@@ -1,6 +1,10 @@
 import { Fragment } from 'react'
 import clsx from 'clsx'
-import { type EnrichedTweet, getMediaUrl } from '../utils.js'
+import {
+  type EnrichedQuotedTweet,
+  type EnrichedTweet,
+  getMediaUrl,
+} from '../utils.js'
 import { MediaDetails } from '../api/index.js'
 import type { TwitterComponents } from './types.js'
 import { TweetMediaVideo } from './tweet-media-video.js'
@@ -25,16 +29,17 @@ const getSkeletonStyle = (media: MediaDetails, itemCount: number) => {
 }
 
 type Props = {
-  tweet: EnrichedTweet
+  tweet: EnrichedTweet | EnrichedQuotedTweet
   components?: TwitterComponents
+  quoted?: boolean
 }
 
-export const TweetMedia = ({ tweet, components }: Props) => {
+export const TweetMedia = ({ tweet, components, quoted }: Props) => {
   const length = tweet.mediaDetails?.length ?? 0
   const Img = components?.MediaImg ?? MediaImg
 
   return (
-    <div className={s.root}>
+    <div className={clsx(s.root, quoted && s.rootQuoted)}>
       <div
         className={clsx(
           s.mediaWrapper,
