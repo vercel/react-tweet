@@ -1,6 +1,10 @@
 import clsx from 'clsx'
 import s from './tweet-author-verified-badge.module.css'
-import { Verified, VerifiedBusiness, VerifiedGovernment } from './icons'
+import {
+  Verified,
+  VerifiedBusiness,
+  VerifiedGovernment,
+} from './icons/index.js'
 import { TweetUser } from '../api'
 
 type Props = {

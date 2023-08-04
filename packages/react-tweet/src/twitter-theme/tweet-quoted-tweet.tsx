@@ -4,7 +4,7 @@ import { TweetQuotedTweetBody } from './tweet-quoted-tweet-body.js'
 import { TweetQuotedTweetContainer } from './tweet-quoted-tweet-container.js'
 import { TweetQuotedTweetMedia } from './tweet-quoted-tweet-media.js'
 import { useMemo } from 'react'
-import { enrichQuotedTweet } from '../utils'
+import { enrichQuotedTweet } from '../utils.js'
 
 type Props = {
   tweet: QuotedTweet
