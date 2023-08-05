@@ -56,7 +56,6 @@ export const TweetHeader = ({ tweet, components }: Props) => {
             alt={user.name}
             width={48}
             height={48}
-            decoding="async"
           />
         </div>
         <div className={s.avatarOverflow}>
