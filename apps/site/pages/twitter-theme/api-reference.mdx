@@ -16,7 +16,7 @@ Fetches and renders the tweet. It accepts the following props:
 - **apiUrl** - `string`: the API URL to fetch the tweet from when using the tweet client-side with SWR. Defaults to `https://react-tweet.vercel.app/api/tweet/:id`.
 - **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
 - **onError** - `(error?: any) => any`: The returned error will be sent to the `TweetNotFound` component.
-- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+- **components** - `TwitterComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
 - **fetchOptions** - `RequestInit`: options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch).
 
 If the environment where `Tweet` is used does not support React Server Components then it will work with [SWR](https://swr.vercel.app/) instead and the tweet will be fetched from `https://react-tweet.vercel.app/api/tweet/:id`, which is CORS friendly.
@@ -66,7 +66,7 @@ import { EmbeddedTweet } from 'react-tweet'
 Renders a tweet. It accepts the following props:
 
 - **tweet** - `Tweet`: the tweet data, as returned by `getTweet`. Required.
-- **components** - `TweetComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
+- **components** - `TwitterComponents`: Components to replace the default tweet components. See the [custom tweet components](#custom-tweet-components) section for more details.
 
 ### `TweetSkeleton`
 
@@ -88,10 +88,10 @@ A tweet not found component. It accepts the following props:
 
 ## Custom tweet components
 
-Default components used by [`Tweet`](#tweet) and [`EmbeddedTweet`](#embeddedtweet) can be replaced by passing a `components` prop. It extends the `TweetComponents` type exported from `react-tweet`:
+Default components used by [`Tweet`](#tweet) and [`EmbeddedTweet`](#embeddedtweet) can be replaced by passing a `components` prop. It extends the `TwitterComponents` type exported from `react-tweet`:
 
 ```ts copy
-type TweetComponents = {
+type TwitterComponents = {
   TweetNotFound?: (props: Props) => JSX.Element
   AvatarImg?: (props: AvatarImgProps) => JSX.Element
   MediaImg?: (props: MediaImgProps) => JSX.Element
@@ -103,9 +103,9 @@ For example, to replace the default `img` tag used for the avatar and media with
 ```tsx copy
 // tweet-components.tsx
 import Image from 'next/image'
-import type { TweetComponents } from 'react-tweet'
+import type { TwitterComponents } from 'react-tweet'
 
-export const components: TweetComponents = {
+export const components: TwitterComponents = {
   AvatarImg: (props) => <Image {...props} />,
   MediaImg: (props) => <Image {...props} fill unoptimized />,
 }
