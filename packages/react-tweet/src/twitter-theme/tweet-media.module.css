@@ -5,6 +5,10 @@
   overflow: hidden;
   position: relative;
 }
+.rootQuoted {
+  border: none;
+  border-radius: 0;
+}
 .mediaWrapper {
   display: grid;
   grid-auto-rows: 1fr;

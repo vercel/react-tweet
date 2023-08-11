@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import clsx from 'clsx'
 import type { MediaAnimatedGif, MediaVideo } from '../api/index.js'
-import { type EnrichedTweet, getMediaUrl, getMp4Video } from '../utils.js'
+import { EnrichedQuotedTweet, type EnrichedTweet, getMediaUrl, getMp4Video } from '../utils.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 
 type Props = {
-  tweet: EnrichedTweet
+  tweet: EnrichedTweet | EnrichedQuotedTweet
   media: MediaAnimatedGif | MediaVideo
 }
 

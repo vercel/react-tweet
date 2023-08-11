@@ -55,7 +55,7 @@ export async function getTweet(
       'tfw_tweet_edit_frontend:on',
     ].join(';')
   )
-
+  
   const res = await fetch(url.toString(), fetchOptions)
   const isJson = res.headers.get('content-type')?.includes('application/json')
   const data = isJson ? await res.json() : undefined

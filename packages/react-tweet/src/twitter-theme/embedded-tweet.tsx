@@ -8,6 +8,7 @@ import { TweetMedia } from './tweet-media.js'
 import { TweetInfo } from './tweet-info.js'
 import { TweetActions } from './tweet-actions.js'
 import { TweetReplies } from './tweet-replies.js'
+import { TweetQuotedTweet } from './tweet-quoted-tweet.js'
 import { enrichTweet } from '../utils.js'
 import { useMemo } from 'react'
 
@@ -27,6 +28,7 @@ export const EmbeddedTweet = ({ tweet: t, components }: Props) => {
       {tweet.mediaDetails?.length ? (
         <TweetMedia tweet={tweet} components={components} />
       ) : null}
+      {tweet.quoted_tweet && <TweetQuotedTweet tweet={tweet.quoted_tweet} />}
       <TweetInfo tweet={tweet} />
       <TweetActions tweet={tweet} />
       <TweetReplies tweet={tweet} />

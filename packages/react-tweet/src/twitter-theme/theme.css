@@ -11,6 +11,14 @@
   --tweet-body-line-height: 1.5rem;
   --tweet-body-margin: 0;
 
+  /* Quoted */
+  --tweet-quoted-body-font-size: 0.938rem;
+  --tweet-quoted-body-font-weight: 400;
+  --tweet-quoted-body-line-height: 1.25rem;
+  --tweet-quoted-body-margin: 0.25rem 0 0.75rem 0;
+  --tweet-quoted-container-margin: 0.75rem 0;
+
+
   /* Info */
   --tweet-info-font-size: 0.9375rem;
   --tweet-info-line-height: 1.25rem;

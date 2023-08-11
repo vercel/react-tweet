@@ -80,6 +80,7 @@ export interface QuotedTweet extends TweetBase {
   reply_count: number
   retweet_count: number
   favorite_count: number
+  mediaDetails?: MediaDetails[]
   self_thread: {
     id_str: string
   }

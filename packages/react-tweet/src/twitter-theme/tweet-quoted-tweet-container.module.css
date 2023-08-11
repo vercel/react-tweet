@@ -1,0 +1,13 @@
+.root {
+    width: 100%;
+    overflow: hidden;
+    /* Base font styles */
+    border: var(--tweet-border);
+    border-radius: 12px;
+    margin: var(--tweet-quoted-container-margin);
+}
+
+.article {
+    position: relative;
+    box-sizing: inherit;
+}
