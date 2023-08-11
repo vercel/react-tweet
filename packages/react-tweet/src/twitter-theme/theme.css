@@ -60,7 +60,7 @@
   --tweet-color-red-primary-hover: rgba(249, 24, 128, 0.1);
   --tweet-color-green-primary: rgb(0, 186, 124);
   --tweet-color-green-primary-hover: rgba(0, 186, 124, 0.1);
-  --tweet-twitter-icon-color: var(--tweet-color-blue-primary);
+  --tweet-twitter-icon-color: var(--tweet-font-color);
   --tweet-verified-old-color: rgb(130, 154, 171);
   --tweet-verified-blue-color: var(--tweet-color-blue-primary);
 }
@@ -88,7 +88,7 @@
   --tweet-color-red-primary-hover: rgba(249, 24, 128, 0.1);
   --tweet-color-green-primary: rgb(0, 186, 124);
   --tweet-color-green-primary-hover: rgba(0, 186, 124, 0.1);
-  --tweet-twitter-icon-color: #fff;
+  --tweet-twitter-icon-color: var(--tweet-font-color);
   --tweet-verified-old-color: rgb(130, 154, 171);
   --tweet-verified-blue-color: #fff;
 }
@@ -117,7 +117,7 @@
     --tweet-color-red-primary-hover: rgba(249, 24, 128, 0.1);
     --tweet-color-green-primary: rgb(0, 186, 124);
     --tweet-color-green-primary-hover: rgba(0, 186, 124, 0.1);
-    --tweet-twitter-icon-color: #fff;
+    --tweet-twitter-icon-color: var(--tweet-font-color);
     --tweet-verified-old-color: rgb(130, 154, 171);
     --tweet-verified-blue-color: #fff;
   }

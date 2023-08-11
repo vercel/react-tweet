@@ -97,8 +97,8 @@
 }
 
 .twitterIcon {
-  width: 25px;
-  height: 25px;
+  width: 23.75px;
+  height: 23.75px;
   color: var(--tweet-twitter-icon-color);
   fill: currentColor;
   user-select: none;
