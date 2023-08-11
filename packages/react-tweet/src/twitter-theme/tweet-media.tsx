@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import clsx from 'clsx'
 import {
-  type EnrichedQuotedTweet,
   type EnrichedTweet,
+  type EnrichedQuotedTweet,
   getMediaUrl,
 } from '../utils.js'
 import { MediaDetails } from '../api/index.js'
@@ -39,7 +39,7 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
   const Img = components?.MediaImg ?? MediaImg
 
   return (
-    <div className={clsx(s.root, quoted && s.rootQuoted)}>
+    <div className={clsx(s.root, !quoted && s.rounded)}>
       <div
         className={clsx(
           s.mediaWrapper,

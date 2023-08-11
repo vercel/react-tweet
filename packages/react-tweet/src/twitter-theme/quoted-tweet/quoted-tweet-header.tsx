@@ -1,14 +1,12 @@
 import clsx from 'clsx'
-import { AvatarImg } from './avatar-img.js'
-import s from './tweet-quoted-tweet-header.module.css'
-import type { EnrichedQuotedTweet } from '../utils'
-import { TweetAuthorVerifiedBadge } from './tweet-author-verified-badge.js'
+import { AvatarImg } from '../avatar-img.js'
+import s from './quoted-tweet-header.module.css'
+import type { EnrichedQuotedTweet } from '../../utils.js'
+import { VerifiedBadge } from '../verified-badge.js'
 
-type Props = {
-  tweet: EnrichedQuotedTweet
-}
+type Props = { tweet: EnrichedQuotedTweet }
 
-export const TweetQuotedTweetHeader = ({ tweet }: Props) => {
+export const QuotedTweetHeader = ({ tweet }: Props) => {
   const { user } = tweet
 
   return (
@@ -37,7 +35,7 @@ export const TweetQuotedTweetHeader = ({ tweet }: Props) => {
         <div className={s.authorText}>
           <span title={user.name}>{user.name}</span>
         </div>
-        <TweetAuthorVerifiedBadge className={s.authorVerified} user={user} />
+        <VerifiedBadge user={user} />
         <div className={s.username}>
           <span title={`@${user.screen_name}`}>@{user.screen_name}</span>
         </div>

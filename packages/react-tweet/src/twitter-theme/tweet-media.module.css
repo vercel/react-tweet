@@ -1,13 +1,11 @@
 .root {
   margin-top: 0.75rem;
-  border: var(--tweet-border);
-  border-radius: 12px;
   overflow: hidden;
   position: relative;
 }
-.rootQuoted {
-  border: none;
-  border-radius: 0;
+.rounded {
+  border: var(--tweet-border);
+  border-radius: 12px;
 }
 .mediaWrapper {
   display: grid;
