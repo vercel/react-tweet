@@ -3,7 +3,7 @@ import type { EnrichedTweet } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { AvatarImg } from './avatar-img.js'
 import s from './tweet-header.module.css'
-import { TweetAuthorVerifiedBadge } from './tweet-author-verified-badge.js'
+import { VerifiedBadge } from './verified-badge.js'
 
 type Props = {
   tweet: EnrichedTweet
@@ -49,7 +49,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
           <div className={s.authorLinkText}>
             <span title={user.name}>{user.name}</span>
           </div>
-          <TweetAuthorVerifiedBadge user={user} className={s.authorVerified} />
+          <VerifiedBadge user={user} className={s.authorVerified} />
         </a>
         <div className={s.authorMeta}>
           <a

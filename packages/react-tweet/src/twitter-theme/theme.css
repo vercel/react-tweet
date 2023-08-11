@@ -11,13 +11,12 @@
   --tweet-body-line-height: 1.5rem;
   --tweet-body-margin: 0;
 
-  /* Quoted */
+  /* Quoted Tweet */
+  --tweet-quoted-container-margin: 0.75rem 0;
   --tweet-quoted-body-font-size: 0.938rem;
   --tweet-quoted-body-font-weight: 400;
   --tweet-quoted-body-line-height: 1.25rem;
   --tweet-quoted-body-margin: 0.25rem 0 0.75rem 0;
-  --tweet-quoted-container-margin: 0.75rem 0;
-
 
   /* Info */
   --tweet-info-font-size: 0.9375rem;
@@ -60,6 +59,7 @@
   --tweet-font-color-secondary: rgb(83, 100, 113);
   --tweet-bg-color: #fff;
   --tweet-bg-color-hover: rgb(247, 249, 249);
+  --tweet-quoted-bg-color-hover: rgba(0, 0, 0, 0.03);
   --tweet-color-blue-primary: rgb(29, 155, 240);
   --tweet-color-blue-primary-hover: rgb(26, 140, 216);
   --tweet-color-blue-secondary: rgb(0, 111, 214);
@@ -88,6 +88,7 @@
   --tweet-font-color-secondary: rgb(139, 152, 165);
   --tweet-bg-color: rgb(21, 32, 43);
   --tweet-bg-color-hover: rgb(30, 39, 50);
+  --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
   --tweet-color-blue-primary: rgb(29, 155, 240);
   --tweet-color-blue-primary-hover: rgb(26, 140, 216);
   --tweet-color-blue-secondary: rgb(107, 201, 251);

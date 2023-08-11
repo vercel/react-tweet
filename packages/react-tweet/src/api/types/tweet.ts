@@ -8,7 +8,7 @@ import type { TweetVideo } from './video.js'
 /**
  * Base tweet information shared by a tweet, a parent tweet and a quoted tweet.
  */
-interface TweetBase {
+export interface TweetBase {
   /**
    * Language code of the tweet. E.g "en", "es".
    */
