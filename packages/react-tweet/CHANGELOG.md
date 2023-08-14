@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.1.1
+
+### Patch Changes
+
+- dc5cadf: Added missing token to API requests to Twitter's CDN
+
 ## 3.1.0
 
 ### Minor Changes
