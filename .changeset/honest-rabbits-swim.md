@@ -2,4 +2,4 @@
 'react-tweet': patch
 ---
 
-Added token to API requests to Twitter's CDN
+Added missing token to API requests to Twitter's CDN
