@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.1.0
+
+### Minor Changes
+
+- 27d98ab: Added quoted tweet support and updated logo
+
 ## 3.0.4
 
 ### Patch Changes
