@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import swr from 'swr'
 import { type Tweet, TwitterApiError } from './api/index.js'
 
-// Avois an error when used in the pages directory where useSWR might be in `default`.
+// Avoids an error when used in the pages directory where useSWR might be in `default`.
 const useSWR = ((swr as any).default as typeof swr) || swr
 const host = 'https://react-tweet.vercel.app'
 
