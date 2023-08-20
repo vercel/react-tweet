@@ -70,8 +70,21 @@ export async function getTweet(
   const isJson = res.headers.get('content-type')?.includes('application/json')
   const data = isJson ? await res.json() : undefined
 
-  if (res.ok) return data
-  if (res.status === 404) return
+  if (res.ok) {
+    if (data?.__typename === 'TweetTombstone') {
+      console.error(
+        `The tweet ${id} has been made private by the account owner. Update your code to remove this tweet when possible.`
+      )
+      return
+    }
+    return data
+  }
+  if (res.status === 404) {
+    console.error(
+      `The tweet ${id} does not exist or has been deleted by the account owner. Update your code to remove this tweet when possible.`
+    )
+    return
+  }
 
   throw new TwitterApiError({
     message: typeof data.error === 'string' ? data.error : 'Bad request.',
