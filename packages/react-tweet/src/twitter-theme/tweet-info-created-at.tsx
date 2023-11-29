@@ -18,7 +18,7 @@ export const TweetInfoCreatedAt = ({ tweet }: { tweet: EnrichedTweet }) => {
       className={s.root}
       href={tweet.url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
       aria-label={format(createdAt, 'h:mm a · MMM d, y')}
     >
       <time dateTime={createdAt.toISOString()}>

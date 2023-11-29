@@ -6,7 +6,7 @@ export const TweetInReplyTo = ({ tweet }: { tweet: EnrichedTweet }) => (
     href={tweet.in_reply_to_url}
     className={s.root}
     target="_blank"
-    rel="noopener noreferrer"
+    rel="noopener noreferrer nofollow"
   >
     Replying to @{tweet.in_reply_to_screen_name}
   </a>

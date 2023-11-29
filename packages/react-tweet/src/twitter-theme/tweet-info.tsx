@@ -9,7 +9,7 @@ export const TweetInfo = ({ tweet }: { tweet: EnrichedTweet }) => (
       className={s.infoLink}
       href="https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy"
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
       aria-label="Twitter for Websites, Ads Information and Privacy"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" className={s.infoIcon}>

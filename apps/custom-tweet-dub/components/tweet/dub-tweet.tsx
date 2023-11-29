@@ -55,7 +55,7 @@ export const DubTweet = ({
           className="group flex items-center space-x-3 hover:text-red-600"
           href={tweet.like_url}
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer nofollow"
         >
           <Heart className="h-4 w-4 group-hover:fill-red-600" />
           <p>{nFormatter(tweet.favorite_count)}</p>
@@ -64,7 +64,7 @@ export const DubTweet = ({
           className="group flex items-center space-x-3 hover:text-blue-600"
           href={tweet.reply_url}
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer nofollow"
         >
           <Message className="h-4 w-4 group-hover:fill-blue-600" />
           <p>{nFormatter(tweet.conversation_count)}</p>

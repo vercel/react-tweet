@@ -20,7 +20,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         href={tweet.url}
         className={s.avatar}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
       >
         <div
           className={clsx(
@@ -44,7 +44,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
           href={tweet.url}
           className={s.authorLink}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
         >
           <div className={s.authorLinkText}>
             <span title={user.name}>{user.name}</span>
@@ -56,7 +56,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
             href={tweet.url}
             className={s.username}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
           >
             <span title={`@${user.screen_name}`}>@{user.screen_name}</span>
           </a>
@@ -66,7 +66,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
               href={user.follow_url}
               className={s.follow}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer nofollow"
             >
               Follow
             </a>
@@ -77,7 +77,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
         href={tweet.url}
         className={s.brand}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         aria-label="View on Twitter"
       >
         <svg viewBox="0 0 24 24" aria-hidden="true" className={s.twitterIcon}>

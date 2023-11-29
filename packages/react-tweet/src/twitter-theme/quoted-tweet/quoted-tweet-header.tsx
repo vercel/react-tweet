@@ -15,7 +15,7 @@ export const QuotedTweetHeader = ({ tweet }: Props) => {
         href={tweet.url}
         className={s.avatar}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
       >
         <div
           className={clsx(

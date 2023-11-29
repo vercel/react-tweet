@@ -7,7 +7,7 @@ export const TweetReplies = ({ tweet }: { tweet: EnrichedTweet }) => (
       className={s.link}
       href={tweet.url}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener noreferrer nofollow"
     >
       <span className={s.text}>
         {tweet.conversation_count === 0

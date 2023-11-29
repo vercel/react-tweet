@@ -50,7 +50,7 @@ const config: DocsThemeConfig = {
           <a
             className="flex items-center gap-1 text-current"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             title="vercel.com homepage"
             href="https://vercel.com?utm_source=react-tweet.site"
           >

@@ -56,7 +56,7 @@ export const TweetMedia = ({ tweet, components, quoted }: Props) => {
                 href={tweet.url}
                 className={clsx(s.mediaContainer, s.mediaLink)}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
               >
                 <div
                   className={s.skeleton}

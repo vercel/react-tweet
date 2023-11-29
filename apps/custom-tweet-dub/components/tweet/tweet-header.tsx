@@ -6,7 +6,7 @@ import BlurImage from './blur-image'
 export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
   <div className="flex items-center justify-between">
     <div className="flex items-center space-x-2">
-      <a href={tweet.user.url} target="_blank" rel="noreferrer">
+      <a href={tweet.user.url} target="_blank" rel="noreferrer nofollow">
         <BlurImage
           alt={tweet.user.screen_name}
           height={48}
@@ -19,7 +19,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
         <a
           href={tweet.user.url}
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer nofollow"
           className="flex items-center font-semibold text-gray-900"
         >
           {truncate(tweet.user.name, 20)}
@@ -39,7 +39,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
           <a
             href={tweet.user.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer nofollow"
             className="text-sm text-gray-500 transition-all duration-75 hover:text-gray-900"
           >
             @{truncate(tweet.user.screen_name, 16)}
@@ -48,7 +48,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
           <a
             href={tweet.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer nofollow"
             className="text-sm text-gray-500 transition-all duration-75 hover:text-gray-900"
           >
             {new Date(tweet.created_at).toLocaleDateString('en-US', {
@@ -59,7 +59,7 @@ export const TweetHeader = ({ tweet }: { tweet: EnrichedTweet }) => (
         </div>
       </div>
     </div>
-    <a href={tweet.url} target="_blank" rel="noreferrer">
+    <a href={tweet.url} target="_blank" rel="noreferrer nofollow">
       <span className="sr-only">Link to tweet</span>
       <Twitter className="h-5 w-5 text-[#3BA9EE] transition-all ease-in-out hover:scale-105" />
     </a>

@@ -6,7 +6,7 @@ const Link = ({ href, children }: { href: string; children: ReactNode }) => (
     className="text-[rgb(29,161,242)] font-normal no-underline"
     href={href}
     target="_blank"
-    rel="noopener noreferrer"
+    rel="noopener noreferrer nofollow"
   >
     {children}
   </a>

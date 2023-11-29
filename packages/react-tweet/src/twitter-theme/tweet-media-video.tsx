@@ -82,7 +82,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
             href={tweet.url}
             className={s.anchor}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
           >
             {playButton ? 'Watch on Twitter' : 'Continue watching on Twitter'}
           </a>
@@ -94,7 +94,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
           href={tweet.url}
           className={clsx(s.anchor, s.viewReplies)}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow"
         >
           View replies
         </a>

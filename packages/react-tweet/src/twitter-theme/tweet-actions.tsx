@@ -11,7 +11,7 @@ export const TweetActions = ({ tweet }: { tweet: EnrichedTweet }) => {
         className={s.like}
         href={tweet.like_url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         aria-label={`Like. This Tweet has ${favoriteCount} likes`}
       >
         <div className={s.likeIconWrapper}>
@@ -27,7 +27,7 @@ export const TweetActions = ({ tweet }: { tweet: EnrichedTweet }) => {
         className={s.reply}
         href={tweet.reply_url}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         aria-label="Reply to this Tweet on Twitter"
       >
         <div className={s.replyIconWrapper}>
