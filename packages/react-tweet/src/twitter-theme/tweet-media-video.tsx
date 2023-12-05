@@ -26,7 +26,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
         poster={getMediaUrl(media, 'small')}
         controls={!playButton}
         muted
-        preload="metadata"
+        preload="none"
         tabIndex={playButton ? -1 : 0}
         onPlay={() => {
           if (timeout) window.clearTimeout(timeout)
