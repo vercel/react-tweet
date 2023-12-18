@@ -3,7 +3,10 @@ import { EmbeddedTweet, TweetNotFound } from 'react-tweet'
 import { unstable_cache } from 'next/cache'
 
 const getTweet = unstable_cache(
-  async (id: string) => _getTweet(id),
+  async (id: string) => {
+    console.log('yes!')
+    return _getTweet(id)
+  },
   ['tweet'],
   { revalidate: 3600 * 24 }
 )
