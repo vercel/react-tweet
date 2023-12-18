@@ -32,6 +32,43 @@ transpilePackages: ['react-tweet']
 
 The error won't happen if the App Router is enabled, where [Next.js supports CSS imports from `node_modules`](https://github.com/vercel/next.js/discussions/27953#discussioncomment-3978605).
 
+### Enabling cache
+
+It's recommended to enable cache for the Twitter API if you intend to go to production. This is how you can do it with [`unstable_cache`](https://nextjs.org/docs/app/api-reference/functions/unstable_cache):
+
+```tsx
+import { Suspense } from 'react'
+import { unstable_cache } from 'next/cache'
+import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet'
+import { getTweet as _getTweet } from 'react-tweet/api'
+
+const getTweet = unstable_cache(
+  async (id: string) => _getTweet(id),
+  ['tweet'],
+  { revalidate: 3600 * 24 }
+)
+
+const TweetPage = async ({ id }: { id: string }) => {
+  try {
+    const tweet = await getTweet(id)
+    return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />
+  } catch (error) {
+    console.error(error)
+    return <TweetNotFound error={error} />
+  }
+}
+
+const Page = ({ params }: { params: { tweet: string } }) => (
+  <Suspense fallback={<TweetSkeleton />}>
+    <TweetPage id={params.tweet} />
+  </Suspense>
+)
+
+export default Page
+```
+
+This can prevent getting your server IPs rate limited if they are making too many requests to the Twitter API.
+
 ## Advanced usage
 
 ### Manual data fetching
@@ -126,5 +163,7 @@ The app shows the usage of `react-tweet` in different scenarios:
 - [localhost:3001/light/mdx](http://localhost:3001/light/mdx) rendes the tweet in MDX (with the experimental `mdxRs` config enabled).
 - [localhost:3001/light/suspense/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet with a custom `Suspense` wrapper.
 - [localhost:3001/dark/swr/1629307668568633344](http://localhost:3001/dark/swr/1629307668568633344) uses `apiUrl` to change the API endpoint from which the tweet is fetched in SWR mode.
+- [localhost:3001/light/cache/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [`unstable_cache`](https://nextjs.org/docs/app/api-reference/functions/unstable_cache).
+- [localhost:3001/light/vercel-kv/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [Vercel KV](https://vercel.com/docs/storage/vercel-kv).
 
 The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel-labs/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.

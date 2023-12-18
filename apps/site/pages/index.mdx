@@ -28,6 +28,8 @@ Now follow the usage instructions for your framework or builder:
 - [Vite](/vite)
 - [Create React App](/create-react-app)
 
+> **Important**: Before going to production, we recommend [enabling cache for the Twitter API](#enabling-cache-for-the-twitter-api) as server IPs might get rate limited by Twitter.
+
 ## Choosing a theme
 
 The [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) CSS media feature is used to select the theme of the tweet.
@@ -61,3 +63,61 @@ In CSS Modules, you can use the `:global` selector to update the CSS variables u
 ```
 
 For Global CSS the usage of `:global` is not necessary.
+
+## Enabling cache for the Twitter API
+
+Rendering tweets requires making a call to Twitter's syndication API. Getting rate limited by that API is very hard but it's possible if you're relying only on the endpoint we provide for SWR (`react-tweet.vercel.app/api/tweet/:id`) as the IPs of the server are making many requests to the syndication API. This also applies to RSC where the API endpoint is not required but the server is still making the request from the same IP.
+
+To prevent this, you can use a db like Redis or [Vercel KV](https://vercel.com/docs/storage/vercel-kv) to cache the tweets. For example using [Vercel KV](https://vercel.com/docs/storage/vercel-kv):
+
+```tsx
+import { Suspense } from 'react'
+import { TweetSkeleton, EmbeddedTweet, TweetNotFound } from 'react-tweet'
+import { fetchTweet, Tweet } from 'react-tweet/api'
+import { kv } from '@vercel/kv'
+
+async function getTweet(
+  id: string,
+  fetchOptions?: RequestInit
+): Promise<Tweet | undefined> {
+  try {
+    const { data, tombstone, notFound } = await fetchTweet(id, fetchOptions)
+
+    if (data) {
+      await kv.set(`tweet:${id}`, data)
+      return data
+    } else if (tombstone || notFound) {
+      // remove the tweet from the cache if it has been made private by the author (tombstone)
+      // or if it no longer exists.
+      await kv.del(`tweet:${id}`)
+    }
+  } catch (error) {
+    console.error('fetching the tweet failed with:', error)
+  }
+
+  const cachedTweet = await kv.get<Tweet>(`tweet:${id}`)
+  return cachedTweet ?? undefined
+}
+
+const TweetPage = async ({ id }: { id: string }) => {
+  try {
+    const tweet = await getTweet(id)
+    return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />
+  } catch (error) {
+    console.error(error)
+    return <TweetNotFound error={error} />
+  }
+}
+
+const Page = ({ params }: { params: { tweet: string } }) => (
+  <Suspense fallback={<TweetSkeleton />}>
+    <TweetPage id={params.tweet} />
+  </Suspense>
+)
+
+export default Page
+```
+
+You can see it working at [react-tweet-next.vercel.app/light/vercel-kv/1629307668568633344](https://react-tweet-next.vercel.app/light/vercel-kv/1629307668568633344) ([source](https://github.com/vercel/react-tweet/blob/98c1d4ced705d540e81d48e2c38ab4278718b383/apps/next-app/app/light/vercel-kv/%5Btweet%5D/page.tsx)).
+
+If you're using Next.js then using [`unstable_cache`](/next#enabling-cache) works too.
