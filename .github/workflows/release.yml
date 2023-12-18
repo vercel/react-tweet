@@ -33,7 +33,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16.14
+          node-version: 18.17.1
           cache: pnpm
 
       - name: Install Dependencies
