@@ -20,6 +20,25 @@ Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/
 
 If a tweet is not found it returns `undefined`.
 
+## `fetchTweet`
+
+```tsx
+function fetchTweet(
+  id: string,
+  fetchOptions?: RequestInit
+): Promise<{
+  data?: Tweet | undefined
+  tombstone?: true | undefined
+  notFound?: true | undefined
+}>
+```
+
+Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) just like [`getTweet`](#gettweet), but it also returns additional information about the tweet:
+
+- **data** - `Tweet` (Optional): The tweet data.
+- **tombstone** - `true` (Optional): Indicates if the tweet has been made private.
+- **notFound** - `true` (Optional): Indicates if the tweet was not found.
+
 ## `enrichTweet`
 
 ```tsx
