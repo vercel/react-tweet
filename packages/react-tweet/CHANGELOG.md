@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.2.0
+
+### Minor Changes
+
+- 261e72d: Updated docs on caching tweets and added fetchTweet function.
+
 ## 3.1.1
 
 ### Patch Changes
