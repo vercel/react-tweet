@@ -17,7 +17,8 @@
     "react-tweet": "workspace:*"
   },
   "devDependencies": {
-    "@babel/runtime": "7.22.6"
+    "@babel/runtime": "7.22.6",
+    "postcss-flexbugs-fixes": "^5.0.2"
   },
   "browserslist": [
     ">0.2%",
