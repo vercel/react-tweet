@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className={clsx(styles.root, 'react-tweet-theme')}>
       <main className={styles.main}>
-        <Tweet id="1628832338187636740" />
+        <Tweet id="1741504498542023081" />
       </main>
     </div>
   )
