@@ -6,7 +6,13 @@
   overflow: auto;
   padding: 2rem 1rem;
 }
-.main {
+/* .main {
   display: flex;
   justify-content: center;
+}
+in app.module.css */
+.main {
+  display: flex;
+  overflow-x: auto;
+  /* other styles... */
 }
