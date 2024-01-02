@@ -5,8 +5,14 @@ import styles from './app.module.css'
 import './base.css'
 
 export default function App() {
-  const tweetIds = ["1741504498542023081", "1741866653451764159", "1741504498542023083","1741504498542023081", "1741866653451764159", "1741504498542023083","1741504498542023081", "1741866653451764159", "1741504498542023083","1741504498542023081", "1741866653451764159", "1741504498542023083","1741504498542023081", "1741866653451764159", "1741504498542023083","1741772428416618692", "1742289578571051296", "1741504498542023083", /* more tweet IDs... */];
+  const [tweetIds, setTweetIds] = useState([]);
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
+
+  useEffect(() => {
+    fetch('apps/create-react-app/src/tweets.json')
+      .then(response => response.json())
+      .then(data => setTweetIds(data.map(item => item.like.tweetId)));
+  }, []);
 
   const handleScroll = () => {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
