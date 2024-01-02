@@ -9,7 +9,7 @@ export default function App() {
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
 
   useEffect(() => {
-    fetch('apps/create-react-app/src/tweets.json')
+    fetch('/tweets.json')
       .then(response => response.json())
       .then(data => setTweetIds(data.map(item => item.like.tweetId)));
   }, []);
