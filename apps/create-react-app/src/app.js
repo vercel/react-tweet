@@ -25,7 +25,21 @@ export default function App() {
           <Tweet key={tweetId} id={tweetId} />
         ))}
         {numTweetsToShow < tweetIds.length && (
-          <button onClick={handleLoadMore}>Load more</button>
+          <button 
+          onClick={handleLoadMore} 
+          style={{
+            backgroundColor: 'black', 
+            color: 'white', 
+            fontFamily: 'Roboto', 
+            fontSize: '14px', 
+            padding: '10px 20px', 
+            border: 'none', 
+            borderRadius: '5px', 
+            cursor: 'pointer'
+          }}
+        >
+          Load more
+        </button>
         )}
       </main>
     </div>
