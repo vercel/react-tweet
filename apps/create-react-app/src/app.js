@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { Tweet } from 'react-tweet'
 import styles from './app.module.css'
 import './base.css'
-// ya rab
+
 export default function App() {
   const [tweetIds, setTweetIds] = useState([]);
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
@@ -14,15 +14,9 @@ export default function App() {
       .then(data => setTweetIds(data.map(item => item.like.tweetId)));
   }, []);
 
-  const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+  const handleLoadMore = () => {
     setNumTweetsToShow(numTweetsToShow + 10);
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [numTweetsToShow]);
 
   return (
     <div className={clsx(styles.root, 'react-tweet-theme')}>
@@ -30,6 +24,9 @@ export default function App() {
         {tweetIds.slice(0, numTweetsToShow).map((tweetId) => (
           <Tweet key={tweetId} id={tweetId} />
         ))}
+        {numTweetsToShow < tweetIds.length && (
+          <button onClick={handleLoadMore}>Load more</button>
+        )}
       </main>
     </div>
   )
