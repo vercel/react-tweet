@@ -50,7 +50,8 @@ import clsx from 'clsx'
 import { Tweet } from 'react-tweet'
 import styles from './app.module.css'
 import './base.css'
-import franc from 'franc-min'
+import * as franc from 'franc-min'
+
 
 export default function App() {
   const [tweets, setTweets] = useState([]);
