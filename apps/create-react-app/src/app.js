@@ -30,7 +30,7 @@ export default function App() {
           style={{
             backgroundColor: 'black', 
             color: 'white', 
-            fontFamily: 'Roboto', 
+            fontFamily: 'inherit', 
             fontSize: '14px', 
             padding: '10px 20px', 
             border: 'none', 
