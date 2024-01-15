@@ -1,4 +1,0 @@
-{
-  "buildCommand": "pnpm turbo build --filter=site...",
-  "ignoreCommand": "pnpm dlx turbo-ignore"
-}

@@ -1,4 +1,0 @@
-{
-  "buildCommand": "pnpm turbo build --filter=next-app...",
-  "ignoreCommand": "pnpm dlx turbo-ignore"
-}
