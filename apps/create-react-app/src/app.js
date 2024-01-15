@@ -28,7 +28,7 @@ export default function App() {
           <button 
           onClick={handleLoadMore} 
           style={{
-            backgroundColor: 'black', 
+            backgroundColor: '#26A7DE', 
             color: 'white', 
             fontFamily: 'inherit', 
             fontSize: '14px', 
