@@ -9,7 +9,7 @@ export default function App() {
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
 
   useEffect(() => {
-    fetch('/twitter-Bookmarks-1706223076337.json')
+    fetch('/tweets.json')
       .then(response => response.json())
       .then(data => setIds(data.map(item => item.Id)));
   }, []);
