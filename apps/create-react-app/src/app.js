@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     fetch('/tweets.json')
       .then(response => response.json())
-      .then(data => setIds(data.map(item => item.Id)));
+      .then(data => setIds(data.map(item => item.id)));
   }, []);
 
   const handleLoadMore = () => {
@@ -21,8 +21,8 @@ export default function App() {
   return (
     <div className={clsx(styles.root, 'react-tweet-theme')}>
       <main className={styles.main}>
-        {Ids.slice(0, numTweetsToShow).map((Id) => (
-          <Tweet key={Id} id={Id} />
+        {Ids.slice(0, numTweetsToShow).map((id) => (
+          <Tweet key={id} id={id} />
         ))}
         {numTweetsToShow < Ids.length && (
           <button 
