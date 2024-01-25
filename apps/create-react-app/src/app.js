@@ -5,26 +5,26 @@ import styles from './app.module.css'
 import './base.css'
 
 export default function App() {
-  const [ids, setTweetIds] = useState([]);
+  const [Ids, setIds] = useState([]);
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
 
   useEffect(() => {
     fetch('/twitter-Bookmarks-1706223076337.json')
       .then(response => response.json())
-      .then(data => setTweetIds(data.map(item => item.id)));
+      .then(data => setIds(data.map(item => item.Id)));
   }, []);
 
   const handleLoadMore = () => {
-    setNumTweetsToShow(numTweetsToShow + 20);
+    setNumTweetsToShow(numTweetsToShow + 10);
   };
 
   return (
     <div className={clsx(styles.root, 'react-tweet-theme')}>
       <main className={styles.main}>
-        {ids.slice(0, numTweetsToShow).map((id) => (
-          <Tweet key={id} id={id} />
+        {Ids.slice(0, numTweetsToShow).map((Id) => (
+          <Tweet key={Id} id={Id} />
         ))}
-        {numTweetsToShow < id.length && (
+        {numTweetsToShow < Ids.length && (
           <button 
           onClick={handleLoadMore} 
           style={{
