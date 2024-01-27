@@ -25,6 +25,7 @@
   },
   "packageManager": "pnpm@7.15.0",
   "dependencies": {
-    "franc-min": "^6.2.0"
+    "franc-min": "^6.2.0",
+    "react-router-dom": "^6.21.3"
   }
 }

@@ -1,22 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './app'
-import App2 from './app2' // import the second app
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import App from 'App';
+import App2 from 'App2';
 
-const rootElement = document.getElementById('root')
-const root = createRoot(rootElement)
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-)
-
-const rootElement2 = document.getElementById('root2') // get the second root element
-const root2 = createRoot(rootElement2) // create a root for the second app
-
-root2.render(
-  <StrictMode>
-    <App2 /> // render the second app
-  </StrictMode>
-)
+ReactDOM.render(
+  <React.StrictMode>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/likes" component={App2} />
+      </Switch>
+    </Router>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
