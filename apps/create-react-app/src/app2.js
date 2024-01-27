@@ -5,13 +5,13 @@ import styles from './app.module.css'
 import './base.css'
 
 export default function App() {
-  const [Ids, setIds] = useState([]);
+  const [tweetIds, setIds] = useState([]);
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
 
   useEffect(() => {
     fetch('/tweets_2.json')
       .then(response => response.json())
-      .then(data => setIds(data.map(item => item.id)));
+      .then(data => setIds(data.map(item => item.like.tweetId)));
   }, []);
 
   const handleLoadMore = () => {
@@ -22,10 +22,10 @@ export default function App() {
     <div className={clsx(styles.root, 'react-tweet-theme')}>
       <h1 style={{textAlign: 'center'}}>Twitter bookmarks to 2024-01-24</h1>
       <main className={styles.main}>
-        {Ids.slice(0, numTweetsToShow).map((id) => (
-          <Tweet key={id} id={id} />
+        {tweetIds.slice(0, numTweetsToShow).map((tweetId) => (
+          <Tweet key={tweetId} id={tweetId} />
         ))}
-        {numTweetsToShow < Ids.length && (
+        {numTweetsToShow < tweetIds.length && (
           <button 
           onClick={handleLoadMore} 
           style={{
