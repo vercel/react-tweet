@@ -4,7 +4,7 @@ import { Tweet } from 'react-tweet'
 import styles from './app.module.css'
 import './base.css'
 
-export default function App() {
+export default function App2() {
   const [tweetIds, setIds] = useState([]);
   const [numTweetsToShow, setNumTweetsToShow] = useState(10);
 
