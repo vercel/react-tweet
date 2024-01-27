@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from 'App';
-import App2 from 'App2';
+import App from './app';
+import App2 from './app2';
 
 ReactDOM.render(
   <React.StrictMode>
