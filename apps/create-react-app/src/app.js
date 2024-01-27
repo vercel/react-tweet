@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <div className={clsx(styles.root, 'react-tweet-theme')}>
-      <h2 style={{textAlign: 'center'}}>Twitter bookmarks to 2024-01-24 </h2>
+      <h1 style={{textAlign: 'center'}}>Twitter bookmarks to 2024-01-24</h1>
       <main className={styles.main}>
         {Ids.slice(0, numTweetsToShow).map((id) => (
           <Tweet key={id} id={id} />
