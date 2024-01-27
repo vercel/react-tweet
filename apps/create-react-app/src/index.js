@@ -9,7 +9,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/likes" component={App2} />
+        <Route path="/app2" component={App2} />
       </Switch>
     </Router>
   </React.StrictMode>,
