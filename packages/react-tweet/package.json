@@ -62,7 +62,6 @@
   "dependencies": {
     "@swc/helpers": "^0.5.3",
     "clsx": "^2.0.0",
-    "date-fns": "^2.30.0",
     "swr": "^2.2.4"
   },
   "devDependencies": {
