@@ -1,9 +1,9 @@
 'use client'
 
-import format from 'date-fns/format/index.js'
 import type { EnrichedTweet } from '../utils.js'
 import { useMounted } from '../hooks.js'
 import s from './tweet-info-created-at.module.css'
+import { formatDate } from '../date-utils.js'
 
 export const TweetInfoCreatedAt = ({ tweet }: { tweet: EnrichedTweet }) => {
   const mounted = useMounted()
@@ -12,18 +12,18 @@ export const TweetInfoCreatedAt = ({ tweet }: { tweet: EnrichedTweet }) => {
   // something like "MMM d, y", then you could use the server date.
   const createdAt =
     typeof window !== 'undefined' && mounted ? new Date(tweet.created_at) : null
+  if (!createdAt) return null
 
-  return !createdAt ? null : (
+  const formattedCreatedAtDate = formatDate(createdAt)
+  return (
     <a
       className={s.root}
       href={tweet.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={format(createdAt, 'h:mm a · MMM d, y')}
+      aria-label={formattedCreatedAtDate}
     >
-      <time dateTime={createdAt.toISOString()}>
-        {format(createdAt, 'h:mm a · MMM d, y')}
-      </time>
+      <time dateTime={createdAt.toISOString()}>{formattedCreatedAtDate}</time>
     </a>
   )
 }
