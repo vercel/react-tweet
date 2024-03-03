@@ -1,3 +1,5 @@
+type PartsObject = Record<keyof Intl.DateTimeFormatPartTypesRegistry, string>
+
 const options: Intl.DateTimeFormatOptions = {
   hour: 'numeric',
   minute: '2-digit',
@@ -9,8 +11,6 @@ const options: Intl.DateTimeFormatOptions = {
 }
 
 const formatter = new Intl.DateTimeFormat('en-US', options)
-
-type PartsObject = Record<keyof Intl.DateTimeFormatPartTypesRegistry, string>
 
 const partsArrayToObject = (
   parts: ReturnType<typeof formatter.formatToParts>
