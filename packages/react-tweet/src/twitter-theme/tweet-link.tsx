@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const TweetLink = ({ href, children }: Props) => (
-  <a href={href} className={s.root} target="_blank" rel="noopener noreferrer">
+  <a href={href} className={s.root} target="_blank" rel="noopener noreferrer nofollow">
     {children}
   </a>
 )
