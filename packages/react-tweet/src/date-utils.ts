@@ -14,11 +14,15 @@ const formatter = new Intl.DateTimeFormat('en-US', options)
 
 const partsArrayToObject = (
   parts: ReturnType<typeof formatter.formatToParts>
-): PartsObject =>
-  parts.reduce(
-    (prev, curr) => ({ ...prev, [curr.type]: curr.value }),
-    {} as PartsObject
-  )
+): PartsObject => {
+  const result = {} as PartsObject
+
+  for (const part of parts) {
+    result[part.type] = part.value
+  }
+
+  return result
+}
 
 export const formatDate = (date: Date) => {
   const parts = partsArrayToObject(formatter.formatToParts(date))
