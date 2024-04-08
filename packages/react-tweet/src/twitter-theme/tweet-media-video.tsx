@@ -53,7 +53,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
         <button
           type="button"
           className={s.videoButton}
-          aria-label="View video on Twitter"
+          aria-label="View video on X"
           onClick={(e) => {
             const video = e.currentTarget.previousSibling as HTMLMediaElement
 
@@ -84,7 +84,7 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {playButton ? 'Watch on Twitter' : 'Continue watching on Twitter'}
+            {playButton ? 'Watch on X' : 'Continue watching on X'}
           </a>
         </div>
       )}

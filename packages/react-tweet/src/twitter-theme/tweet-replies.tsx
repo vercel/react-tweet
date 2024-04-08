@@ -11,7 +11,7 @@ export const TweetReplies = ({ tweet }: { tweet: EnrichedTweet }) => (
     >
       <span className={s.text}>
         {tweet.conversation_count === 0
-          ? 'Read more on Twitter'
+          ? 'Read more on X'
           : tweet.conversation_count === 1
           ? `Read ${formatNumber(tweet.conversation_count)} reply`
           : `Read ${formatNumber(tweet.conversation_count)} replies`}
