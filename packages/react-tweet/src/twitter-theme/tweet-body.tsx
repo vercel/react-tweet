@@ -3,7 +3,7 @@ import { TweetLink } from './tweet-link.js'
 import s from './tweet-body.module.css'
 
 export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
-  <p className={s.root}>
+  <p className={s.root} lang={tweet.lang} dir="auto">
     {tweet.entities.map((item, i) => {
       switch (item.type) {
         case 'hashtag':
