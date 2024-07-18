@@ -7,7 +7,7 @@ export const TweetInfo = ({ tweet }: { tweet: EnrichedTweet }) => (
     <TweetInfoCreatedAt tweet={tweet} />
     <a
       className={s.infoLink}
-      href="https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy"
+      href="https://help.x.com/en/x-for-websites-ads-info-and-privacy"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Twitter for Websites, Ads Information and Privacy"

@@ -6,7 +6,6 @@ import s from './tweet-actions.module.css'
 
 export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
   const [copied, setCopied] = useState(false)
-  const [copyAllText, setCopyAltText] = useState(false)
   const handleCopy = () => {
     navigator.clipboard.writeText(tweet.url)
     setCopied(true)
@@ -16,7 +15,6 @@ export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
     if (copied) {
       const timeout = setTimeout(() => {
         setCopied(false)
-        setCopyAltText(true)
       }, 6000)
 
       return () => clearTimeout(timeout)
@@ -45,9 +43,7 @@ export const TweetActionsCopy = ({ tweet }: { tweet: EnrichedTweet }) => {
           </svg>
         )}
       </div>
-      <span className={s.copyText}>
-        {copied ? 'Copied!' : copyAllText ? 'Copy link to Tweet' : 'Copy link'}
-      </span>
+      <span className={s.copyText}>{copied ? 'Copied!' : 'Copy link'}</span>
     </button>
   )
 }
