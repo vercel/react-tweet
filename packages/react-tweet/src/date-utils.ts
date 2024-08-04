@@ -33,24 +33,32 @@ export const formatDate = (date: Date) => {
 
 export const formatRemainingTime = (date: Date) => {
   const timeDiff = date.getTime() - Date.now()
-  if (timeDiff > 0) {
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
-    const hours = Math.floor(
-      (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    )
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
-    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000)
 
-    if (days > 0) {
-      return `${days} days left`
-    } else if (hours > 0) {
-      return `${hours} hours left`
-    } else if (minutes > 0) {
-      return `${minutes} minutes left`
-    } else {
-      return `${seconds} seconds left`
-    }
-  } else {
+  if (timeDiff < 0) {
     return 'Final results'
   }
+
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'always' })
+
+  const seconds = Math.floor(timeDiff / 1000)
+  const minutes = Math.floor(seconds / 60)
+  const hours = Math.floor(minutes / 60)
+  const days = Math.floor(hours / 24)
+
+  let result = []
+
+  if (days > 0) {
+    result = rtf.formatToParts(days, 'day')
+  } else if (hours > 0) {
+    result = rtf.formatToParts(hours, 'hour')
+  } else if (minutes > 0) {
+    result = rtf.formatToParts(minutes, 'minute')
+  } else {
+    result = rtf.formatToParts(seconds, 'second')
+  }
+
+  result.shift()
+  result.push({ type: 'literal', value: 'left' })
+
+  return result.map((part) => part.value).join(' ')
 }
