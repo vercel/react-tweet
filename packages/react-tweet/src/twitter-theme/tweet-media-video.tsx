@@ -64,31 +64,18 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
 
             e.preventDefault()
             setPlayButton(false)
-
-            function playVideo() {
-              video
-                .play()
-                .then(() => {
-                  setIsPlaying(true)
-                  video.focus()
-                })
-                .catch((error) => {
-                  console.error('Error playing video:', error)
-                  setPlayButton(true)
-                  setIsPlaying(false)
-                })
-            }
-
-            video.removeEventListener('loadeddata', playVideo)
             video.load()
-
-            // Check for HAVE_FUTURE_DATA or higher
-            if (video.readyState >= 3) {
-              playVideo()
-            } else {
-              // Wait for the video to load before playing
-              video.addEventListener('loadeddata', playVideo, { once: true })
-            }
+            video
+              .play()
+              .then(() => {
+                setIsPlaying(true)
+                video.focus()
+              })
+              .catch((error) => {
+                console.error('Error playing video:', error)
+                setPlayButton(true)
+                setIsPlaying(false)
+              })
           }}
         >
           <svg
