@@ -1,5 +1,11 @@
 # react-tweet
 
+## 3.2.2
+
+### Patch Changes
+
+- b917cff: Fix for videos in mobile and included react 19 in peer dependencies.
+
 ## 3.2.1
 
 ### Patch Changes
