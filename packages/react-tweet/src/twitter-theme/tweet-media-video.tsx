@@ -3,7 +3,12 @@
 import { useState } from 'react'
 import clsx from 'clsx'
 import type { MediaAnimatedGif, MediaVideo } from '../api/index.js'
-import { EnrichedQuotedTweet, type EnrichedTweet, getMediaUrl, getMp4Video } from '../utils.js'
+import {
+  EnrichedQuotedTweet,
+  type EnrichedTweet,
+  getMediaUrl,
+  getMp4Video,
+} from '../utils.js'
 import mediaStyles from './tweet-media.module.css'
 import s from './tweet-media-video.module.css'
 
@@ -59,15 +64,31 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
 
             e.preventDefault()
             setPlayButton(false)
+
+            function playVideo() {
+              video
+                .play()
+                .then(() => {
+                  setIsPlaying(true)
+                  video.focus()
+                })
+                .catch((error) => {
+                  console.error('Error playing video:', error)
+                  setPlayButton(true)
+                  setIsPlaying(false)
+                })
+            }
+
+            video.removeEventListener('loadeddata', playVideo)
             video.load()
-            video.play().then(() => {
-              setIsPlaying(true)
-              video.focus()
-            }).catch((error) => {
-              console.error('Error playing video:', error)
-              setPlayButton(true)
-              setIsPlaying(false)
-            })
+
+            // Check for HAVE_FUTURE_DATA or higher
+            if (video.readyState >= 3) {
+              playVideo()
+            } else {
+              // Wait for the video to load before playing
+              video.addEventListener('loadeddata', playVideo, { once: true })
+            }
           }}
         >
           <svg
