@@ -48,9 +48,11 @@ export const useTweet = (
   )
 
   return {
-    // If data is `undefined` then it might be the first render where SWR hasn't started doing
+    // If id is provided but data is `undefined` then it might be the first render where SWR hasn't started doing
     // any work, so we set `isLoading` to `true`.
-    isLoading: Boolean(isLoading || (data === undefined && !error)),
+    isLoading: Boolean(
+      isLoading || (id !== undefined && data === undefined && !error)
+    ),
     data,
     error,
   }
