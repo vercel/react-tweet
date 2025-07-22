@@ -3,11 +3,14 @@ import { AvatarImg } from '../avatar-img.js'
 import s from './quoted-tweet-header.module.css'
 import type { EnrichedQuotedTweet } from '../../utils.js'
 import { VerifiedBadge } from '../verified-badge.js'
+import type { TwitterComponents } from '../types.js'
 
-type Props = { tweet: EnrichedQuotedTweet }
+type Props = { tweet: EnrichedQuotedTweet, components?: TwitterComponents }
 
-export const QuotedTweetHeader = ({ tweet }: Props) => {
+export const QuotedTweetHeader = ({ tweet, components }: Props) => {
   const { user } = tweet
+
+  const Img = components?.AvatarImg ?? AvatarImg
 
   return (
     <div className={s.header}>
@@ -23,7 +26,7 @@ export const QuotedTweetHeader = ({ tweet }: Props) => {
             user.profile_image_shape === 'Square' && s.avatarSquare
           )}
         >
-          <AvatarImg
+          <Img
             src={user.profile_image_url_https}
             alt={user.name}
             width={20}
