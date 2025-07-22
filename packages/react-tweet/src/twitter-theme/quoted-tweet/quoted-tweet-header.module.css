@@ -13,7 +13,13 @@
   height: 20px;
   width: 20px;
 }
-
+.avatarOverflow {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 9999px;
+}
 .avatarSquare {
   border-radius: 4px;
 }
