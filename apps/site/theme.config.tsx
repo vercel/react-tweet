@@ -37,9 +37,9 @@ const config: DocsThemeConfig = {
     )
   },
   project: {
-    link: 'https://github.com/vercel-labs/react-tweet',
+    link: 'https://github.com/vercel/react-tweet',
   },
-  docsRepositoryBase: 'https://github.com/vercel-labs/react-tweet',
+  docsRepositoryBase: 'https://github.com/vercel/react-tweet',
   editLink: {
     text: 'Edit this page on GitHub →',
   },

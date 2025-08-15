@@ -9,11 +9,11 @@ import { getTweet, type Tweet } from 'react-tweet/api'
 
 function getTweet(
   id: string,
-  fetchOptions?: RequestInit
+  fetchOptions?: RequestInit,
 ): Promise<Tweet | undefined>
 ```
 
-Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts). It accepts the following params:
+Fetches and returns a [`Tweet`](https://github.com/vercel/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts). It accepts the following params:
 
 - **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
 - **fetchOptions** - `RequestInit` (Optional): options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch).
@@ -25,7 +25,7 @@ If a tweet is not found it returns `undefined`.
 ```tsx
 function fetchTweet(
   id: string,
-  fetchOptions?: RequestInit
+  fetchOptions?: RequestInit,
 ): Promise<{
   data?: Tweet | undefined
   tombstone?: true | undefined
@@ -33,7 +33,7 @@ function fetchTweet(
 }>
 ```
 
-Fetches and returns a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) just like [`getTweet`](#gettweet), but it also returns additional information about the tweet:
+Fetches and returns a [`Tweet`](https://github.com/vercel/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) just like [`getTweet`](#gettweet), but it also returns additional information about the tweet:
 
 - **data** - `Tweet` (Optional): The tweet data.
 - **tombstone** - `true` (Optional): Indicates if the tweet has been made private.
@@ -47,9 +47,9 @@ import { enrichTweet, type EnrichedTweet } from 'react-tweet'
 const enrichTweet: (tweet: Tweet) => EnrichedTweet
 ```
 
-Enriches a [`Tweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) as returned by [`getTweet`](#gettweet) with additional data. This is useful to more easily build custom tweet components.
+Enriches a [`Tweet`](https://github.com/vercel/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts) as returned by [`getTweet`](#gettweet) with additional data. This is useful to more easily build custom tweet components.
 
-It returns an [`EnrichedTweet`](https://github.com/vercel-labs/react-tweet/blob/main/packages/react-tweet/src/utils.ts).
+It returns an [`EnrichedTweet`](https://github.com/vercel/react-tweet/blob/main/packages/react-tweet/src/utils.ts).
 
 ## `useTweet`
 
@@ -61,7 +61,7 @@ import { useTweet } from 'react-tweet'
 const useTweet: (
   id?: string,
   apiUrl?: string,
-  fetchOptions?: RequestInit
+  fetchOptions?: RequestInit,
 ) => {
   isLoading: boolean
   data: Tweet | null | undefined

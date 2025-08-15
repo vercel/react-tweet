@@ -2,7 +2,7 @@
   "name": "site",
   "private": true,
   "license": "MIT",
-  "repository": "https://github.com/vercel-labs/react-tweet.git",
+  "repository": "https://github.com/vercel/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "description": "Official site and documentation for react-tweet",
   "scripts": {
