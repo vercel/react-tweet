@@ -1,7 +1,7 @@
 {
   "name": "react-tweet",
   "version": "3.2.2",
-  "repository": "https://github.com/vercel-labs/react-tweet.git",
+  "repository": "https://github.com/vercel/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
     "build": "pnpm build:swc && pnpm types",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vercel-labs/react-tweet/issues"
+    "url": "https://github.com/vercel/react-tweet/issues"
   },
   "sideEffects": [
     "./dist/twitter-theme/tweet-container.js"

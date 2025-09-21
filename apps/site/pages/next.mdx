@@ -45,7 +45,7 @@ import { getTweet as _getTweet } from 'react-tweet/api'
 const getTweet = unstable_cache(
   async (id: string) => _getTweet(id),
   ['tweet'],
-  { revalidate: 3600 * 24 }
+  { revalidate: 3600 * 24 },
 )
 
 const TweetPage = async ({ id }: { id: string }) => {
@@ -148,13 +148,13 @@ export default function Page() {
 
 ## Running the test app
 
-Clone the [`react-tweet`](https://github.com/vercel-labs/react-tweet) repository and then run the following command:
+Clone the [`react-tweet`](https://github.com/vercel/react-tweet) repository and then run the following command:
 
 ```bash copy
 pnpm install && pnpm dev --filter=next-app...
 ```
 
-The app will be up and running at http://localhost:3001 for the [Next.js app example](https://github.com/vercel-labs/react-tweet/tree/main/apps/next-app).
+The app will be up and running at http://localhost:3001 for the [Next.js app example](https://github.com/vercel/react-tweet/tree/main/apps/next-app).
 
 The app shows the usage of `react-tweet` in different scenarios:
 
@@ -166,4 +166,4 @@ The app shows the usage of `react-tweet` in different scenarios:
 - [localhost:3001/light/cache/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [`unstable_cache`](https://nextjs.org/docs/app/api-reference/functions/unstable_cache).
 - [localhost:3001/light/vercel-kv/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [Vercel KV](https://vercel.com/docs/storage/vercel-kv).
 
-The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel-labs/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.
+The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.

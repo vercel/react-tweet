@@ -21,7 +21,7 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
           return
         default:
           // We use `dangerouslySetInnerHTML` to preserve the text encoding.
-          // https://github.com/vercel-labs/react-tweet/issues/29
+          // https://github.com/vercel/react-tweet/issues/29
           return (
             <span key={i} dangerouslySetInnerHTML={{ __html: item.text }} />
           )
