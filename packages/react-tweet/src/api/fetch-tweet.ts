@@ -74,6 +74,9 @@ export async function fetchTweet(
     if (data?.__typename === 'TweetTombstone') {
       return { tombstone: true }
     }
+    if (data && Object.keys(data).length === 0) {
+      return { notFound: true }
+    }
     return { data }
   }
   if (res.status === 404) {
