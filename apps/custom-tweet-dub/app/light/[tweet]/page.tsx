@@ -2,13 +2,14 @@ import { getTweet } from 'react-tweet/api'
 import { Tweet } from '@/components/tweet'
 
 type Props = {
-  params: { tweet: string }
+  params: Promise<{ tweet: string }>
 }
 
 export const revalidate = 1800
 
 export async function generateMetadata({ params }: Props) {
-  const tweet = await getTweet(params.tweet).catch(() => undefined)
+  const id = await params.then((p) => p.tweet)
+  const tweet = await getTweet(id).catch(() => undefined)
 
   if (!tweet) return { title: 'Next Tweet' }
 
@@ -22,6 +23,8 @@ export async function generateMetadata({ params }: Props) {
   return { title: `${text}${username}` }
 }
 
-const Page = ({ params }: Props) => <Tweet id={params.tweet} />
+const Page = async ({ params }: Props) => (
+  <Tweet id={await params.then((p) => p.tweet)} />
+)
 
 export default Page
