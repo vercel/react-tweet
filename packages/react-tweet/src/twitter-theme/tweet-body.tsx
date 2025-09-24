@@ -27,5 +27,15 @@ export const TweetBody = ({ tweet }: { tweet: EnrichedTweet }) => (
           )
       }
     })}
+    {tweet.note_tweet ? <ShowMore tweet={tweet} /> : null}
   </p>
 )
+
+function ShowMore({ tweet }: { tweet: EnrichedTweet }) {
+  return (
+    <TweetLink href={tweet.url}>
+      <span>&nbsp;</span>
+      Show more
+    </TweetLink>
+  )
+}
