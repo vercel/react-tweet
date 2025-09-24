@@ -6,7 +6,7 @@
   },
   "next": "Next.js",
   "vite": "Vite",
-  "create-react-app": "CRA",
+  "astro": "Astro",
   "api-reference": "",
   "-- Themes": {
     "type": "separator",
