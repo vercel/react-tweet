@@ -47,7 +47,7 @@ export interface TweetBase {
    * If present, the tweet's text is truncated. We use this to know if we
    * should show a "Show more" link.
    */
-  note_tweet: {
+  note_tweet?: {
     id: string
   }
 }
