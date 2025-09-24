@@ -1,0 +1,16 @@
+.label {
+  display: flex;
+  height: calc(1.0625em);
+  width: calc(1.0625em);
+  max-width: 17px;
+  max-height: 17px;
+  margin-left: 4px;
+  margin-right: 2px;
+  border: var(--tweet-border);
+  border-radius: 2px;
+}
+
+.label > img {
+  width: 100%;
+  height: 100%;
+}
