@@ -7,12 +7,12 @@ import { Tweet } from 'react-tweet'
 ```
 
 ```tsx copy
-<Tweet id="1629307668568633344">
+<Tweet id="1975623901893005628">
 ```
 
 Fetches and renders the tweet. It accepts the following props:
 
-- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This is the only required prop.
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1975623901893005628` the tweet ID is `1975623901893005628`. This is the only required prop.
 - **apiUrl** - `string`: the API URL to fetch the tweet from when using the tweet client-side with SWR. Defaults to `https://react-tweet.vercel.app/api/tweet/:id`.
 - **fallback** - `ReactNode`: The fallback component to render while the tweet is loading. Defaults to `TweetSkeleton`.
 - **onError** - `(error?: any) => any`: The returned error will be sent to the `TweetNotFound` component.

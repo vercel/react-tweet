@@ -158,12 +158,12 @@ The app will be up and running at http://localhost:3001 for the [Next.js app exa
 
 The app shows the usage of `react-tweet` in different scenarios:
 
-- [localhost:3001/light/1629307668568633344](http://localhost:3001/light/1629307668568633344) renders the tweet in the app router.
-- [localhost:3001/dark/1629307668568633344](http://localhost:3001/dark/1629307668568633344) renders the tweet using SSG in the pages directory.
+- [localhost:3001/light/1975623901893005628](http://localhost:3001/light/1975623901893005628) renders the tweet in the app router.
+- [localhost:3001/dark/1975623901893005628](http://localhost:3001/dark/1975623901893005628) renders the tweet using SSG in the pages directory.
 - [localhost:3001/light/mdx](http://localhost:3001/light/mdx) rendes the tweet in MDX (with the experimental `mdxRs` config enabled).
-- [localhost:3001/light/suspense/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet with a custom `Suspense` wrapper.
-- [localhost:3001/dark/swr/1629307668568633344](http://localhost:3001/dark/swr/1629307668568633344) uses `apiUrl` to change the API endpoint from which the tweet is fetched in SWR mode.
-- [localhost:3001/light/cache/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [`unstable_cache`](https://nextjs.org/docs/app/api-reference/functions/unstable_cache).
-- [localhost:3001/light/vercel-kv/1629307668568633344](http://localhost:3001/light/suspense/1629307668568633344) renders the tweet while caching the tweet data with [Vercel KV](https://vercel.com/docs/storage/vercel-kv).
+- [localhost:3001/light/suspense/1975623901893005628](http://localhost:3001/light/suspense/1975623901893005628) renders the tweet with a custom `Suspense` wrapper.
+- [localhost:3001/dark/swr/1975623901893005628](http://localhost:3001/dark/swr/1975623901893005628) uses `apiUrl` to change the API endpoint from which the tweet is fetched in SWR mode.
+- [localhost:3001/light/cache/1975623901893005628](http://localhost:3001/light/suspense/1975623901893005628) renders the tweet while caching the tweet data with [`unstable_cache`](https://nextjs.org/docs/app/api-reference/functions/unstable_cache).
+- [localhost:3001/light/vercel-kv/1975623901893005628](http://localhost:3001/light/suspense/1975623901893005628) renders the tweet while caching the tweet data with [Vercel KV](https://vercel.com/docs/storage/vercel-kv).
 
 The source code for `react-tweet` is imported from [packages/react-tweet](https://github.com/vercel/react-tweet/tree/main/packages/react-tweet) and any changes you make to it will be reflected in the app immediately.
