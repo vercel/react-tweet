@@ -15,7 +15,7 @@ function getTweet(
 
 Fetches and returns a [`Tweet`](https://github.com/vercel/react-tweet/blob/main/packages/react-tweet/src/api/types/tweet.ts). It accepts the following params:
 
-- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`.
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1975623901893005628` the tweet ID is `1975623901893005628`.
 - **fetchOptions** - `RequestInit` (Optional): options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch).
 
 If a tweet is not found it returns `undefined`.
@@ -71,7 +71,7 @@ const useTweet: (
 
 SWR hook for fetching a tweet in the browser. It accepts the following parameters:
 
-- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1629307668568633344` the tweet ID is `1629307668568633344`. This parameter is not used if `apiUrl` is provided.
+- **id** - `string`: the tweet ID. For example in `https://twitter.com/chibicode/status/1975623901893005628` the tweet ID is `1975623901893005628`. This parameter is not used if `apiUrl` is provided.
 - **apiUrl** - `string`: the API URL to fetch the tweet from. Defaults to `https://react-tweet.vercel.app/api/tweet/:id`.
 - **fetchOptions** - `RequestInit` (Optional): options to pass to [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/fetch). Try to pass down a reference to the same object to avoid unnecessary re-renders.
 
