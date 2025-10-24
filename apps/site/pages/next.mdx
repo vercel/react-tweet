@@ -24,7 +24,7 @@ You can learn more about `Tweet` in the [Twitter theme docs](/twitter-theme). An
 
 ### Importing Styles
 
-You must import the react-tweet styles in your app entry point:
+> As of `react-tweet` v4.0.0, you must manually import the CSS file in your app entry point. This change was necessary for Next.js 16 compatibility, where Turbopack (now the default bundler) enforces that [global CSS can only be imported from your Custom `<App>`](https://nextjs.org/docs/messages/css-global), not from within `node_modules` components.
 
 **For App Router:**
 
@@ -53,6 +53,8 @@ export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />
 }
 ```
+
+If you see an error like `Module not found: Can't resolve './theme.css'` or `Global CSS cannot be imported from files other than your Custom <App>`, make sure you've added the import above to your app entry point.
 
 ### Troubleshooting
 
