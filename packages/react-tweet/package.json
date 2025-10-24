@@ -15,9 +15,6 @@
   "bugs": {
     "url": "https://github.com/vercel/react-tweet/issues"
   },
-  "sideEffects": [
-    "./dist/twitter-theme/tweet-container.js"
-  ],
   "type": "module",
   "exports": {
     ".": {

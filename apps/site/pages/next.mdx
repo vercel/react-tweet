@@ -22,6 +22,38 @@ export default function Page() {
 
 You can learn more about `Tweet` in the [Twitter theme docs](/twitter-theme). And you can learn more about the usage in [Running the test app](#running-the-test-app).
 
+### Importing Styles
+
+You must import the react-tweet styles in your app entry point:
+
+**For App Router:**
+
+In `app/layout.tsx`:
+
+```tsx copy
+import 'react-tweet/theme.css'
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+**For Pages Directory:**
+
+In `pages/_app.tsx` or `pages/_app.js`:
+
+```tsx copy
+import 'react-tweet/theme.css'
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+```
+
 ### Troubleshooting
 
 If you see an error saying that CSS can't be imported from `node_modules` in the `pages` directory. Add the following config to `next.config.js`:
