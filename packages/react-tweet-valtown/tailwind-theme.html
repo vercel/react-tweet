@@ -1,0 +1,69 @@
+<!--
+  Tailwind v4 Theme Configuration for react-tweet-valtown
+  This should be included in the <head> of your Val Town HTML response
+-->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+  @theme {
+    /* Typography */
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Tweet Colors - Light Mode */
+    --color-tweet-bg: #fff;
+    --color-tweet-bg-hover: rgb(247, 249, 249);
+    --color-tweet-border: rgb(207, 217, 222);
+    --color-tweet-text: rgb(15, 20, 25);
+    --color-tweet-text-secondary: rgb(83, 100, 113);
+
+    /* Tweet Colors - Blue */
+    --color-tweet-blue: rgb(29, 155, 240);
+    --color-tweet-blue-hover: rgb(26, 140, 216);
+    --color-tweet-blue-secondary: rgb(0, 111, 214);
+    --color-tweet-blue-secondary-hover: rgba(0, 111, 214, 0.1);
+
+    /* Tweet Colors - Red (Like) */
+    --color-tweet-red: rgb(249, 24, 128);
+    --color-tweet-red-hover: rgba(249, 24, 128, 0.1);
+
+    /* Tweet Colors - Green (Copy) */
+    --color-tweet-green: rgb(0, 186, 124);
+    --color-tweet-green-hover: rgba(0, 186, 124, 0.1);
+
+    /* Verified Badge Colors */
+    --color-tweet-verified-old: rgb(130, 154, 171);
+    --color-tweet-verified-blue: var(--color-tweet-blue);
+  }
+
+  /* Global Reset for Tweet Components */
+  .react-tweet * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-tweet-bg: rgb(21, 32, 43);
+      --color-tweet-bg-hover: rgb(30, 39, 50);
+      --color-tweet-border: rgb(66, 83, 100);
+      --color-tweet-text: rgb(247, 249, 249);
+      --color-tweet-text-secondary: rgb(139, 152, 165);
+      --color-tweet-blue-secondary: rgb(107, 201, 251);
+      --color-tweet-blue-secondary-hover: rgba(107, 201, 251, 0.1);
+      --color-tweet-verified-blue: #fff;
+    }
+  }
+
+  [data-theme="dark"],
+  .dark {
+    --color-tweet-bg: rgb(21, 32, 43);
+    --color-tweet-bg-hover: rgb(30, 39, 50);
+    --color-tweet-border: rgb(66, 83, 100);
+    --color-tweet-text: rgb(247, 249, 249);
+    --color-tweet-text-secondary: rgb(139, 152, 165);
+    --color-tweet-blue-secondary: rgb(107, 201, 251);
+    --color-tweet-blue-secondary-hover: rgba(107, 201, 251, 0.1);
+    --color-tweet-verified-blue: #fff;
+  }
+</style>
