@@ -1,6 +1,6 @@
 {
   "name": "react-tweet",
-  "version": "3.2.2",
+  "version": "3.3.0",
   "repository": "https://github.com/vercel/react-tweet.git",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
   "scripts": {
