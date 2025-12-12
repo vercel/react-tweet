@@ -3,13 +3,13 @@ import { AvatarImg } from '../avatar-img.js'
 import s from './quoted-tweet-header.module.css'
 import type { EnrichedQuotedTweet } from '../../utils.js'
 import { VerifiedBadge } from '../verified-badge.js'
+import { HighlightedLabel } from '../highlighted-label.js'
 import type { TwitterComponents } from '../types.js'
 
-type Props = { tweet: EnrichedQuotedTweet, components?: TwitterComponents }
+type Props = { tweet: EnrichedQuotedTweet; components?: TwitterComponents }
 
 export const QuotedTweetHeader = ({ tweet, components }: Props) => {
   const { user } = tweet
-
   const Img = components?.AvatarImg ?? AvatarImg
 
   return (
@@ -39,6 +39,7 @@ export const QuotedTweetHeader = ({ tweet, components }: Props) => {
           <span title={user.name}>{user.name}</span>
         </div>
         <VerifiedBadge user={user} />
+        <HighlightedLabel user={user} />
         <div className={s.username}>
           <span title={`@${user.screen_name}`}>@{user.screen_name}</span>
         </div>

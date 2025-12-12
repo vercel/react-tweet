@@ -43,6 +43,13 @@ export interface TweetBase {
   edit_control: TweetEditControl
   isEdited: boolean
   isStaleEdit: boolean
+  /**
+   * If present, the tweet's text is truncated. We use this to know if we
+   * should show a "Show more" link.
+   */
+  note_tweet?: {
+    id: string
+  }
 }
 
 /**

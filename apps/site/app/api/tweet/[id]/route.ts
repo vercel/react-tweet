@@ -2,11 +2,9 @@ import { NextResponse } from 'next/server'
 import { getTweet } from 'react-tweet/api'
 import cors from 'edge-cors'
 
-type RouteSegment = { params: { id: string } }
-
 export const fetchCache = 'only-cache'
 
-export async function GET(req: Request, { params }: RouteSegment) {
+export async function GET(req: Request, { params }: any) {
   try {
     const tweet = await getTweet(params.id)
     return cors(

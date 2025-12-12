@@ -2,8 +2,9 @@ import clsx from 'clsx'
 import type { EnrichedTweet } from '../utils.js'
 import type { TwitterComponents } from './types.js'
 import { AvatarImg } from './avatar-img.js'
-import s from './tweet-header.module.css'
 import { VerifiedBadge } from './verified-badge.js'
+import { HighlightedLabel } from './highlighted-label.js'
+import s from './tweet-header.module.css'
 
 type Props = {
   tweet: EnrichedTweet
@@ -50,6 +51,7 @@ export const TweetHeader = ({ tweet, components }: Props) => {
             <span title={user.name}>{user.name}</span>
           </div>
           <VerifiedBadge user={user} className={s.authorVerified} />
+          <HighlightedLabel user={user} />
         </a>
         <div className={s.authorMeta}>
           <a

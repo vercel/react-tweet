@@ -1,6 +1,6 @@
 # react-tweet
 
-react-tweet allows you to embed tweets in your React application when using Next.js, Create React App, Vite, and more.
+react-tweet allows you to embed tweets in your React application when using Next.js, Vite, and more.
 
 For documentation visit [react-tweet.vercel.app](https://react-tweet.vercel.app).
 

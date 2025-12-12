@@ -12,27 +12,27 @@
     "clean": "rm -rf .next && rm -rf .turbo"
   },
   "dependencies": {
-    "@next/mdx": "^14.0.4",
-    "clsx": "^2.0.0",
-    "next": "14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-parallax-tilt": "^1.7.177",
+    "@next/mdx": "^15.5.3",
+    "clsx": "^2.1.1",
+    "next": "15.5.8",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-parallax-tilt": "^1.7.309",
     "react-tweet": "workspace:*"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "20.10.5",
-    "@types/react": "^18.2.45",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "postcss": "^8.4.32",
-    "tailwind-scrollbar-hide": "^1.1.7",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.18",
+    "@types/node": "24.5.2",
+    "@types/react": "^19.1.13",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.3",
+    "postcss": "^8.5.6",
+    "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^3.3.6",
     "tailwindcss-radix": "^2.8.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.9.2"
   },
   "version": null
 }
