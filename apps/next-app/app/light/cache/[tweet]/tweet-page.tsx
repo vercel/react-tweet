@@ -1,14 +1,17 @@
-import { unstable_cache } from 'next/cache'
-import { getTweet as _getTweet } from 'react-tweet/api'
+import { cacheLife } from 'next/cache'
+import { getTweet } from 'react-tweet/api'
 import { EmbeddedTweet, TweetNotFound } from 'react-tweet'
 
-const getTweet = unstable_cache(
-  async (id: string) => _getTweet(id),
-  ['tweet'],
-  { revalidate: 3600 * 24 }
-)
+type Props = {
+  params: Promise<{ tweet: string }>
+}
 
-const TweetPage = async ({ id }: { id: string }) => {
+const TweetPage = async ({ params }: Props) => {
+  'use cache'
+  cacheLife('days')
+
+  const { tweet: id } = await params
+
   try {
     const tweet = await getTweet(id)
     return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />

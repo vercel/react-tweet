@@ -1,15 +1,21 @@
 import { Tweet } from 'react-tweet'
 import { getTweet } from 'react-tweet/api'
+import { cacheLife } from 'next/cache'
 import { components } from './tweet-components'
 
 type Props = {
   params: Promise<{ tweet: string }>
 }
 
-export const revalidate = 1800
+export async function generateStaticParams() {
+  return [{ tweet: '1969515038512926823' }]
+}
 
 export async function generateMetadata({ params }: Props) {
-  const id = await params.then((p) => p.tweet)
+  'use cache'
+  cacheLife('hours')
+
+  const { tweet: id } = await params
   const tweet = await getTweet(id).catch(() => undefined)
 
   if (!tweet) return { title: 'Next Tweet' }
@@ -24,7 +30,14 @@ export async function generateMetadata({ params }: Props) {
   return { title: `${text}${username}` }
 }
 
-export default async function Page({ params }: Props) {
-  const id = await params.then((p) => p.tweet)
-  return <Tweet id={id} components={components} />
+async function TweetContent({ params }: Props) {
+  'use cache'
+  cacheLife('hours')
+
+  const { tweet } = await params
+  return <Tweet id={tweet} components={components} />
+}
+
+export default function Page({ params }: Props) {
+  return <TweetContent params={params} />
 }

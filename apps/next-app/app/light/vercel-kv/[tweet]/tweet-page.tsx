@@ -2,6 +2,10 @@ import { fetchTweet, Tweet } from 'react-tweet/api'
 import { EmbeddedTweet, TweetNotFound } from 'react-tweet'
 import { kv } from '@vercel/kv'
 
+type Props = {
+  params: Promise<{ tweet: string }>
+}
+
 async function getTweet(
   id: string,
   fetchOptions?: RequestInit
@@ -25,7 +29,9 @@ async function getTweet(
   return cachedTweet ?? undefined
 }
 
-const TweetPage = async ({ id }: { id: string }) => {
+const TweetPage = async ({ params }: Props) => {
+  const { tweet: id } = await params
+
   try {
     const tweet = await getTweet(id)
     return tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />

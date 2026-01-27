@@ -1,12 +1,14 @@
 import { NextResponse } from 'next/server'
 import { getTweet } from 'react-tweet/api'
-
-export const fetchCache = 'only-cache'
+import { cacheLife } from 'next/cache'
 
 export async function GET(
   _req: Request,
   { params }: RouteContext<'/api/tweet/[id]'>
 ) {
+  'use cache'
+  cacheLife('days')
+
   try {
     const { id } = await params
     const tweet = await getTweet(id)

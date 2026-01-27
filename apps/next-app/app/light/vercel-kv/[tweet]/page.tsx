@@ -2,11 +2,13 @@ import { Suspense } from 'react'
 import { TweetSkeleton } from 'react-tweet'
 import TweetPage from './tweet-page'
 
-export const revalidate = 86400
+type Props = {
+  params: Promise<{ tweet: string }>
+}
 
-const Page = ({ params }: { params: { tweet: string } }) => (
+const Page = ({ params }: Props) => (
   <Suspense fallback={<TweetSkeleton />}>
-    <TweetPage id={params.tweet} />
+    <TweetPage params={params} />
   </Suspense>
 )
 

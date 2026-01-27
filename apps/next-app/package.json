@@ -15,7 +15,7 @@
     "@next/mdx": "^15.5.3",
     "@vercel/kv": "^3.0.0",
     "clsx": "^2.1.1",
-    "next": "15.6.0-canary.59",
+    "next": "latest",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-tweet": "workspace:*"
