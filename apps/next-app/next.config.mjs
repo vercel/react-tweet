@@ -4,6 +4,7 @@ const withMDX = mdx()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  cacheComponents: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
     remotePatterns: [
