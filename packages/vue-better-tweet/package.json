@@ -1,0 +1,13 @@
+{
+  "name": "vue-better-tweet",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./api": "./src/api.ts"
+  },
+  "dependencies": {
+    "react-tweet": "^3.3.0"
+  }
+}
