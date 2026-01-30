@@ -1,0 +1,20 @@
+{
+  "$schema": "https://swc.rs/schema.json",
+  "module": {
+    "type": "es6"
+  },
+  "jsc": {
+    "target": "es2018",
+    "loose": true,
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "dynamicImport": true,
+    },
+    "experimental": {
+      "plugins": [["swc-plugin-vue-jsx", {}]]
+    },
+    "externalHelpers": true
+  },
+  "minify": false
+}

@@ -16,7 +16,7 @@ const verified = computed(() =>
 )
 
 const icon = shallowRef(Verified)
-const iconClassName = ref<string | null>(s.verifiedBlue)
+const iconClassName = ref<string | undefined>(s.verifiedBlue)
 
 watchEffect(() => {
   icon.value = Verified
@@ -33,7 +33,7 @@ watchEffect(() => {
         break
       case 'Business':
         icon.value = VerifiedBusiness
-        iconClassName.value = null
+        iconClassName.value = undefined
         break
     }
   }

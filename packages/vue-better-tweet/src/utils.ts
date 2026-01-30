@@ -1,7 +1,6 @@
 export type {
   TweetBase,
   Tweet,
-  QuotedTweet,
   MediaDetails,
   HashtagEntity,
   SymbolEntity,
