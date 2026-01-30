@@ -24,7 +24,7 @@ export default defineConfig({
       name: 'vue-better-tweet',
     },
     rollupOptions: {
-      external: ['vue', 'react-tweet', 'swrv', 'clsx'],
+      external: ['vue'],
       output: {
         preserveModules: true,
         preserveModulesRoot: 'src',
