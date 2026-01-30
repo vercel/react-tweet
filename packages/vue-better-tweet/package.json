@@ -3,11 +3,10 @@
   "version": "0.0.0",
   "repository": "https://github.com/adrienZ/vue-better-tweet.git",
   "author": "Adrien Zaganelli (https://twitter.com/adri_zag)",
-
   "scripts": {
-    "build": "pnpm build:swc && pnpm types",
-    "build:swc": "swc src -d dist --copy-files",
-    "dev": "pnpm build:swc -w",
+    "build": "vite build && pnpm types",
+    "build:vite": "vite build",
+    "dev": "vite build --watch",
     "types": "vue-tsc --build",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
@@ -72,9 +71,7 @@
     "vue": "^3.4.0"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.65",
-    "@swc/core": "^1.13.5",
-    "@swc/helpers": "^0.5.17",
+    "@vitejs/plugin-vue": "^6.0.3",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.39.2",
@@ -82,9 +79,9 @@
     "eslint-plugin-vue": "^10.7.0",
     "jiti": "^2.6.1",
     "oxlint": "^1.42.0",
-    "swc-plugin-vue-jsx": "^0.4.0",
     "swr": "^2.3.8",
     "typescript": "^5.9.3",
+    "vite": "^7.1.6",
     "vue-tsc": "^3.2.4"
   }
 }

@@ -242,15 +242,9 @@ importers:
         specifier: ^3.4.0
         version: 3.5.27(typescript@5.9.3)
     devDependencies:
-      '@swc/cli':
-        specifier: ^0.1.65
-        version: 0.1.65(@swc/core@1.13.5(@swc/helpers@0.5.17))(chokidar@3.6.0)
-      '@swc/core':
-        specifier: ^1.13.5
-        version: 1.13.5(@swc/helpers@0.5.17)
-      '@swc/helpers':
-        specifier: ^0.5.17
-        version: 0.5.17
+      '@vitejs/plugin-vue':
+        specifier: ^6.0.3
+        version: 6.0.3(vite@7.1.6(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.1))(vue@3.5.27(typescript@5.9.3))
       '@vue/eslint-config-typescript':
         specifier: ^14.6.0
         version: 14.6.0(eslint-plugin-vue@10.7.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1))(vue-eslint-parser@10.2.0(eslint@9.39.2(jiti@2.6.1))))(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -272,15 +266,15 @@ importers:
       oxlint:
         specifier: ^1.42.0
         version: 1.42.0
-      swc-plugin-vue-jsx:
-        specifier: ^0.4.0
-        version: 0.4.0(@swc/core@1.13.5(@swc/helpers@0.5.17))
       swr:
         specifier: ^2.3.8
         version: 2.3.8(react@19.1.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      vite:
+        specifier: ^7.1.6
+        version: 7.1.6(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.1)
       vue-tsc:
         specifier: ^3.2.4
         version: 3.2.4(typescript@5.9.3)
@@ -4853,11 +4847,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  swc-plugin-vue-jsx@0.4.0:
-    resolution: {integrity: sha512-ICcC328hwDdB6fQfGZSY0sLwGUkdCxvd5bOHHnsWceAbstSQiMaPB5iIWCuS/lJXWNX0ukFiFidH6+dJGE9fcA==}
-    peerDependencies:
-      '@swc/core': ^1.10.18
-
   swr@2.3.6:
     resolution: {integrity: sha512-wfHRmHWk/isGNMwlLGlZX5Gzz/uTgo0o2IRuTMcf4CPuPFJZlq0rDaKUx+ozB5nBOReNV1kiOyzMfj+MBMikLw==}
     peerDependencies:
@@ -6904,6 +6893,12 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.53
       vite: 7.1.6(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.1)
       vue: 3.5.27(typescript@5.9.2)
+
+  '@vitejs/plugin-vue@6.0.3(vite@7.1.6(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.1))(vue@3.5.27(typescript@5.9.3))':
+    dependencies:
+      '@rolldown/pluginutils': 1.0.0-beta.53
+      vite: 7.1.6(@types/node@24.5.2)(jiti@2.6.1)(yaml@2.8.1)
+      vue: 3.5.27(typescript@5.9.3)
 
   '@volar/language-core@2.4.27':
     dependencies:
@@ -10787,10 +10782,6 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
-
-  swc-plugin-vue-jsx@0.4.0(@swc/core@1.13.5(@swc/helpers@0.5.17)):
-    dependencies:
-      '@swc/core': 1.13.5(@swc/helpers@0.5.17)
 
   swr@2.3.6(react@19.1.1):
     dependencies:
