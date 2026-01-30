@@ -22,7 +22,7 @@
   ],
   "type": "module",
   "exports": {
-    ".": "./dist/index.js",
+    ".": "./dist/index.client.js",
     "./api": "./dist/api.js",
     "./swr": "./dist/swr.js",
     "./theme.css": "./dist/twitter-theme/theme.css"

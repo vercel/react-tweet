@@ -25,8 +25,6 @@ import {
 import type { TweetCoreProps } from "react-tweet";
 import { useTweet } from "./hooks";
 
-
-
 const props = defineProps<TweetProps>();
 
 const { data, error, isLoading } = useTweet(

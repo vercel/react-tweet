@@ -7,6 +7,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const entries = {
   index: resolve(__dirname, 'src/index.ts'),
+  "index.client": resolve(__dirname, 'src/index.client.ts'),
   api: resolve(__dirname, 'src/api.ts'),
   swr: resolve(__dirname, 'src/swr.vue'),
   'twitter-theme/theme': resolve(__dirname, 'src/twitter-theme/theme.css')

@@ -1,4 +1,4 @@
-import { type MaybeRef, computed, onMounted, shallowRef } from 'vue'
+import { type MaybeRef, computed, onMounted, shallowRef, toValue } from 'vue'
 import useSWR from 'swrv';
 import { type Tweet, TwitterApiError } from 'react-tweet/api'
 
@@ -30,12 +30,21 @@ export const useTweet = (
   apiUrl?: MaybeRef<string | undefined>,
   fetchOptions?: MaybeRef<RequestInit | undefined>
 ) => {
+  const idValue = toValue(id);
+  const apiUrlValue = toValue(apiUrl);
+  const fetchOptionsValue = toValue(fetchOptions);
+
+  const endpointUrl = computed(() =>
+    apiUrlValue || idValue
+        ? apiUrlValue || (idValue && `${host}/api/tweet/${idValue}`)
+        : null
+  )
+
   const { isValidating, data, error } = useSWR(
-    () =>
-      apiUrl || id
-        ? [apiUrl || (id && `${host}/api/tweet/${id}`), fetchOptions]
-        : null,
-    fetcher,
+    () => endpointUrl.value,
+    () => endpointUrl.value ?
+      fetcher([endpointUrl.value, fetchOptionsValue ?? {}])
+      : null,
     {
       // Closest equivalent to `revalidateIfStale: false`:
       // consider cache “fresh” for a long time so remounts won’t refetch.

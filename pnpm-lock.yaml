@@ -168,7 +168,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       vue:
-        specifier: ^3.5.16
+        specifier: ^3.5.27
         version: 3.5.27(typescript@5.9.2)
       vue-better-tweet:
         specifier: workspace:*

@@ -1,8 +1,13 @@
+<script lang="ts">
+import type { TweetProps } from "./swr.vue"
+
+export type { TweetProps };
+</script>
+
 <script setup lang="ts">
 // import { Suspense } from 'vue'
 import TweetContent from './tweet-content.vue'
 import { TweetSkeleton } from './twitter-theme/components.ts'
-import type { TweetProps } from './swr.vue'
 
 
 const props = defineProps<TweetProps>()
