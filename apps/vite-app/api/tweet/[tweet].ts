@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { getTweet } from 'react-tweet/api'
+import { getTweet } from 'vue-better-tweet/api'
 
 const handler = async (req: VercelRequest, res: VercelResponse) => {
   const tweetId = req.query.tweet
