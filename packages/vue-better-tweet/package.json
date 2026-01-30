@@ -1,18 +1,90 @@
 {
   "name": "vue-better-tweet",
   "version": "0.0.0",
-  "private": true,
+  "repository": "https://github.com/adrienZ/vue-better-tweet.git",
+  "author": "Adrien Zaganelli (https://twitter.com/adri_zag)",
+
+  "scripts": {
+    "build": "pnpm build:swc && pnpm types",
+    "build:swc": "swc src -d dist --copy-files",
+    "dev": "pnpm build:swc -w",
+    "types": "vue-tsc --build",
+    "lint:oxlint": "oxlint . --fix",
+    "lint:eslint": "eslint . --fix --cache",
+    "lint": "TIMING=1 pnpm lint:oxlint && pnpm lint:eslint",
+    "clean": "rm -rf dist && rm -rf .turbo"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adrienZ/vue-better-tweet/issues"
+  },
+  "sideEffects": [
+    "./dist/twitter-theme/tweet-container.js"
+  ],
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./api": "./src/api.ts",
-    "./swr": "./src/swr.ts",
-    "./theme.css": "./src/twitter-theme/theme.css"
+    ".": "./dist/index.js",
+    "./api": "./dist/api.js",
+    "./swr": "./dist/swr.js",
+    "./theme.css": "./dist/twitter-theme/theme.css"
+  },
+  "files": [
+    "dist/**/*.{js,d.ts,css}"
+  ],
+  "typesVersions": {
+    "*": {
+      "index": [
+        "src/index"
+      ],
+      "utils": [
+        "src/utils"
+      ],
+      "api": [
+        "src/api/index"
+      ],
+      "*": []
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "typesVersions": {
+      "*": {
+        "index": [
+          "dist/index.d.ts"
+        ],
+        "utils": [
+          "dist/utils.d.ts"
+        ],
+        "api": [
+          "dist/api/index.d.ts"
+        ],
+        "*": []
+      }
+    }
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "react-tweet": "^3.3.0",
     "swrv": "^1.1.0",
     "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.65",
+    "@swc/core": "^1.13.5",
+    "@swc/helpers": "^0.5.17",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.39.2",
+    "eslint-plugin-oxlint": "^1.42.0",
+    "eslint-plugin-vue": "^10.7.0",
+    "jiti": "^2.6.1",
+    "oxlint": "^1.42.0",
+    "swc-plugin-vue-jsx": "^0.4.0",
+    "swr": "^2.3.8",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.2.4"
   }
 }

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Suspense } from 'vue'
+// import { Suspense } from 'vue'
 import TweetContent from './tweet-content.vue'
-import TweetSkeleton from './twitter-theme/components'
+import { TweetSkeleton } from './twitter-theme/components.ts'
 import type { TweetProps } from './swr.vue'
 
 
