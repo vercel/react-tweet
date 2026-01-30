@@ -7,7 +7,7 @@
     "build": "vite build && pnpm types",
     "build:vite": "vite build",
     "dev": "vite build --watch",
-    "types": "vue-tsc --build",
+    "types": "vue-tsc --declaration --emitDeclarationOnly --noEmit false --outDir dist",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
     "lint": "TIMING=1 pnpm lint:oxlint && pnpm lint:eslint",
