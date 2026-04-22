@@ -1,11 +1,35 @@
+import type { Metadata, Viewport } from 'next'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import '../../styles/base.css'
 
-export const metadata = {
-  // Define your metadata here
-  // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+export const viewport: Viewport = {
+  themeColor: '#fff',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export const metadata: Metadata = {
+  description: 'Embed tweets in your React application.',
+  // openGraph: {
+  //   description: 'Embed tweets in your React application.',
+  // },
+  twitter: {
+    card: 'summary_large_image',
+    site: 'react-tweet.vercel.app',
+  },
+  appleWebApp: {
+    title: 'react-tweet',
+  },
+  other: {
+    'msapplication-TileColor': '#fff',
+    'twitter:url': 'https://react-tweet.vercel.app',
+  },
+  // {/* <meta
+  //   name="og:title"
+  //   content={title ? title + ' – react-tweet' : 'react-tweet'}
+  // /> */}
 }
 
 const navbar = (
@@ -49,37 +73,12 @@ export default async function RootLayout({
 }) {
   return (
     <html
-      // Not required, but good for SEO
       lang="en"
-      // Required to be set
       dir="ltr"
       // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
       suppressHydrationWarning
     >
-      <Head
-      // ... Your additional head options
-      >
-        <meta name="msapplication-TileColor" content="#fff" />
-        <meta name="theme-color" content="#fff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="Content-Language" content="en" />
-        <meta
-          name="description"
-          content="Embed tweets in your React application."
-        />
-        <meta
-          name="og:description"
-          content="Embed tweets in your React application."
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site:domain" content="react-tweet.vercel.app" />
-        <meta name="twitter:url" content="https://react-tweet.vercel.app" />
-        {/* <meta
-          name="og:title"
-          content={title ? title + ' – react-tweet' : 'react-tweet'}
-        /> */}
-        <meta name="apple-mobile-web-app-title" content="react-tweet" />
-      </Head>
+      <Head></Head>
       <body>
         <Layout
           navbar={navbar}
