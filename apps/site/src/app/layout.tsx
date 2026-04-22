@@ -12,9 +12,6 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   description: 'Embed tweets in your React application.',
-  // openGraph: {
-  //   description: 'Embed tweets in your React application.',
-  // },
   twitter: {
     card: 'summary_large_image',
     site: 'react-tweet.vercel.app',
@@ -26,10 +23,10 @@ export const metadata: Metadata = {
     'msapplication-TileColor': '#fff',
     'twitter:url': 'https://react-tweet.vercel.app',
   },
-  // {/* <meta
-  //   name="og:title"
-  //   content={title ? title + ' – react-tweet' : 'react-tweet'}
-  // /> */}
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 const navbar = (
@@ -85,7 +82,6 @@ export default async function RootLayout({
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/vercel/react-tweet/tree/main/apps/site/src/content"
           footer={footer}
-          // ... Your additional layout options
         >
           {children}
         </Layout>
