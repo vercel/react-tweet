@@ -4,9 +4,13 @@ import cors from 'edge-cors'
 
 export const fetchCache = 'only-cache'
 
-export async function GET(req: Request, { params }: any) {
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    const tweet = await getTweet(params.id)
+    const { id } = await params
+    const tweet = await getTweet(id)
     return cors(
       req,
       NextResponse.json({ data: tweet ?? null }, { status: tweet ? 200 : 404 })

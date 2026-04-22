@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const navbar = (
   <Navbar
     logo={<b>react-tweet</b>}
-    projectLink="https://gitlab.com/vercel/react-tweet"
+    projectLink="https://github.com/vercel/react-tweet"
   />
 )
 const footer = (
