@@ -1,7 +1,7 @@
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-import '../styles/base.css'
+import '../../styles/base.css'
 
 export const metadata = {
   // Define your metadata here
@@ -43,7 +43,11 @@ const footer = (
   </Footer>
 )
 
-export default async function RootLayout({ children }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html
       // Not required, but good for SEO
@@ -71,10 +75,10 @@ export default async function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site:domain" content="react-tweet.vercel.app" />
         <meta name="twitter:url" content="https://react-tweet.vercel.app" />
-        <meta
+        {/* <meta
           name="og:title"
           content={title ? title + ' – react-tweet' : 'react-tweet'}
-        />
+        /> */}
         <meta name="apple-mobile-web-app-title" content="react-tweet" />
       </Head>
       <body>
