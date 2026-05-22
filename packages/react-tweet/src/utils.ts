@@ -13,6 +13,8 @@ import type {
   MediaVideo,
 } from './api/index.js'
 
+export { formatDate } from './date-utils.js'
+
 export type TweetCoreProps = {
   id: string
   onError?(error: any): any
@@ -48,7 +50,7 @@ const getInReplyToUrl = (tweet: Tweet) =>
 
 export const getMediaUrl = (
   media: MediaDetails,
-  size: 'small' | 'medium' | 'large',
+  size: 'small' | 'medium' | 'large'
 ): string => {
   const url = new URL(media.media_url_https)
   const extension = url.pathname.split('.').pop()
@@ -157,7 +159,7 @@ function getEntities(tweet: TweetBase): Entity[] {
 function addEntities(
   result: EntityWithType[],
   type: EntityWithType['type'],
-  entities?: TweetEntity[],
+  entities?: TweetEntity[]
 ) {
   if (!entities?.length) return
 
