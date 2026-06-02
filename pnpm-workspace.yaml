@@ -25,3 +25,7 @@ minimumReleaseAgeExclude:
 
 overrides:
   '@xmldom/xmldom': 0.9.10
+  # Pin zod: nextra-theme-docs@4.6.1's LayoutPropsSchema requires `children`,
+  # but the Layout strips it before validating. zod >= 4.2 enforces this and
+  # breaks the production build. Remove once nextra fixes the schema.
+  zod: 4.1.12
