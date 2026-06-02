@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "edge-cors": "^0.2.1",
-    "next": "^16.2.4",
+    "next": "^16.2.7",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "react": "^19.2.5",
