@@ -1,8 +1,8 @@
 {
-  "repository": "https://github.com/vercel/react-tweet.git",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
   "author": "Luis Alvarez (https://twitter.com/luis_fades)",
+  "repository": "https://github.com/vercel/react-tweet.git",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -14,17 +14,17 @@
     "version-packages": "changeset version",
     "release": "turbo run build && pnpm publish -r"
   },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "prettier": "^2.8.4",
+    "turbo": "^2.9.16"
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
-  "devDependencies": {
-    "@changesets/cli": "^2.26.0",
-    "prettier": "^2.8.4",
-    "turbo": "^1.8.3"
-  },
-  "packageManager": "pnpm@10.16.0",
   "engines": {
-    "node": "22.x"
-  }
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.5.1"
 }

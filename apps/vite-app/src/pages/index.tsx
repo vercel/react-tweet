@@ -1,3 +1,3 @@
 import { Tweet } from 'react-tweet'
 
-export const IndexPage = () => <Tweet id="1628832338187636740" />
+export const IndexPage = () => <Tweet id="2040511285998313827" />

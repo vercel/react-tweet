@@ -12,11 +12,11 @@
     "clean": "rm -rf .next && rm -rf .turbo"
   },
   "dependencies": {
-    "@next/mdx": "^15.5.3",
+    "@next/mdx": "^16.2.7",
     "clsx": "^2.1.1",
-    "next": "15.5.8",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "next": "^16.2.7",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "react-parallax-tilt": "^1.7.309",
     "react-tweet": "workspace:*"
   },
@@ -24,15 +24,14 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.18",
     "@types/node": "24.5.2",
-    "@types/react": "^19.1.13",
+    "@types/react": "^19.2.14",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.36.0",
-    "eslint-config-next": "^15.5.3",
+    "eslint-config-next": "^16.2.7",
     "postcss": "^8.5.6",
     "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^3.3.6",
     "tailwindcss-radix": "^2.8.0",
     "typescript": "^5.9.2"
-  },
-  "version": null
+  }
 }
