@@ -13,7 +13,7 @@ import type {
   MediaVideo,
 } from './api/index.js'
 
-export  { formatDate } from './date-utils.js'
+export { formatDate } from './date-utils.js'
 
 export type TweetCoreProps = {
   id: string
@@ -122,12 +122,13 @@ function getEntities(tweet: TweetBase): Entity[] {
     { indices: tweet.display_text_range, type: 'text' },
   ]
 
-  addEntities(result, 'hashtag', tweet.entities.hashtags)
-  addEntities(result, 'mention', tweet.entities.user_mentions)
-  addEntities(result, 'url', tweet.entities.urls)
-  addEntities(result, 'symbol', tweet.entities.symbols)
-  if (tweet.entities.media) {
-    addEntities(result, 'media', tweet.entities.media)
+  const { entities } = tweet
+  if (entities) {
+    addEntities(result, 'hashtag', entities.hashtags)
+    addEntities(result, 'mention', entities.user_mentions)
+    addEntities(result, 'url', entities.urls)
+    addEntities(result, 'symbol', entities.symbols)
+    addEntities(result, 'media', entities.media)
   }
   fixRange(tweet, result)
 
@@ -158,8 +159,10 @@ function getEntities(tweet: TweetBase): Entity[] {
 function addEntities(
   result: EntityWithType[],
   type: EntityWithType['type'],
-  entities: TweetEntity[]
+  entities?: TweetEntity[]
 ) {
+  if (!entities?.length) return
+
   for (const entity of entities) {
     for (const [i, item] of result.entries()) {
       if (
@@ -195,11 +198,9 @@ function addEntities(
  * Array.from is unicode aware, unlike string.slice()
  */
 function fixRange(tweet: TweetBase, entities: EntityWithType[]) {
-  if (
-    tweet.entities.media &&
-    tweet.entities.media[0].indices[0] < tweet.display_text_range[1]
-  ) {
-    tweet.display_text_range[1] = tweet.entities.media[0].indices[0]
+  const media = tweet.entities?.media
+  if (media?.length && media[0].indices[0] < tweet.display_text_range[1]) {
+    tweet.display_text_range[1] = media[0].indices[0]
   }
   const lastEntity = entities.at(-1)
   if (lastEntity && lastEntity.indices[1] > tweet.display_text_range[1]) {
