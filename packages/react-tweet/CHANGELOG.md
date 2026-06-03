@@ -1,5 +1,12 @@
 # react-tweet
 
+## 3.3.1
+
+### Patch Changes
+
+- Safeguard against tweets where `entities` is undefined so empty/partial entity data no longer breaks rendering: https://github.com/vercel/react-tweet/pull/222
+- Made entity handling tolerant of missing `entities` and empty entity arrays: https://github.com/vercel/react-tweet/pull/222
+
 ## 3.3.0
 
 ### Minor Changes
