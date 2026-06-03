@@ -24,7 +24,7 @@ export interface TweetBase {
   /**
    * All the entities that are part of the tweet. Like hashtags, mentions, urls, etc.
    */
-  entities: TweetEntities
+  entities?: TweetEntities
   /**
    * The unique identifier of the tweet.
    */
