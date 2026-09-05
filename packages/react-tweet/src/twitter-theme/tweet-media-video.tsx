@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import clsx from 'clsx'
 import type { MediaAnimatedGif, MediaVideo } from '../api/index.js'
 import {
@@ -21,12 +21,14 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
   const [playButton, setPlayButton] = useState(true)
   const [isPlaying, setIsPlaying] = useState(false)
   const [ended, setEnded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const mp4Video = getMp4Video(media)
   let timeout = 0
 
   return (
     <>
       <video
+        ref={videoRef}
         className={mediaStyles.image}
         poster={getMediaUrl(media, 'small')}
         controls={!playButton}
@@ -60,10 +62,12 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
           className={s.videoButton}
           aria-label="View video on X"
           onClick={(e) => {
-            const video = e.currentTarget.previousSibling as HTMLMediaElement
-
             e.preventDefault()
             setPlayButton(false)
+
+            const video = videoRef.current
+            if (!video) return
+
             video.load()
             video
               .play()
@@ -72,6 +76,9 @@ export const TweetMediaVideo = ({ tweet, media }: Props) => {
                 video.focus()
               })
               .catch((error) => {
+                // AbortError is expected when the element is briefly removed
+                // (e.g. React Strict Mode remounts) while play() is in flight.
+                if (error?.name === 'AbortError') return
                 console.error('Error playing video:', error)
                 setPlayButton(true)
                 setIsPlaying(false)
