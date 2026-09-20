@@ -88,7 +88,7 @@ export interface QuotedTweet extends TweetBase {
   retweet_count: number
   favorite_count: number
   mediaDetails?: MediaDetails[]
-  self_thread: {
+  self_thread?: {
     id_str: string
   }
 }
